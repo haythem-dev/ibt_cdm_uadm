@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\win\business\BSqlStat.cpp" />
+    <ClCompile Include="$(SolutionDir)\win\business\BBiDefault.cpp">
+      <Filter>BiDefault</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConnect.cpp">
+      <Filter>Connect</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConnectOdbc.cpp">
+      <Filter>Connect</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppApp.cpp">
+      <Filter>ppApplication</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppAppMod.cpp">
+      <Filter>ppAppModule</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppAppRight.cpp">
+      <Filter>ppAppRight</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppBranchReg.cpp">
+      <Filter>ppBranchRegion</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppGroup.cpp">
+      <Filter>ppGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppLanguage.cpp">
+      <Filter>ppLoginLanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppPara.cpp">
+      <Filter>ppParameter</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppPrev.cpp">
+      <Filter>ppPrevious</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppText.cpp">
+      <Filter>ppText</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConppUser.cpp">
+      <Filter>ppUser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppApp.cpp">
+      <Filter>ppApplication</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppAppMod.cpp">
+      <Filter>ppAppModule</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppText.cpp">
+      <Filter>ppText</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppUser.cpp">
+      <Filter>ppUser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppPrev.cpp">
+      <Filter>ppPrevious</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppPara.cpp">
+      <Filter>ppParameter</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppLanguage.cpp">
+      <Filter>ppLoginLanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppGroup.cpp">
+      <Filter>ppGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppBranchReg.cpp">
+      <Filter>ppBranchRegion</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BppAppRight.cpp">
+      <Filter>ppAppRight</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConRightAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConUserAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConUserGroupAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BConUserRightAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BRightAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BUserAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BUserGroupAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\win\business\BUserRightAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="BppUsertype.cpp">
+      <Filter>ppUsertype</Filter>
+    </ClCompile>
+    <ClCompile Include="BConppUsertype.cpp">
+      <Filter>ppUsertype</Filter>
+    </ClCompile>
+    <ClCompile Include="BConppUserPara.cpp">
+      <Filter>ppUserPara</Filter>
+    </ClCompile>
+    <ClCompile Include="BppUserPara.cpp">
+      <Filter>ppUserPara</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\win\business\bsn.h" />
+    <ClInclude Include="$(SolutionDir)\win\business\BSqlStat.h" />
+    <ClInclude Include="$(SolutionDir)\win\business\BBiDefault.h">
+      <Filter>BiDefault</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConnect.h">
+      <Filter>Connect</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConnectOdbc.h">
+      <Filter>Connect</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppApp.h">
+      <Filter>ppApplication</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppAppMod.h">
+      <Filter>ppAppModule</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppAppRight.h">
+      <Filter>ppAppRight</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppBranchReg.h">
+      <Filter>ppBranchRegion</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppGroup.h">
+      <Filter>ppGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppLanguage.h">
+      <Filter>ppLoginLanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppPara.h">
+      <Filter>ppParameter</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppPrev.h">
+      <Filter>ppPrevious</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppText.h">
+      <Filter>ppText</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConppUser.h">
+      <Filter>ppUser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppApp.h">
+      <Filter>ppApplication</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppAppMod.h">
+      <Filter>ppAppModule</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppText.h">
+      <Filter>ppText</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppUser.h">
+      <Filter>ppUser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppPrev.h">
+      <Filter>ppPrevious</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppPara.h">
+      <Filter>ppParameter</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppLanguage.h">
+      <Filter>ppLoginLanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppGroup.h">
+      <Filter>ppGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppBranchReg.h">
+      <Filter>ppBranchRegion</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BppAppRight.h">
+      <Filter>ppAppRight</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BTest.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConRightAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConUserAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConUserGroupAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BConUserRightAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BRightAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BUserAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BUserGroupAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\win\business\BUserRightAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="BppUsertype.h">
+      <Filter>ppUsertype</Filter>
+    </ClInclude>
+    <ClInclude Include="BConppUsertype.h">
+      <Filter>ppUsertype</Filter>
+    </ClInclude>
+    <ClInclude Include="BConppUserPara.h">
+      <Filter>ppUserPara</Filter>
+    </ClInclude>
+    <ClInclude Include="BppUserPara.h">
+      <Filter>ppUserPara</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Analysis">
+      <UniqueIdentifier>{55FA507D-9CD0-35BD-9873-C0DEAF1CB639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BiDefault">
+      <UniqueIdentifier>{A79DE097-646F-3BC4-B008-2C07D9C1EC54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connect">
+      <UniqueIdentifier>{FE604A31-71A5-3868-AF8A-74AB311BBE23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{A18EAD14-19E6-3862-9B15-9901C7BDB979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppAppModule">
+      <UniqueIdentifier>{475B6F7E-1C46-3619-AA6C-2DCE342A689B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppAppRight">
+      <UniqueIdentifier>{53665F25-B61A-339B-BFF6-62E628158AD4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppApplication">
+      <UniqueIdentifier>{F1DB8435-EBAA-37BC-B197-288F994FA77E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppBranchRegion">
+      <UniqueIdentifier>{F2F7C58B-0005-365F-AB9B-537199184A1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppGroup">
+      <UniqueIdentifier>{31C6D720-548D-30F1-B41F-CCE4A0179806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppLoginLanguage">
+      <UniqueIdentifier>{39AFBBD3-B268-3D01-BA19-C2AF2337688F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppParameter">
+      <UniqueIdentifier>{6838BD1D-7E2C-3E0B-BEBD-CB5C5BA16C67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppPrevious">
+      <UniqueIdentifier>{93769AF7-6231-304C-854B-6026D1E8C793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppText">
+      <UniqueIdentifier>{613679B2-223A-3DF5-8658-121501F9214F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppUser">
+      <UniqueIdentifier>{D7D8A17F-46D6-3C53-967B-7797F78FD19C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppUsertype">
+      <UniqueIdentifier>{672f1732-0926-4658-871d-2d731b1eac71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppUserPara">
+      <UniqueIdentifier>{6f92d0b3-41b6-4cdb-87d7-d7520420d748}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

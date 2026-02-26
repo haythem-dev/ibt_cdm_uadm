@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\..\src\win\constants\CConnect.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\constants\CVersion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\CConnect.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\const.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\CVersion.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\defines.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\uadm_version.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ibiuser.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppapplication.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppappmodright.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppappmodule.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppappright.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppbranch.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppcorappbranchreg.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppcorapplang.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppgroup.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_pploginlanguage.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_pploginprevious.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_pplogpara.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppregion.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_pptext.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\constants\tbl_ppuser.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="tbl_ppusertype.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+    <ClInclude Include="tbl_ppuserpara.h">
+      <Filter>tables</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="tables">
+      <UniqueIdentifier>{5A0091CC-C83C-39A9-BFC7-337CC0F5902F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

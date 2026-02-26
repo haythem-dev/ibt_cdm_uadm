@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+    var redirectUrl = ViewBag.RedirectUrl as string;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        window.location.href = "@redirectUrl";
+
+    </script>
+    <noscript>
+        JavaScript is required for this operation.
+    </noscript>
+</body>
+</html>

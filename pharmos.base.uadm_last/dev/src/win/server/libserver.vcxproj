@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9F781536-6575-3038-AD19-F6D5170A1AB1}</ProjectGuid>
+    <Keyword>Win64Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>libserver</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\win\server\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libserver.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libserver</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)\win\server\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libserver.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libserver</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(SolutionDir)\..\src\win\server\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libserver.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libserver</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)\..\src\win\server\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libserver.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libserver</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;EBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(SolutionDir)\..\src\win\server\Debug\libserver.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;EBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>$(SolutionDir)\..\src\win\server\Release\libserver.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>$(SolutionDir)\..\src\win\server\MinSizeRel\libserver.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win32\constants;$(SolutionDir)\..\src\win32\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win32\constants;$(SolutionDir)\..\src\win32\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win32\constants;$(SolutionDir)\..\src\win32\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(SolutionDir)\..\src\win\server\RelWithDebInfo\libserver.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\src\win\constants;$(SolutionDir)\..\src\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="SppUserPara.cpp" />
+    <ClCompile Include="SppUsertype.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\srv.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SSqlStat.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SSqlStat.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SRightAnalysis.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SRightAnalysis.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SUserAnalysis.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SUserAnalysis.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SUserGroupAnalysis.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SUserGroupAnalysis.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SUserRightAnalysis.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SUserRightAnalysis.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SBiDefault.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SBiDefault.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SConnectOdbc.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SConnectOdbc.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SLog.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SLog.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\STest.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\STest.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppMod.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppMod.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppAppRight.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppAppRight.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppApp.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppApp.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppBranchReg.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppBranchReg.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppGroup.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppGroup.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppLanguage.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppLanguage.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppPara.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppPara.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppPrev.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppPrev.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppText.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppText.h" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppUser.cpp" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppUser.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_application.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_appmodule.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_appright.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_branchreg.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_group.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_ibiuser.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_language.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_para.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_previous.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_rightanalysis.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_text.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_user.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_useranalysis.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_usergroupanalysis.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_userrightanalysis.h" />
+    <ClInclude Include="SppUserPara.h" />
+    <ClInclude Include="SppUsertype.h" />
+    <ClInclude Include="struct_userpara.h" />
+    <ClInclude Include="struct_usertype.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\..\src\win\common\libcommon.vcxproj">
+      <Project>{E5598469-5776-3516-8D8A-073FCC3CEE4D}</Project>
+      <Name>libcommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="$(SolutionDir)\..\src\win\constants\libconstants.vcxproj">
+      <Project>{622B56B6-B2EB-37D4-AEDA-F1607FC2F643}</Project>
+      <Name>libconstants</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

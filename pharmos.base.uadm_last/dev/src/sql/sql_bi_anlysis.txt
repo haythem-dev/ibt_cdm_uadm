@@ -1,0 +1,26 @@
+Maschine: pos1
+Datenbank:pcua1
+
+applicationid: 13 = BI-BETRIEB
+branchid:      51 = Mannheim
+
+##################################################################
+Auswertung für alle User in einer Applikation:
+
+Ergebnis: Applikationsname, Modulname / Berichtsgruppe, 
+	  Username, Nachname, Vorname, Filiale, Recht / Bericht
+##################################################################
+
+SELECT a.name, m.name, u.username, u.surname, u.forename,  br.name, r.rightname
+FROM ppapplication a, ppappmodule m,  ppuser u, ppappright r, ppbranch br
+WHERE r.applicationid = 13 and r.userid = u.userid and r.applicationid = a.applicationid and r.moduleid = m.moduleid 
+and m.applicationid = r.applicationid and r.branchregionid = 51 and br.branchid = 51
+UNION 
+SELECT a.name, m.name, u.username, u.surname, u.forename,  br.name,  r.rightname 
+FROM ppapplication a, ppappmodule m,  ppuser u, ppappright r , ppbranch br
+WHERE r.groupid IN 
+(SELECT c.groupid FROM ppcorappusergroup c WHERE c.applicationid = 13) and u.userid IN 
+(SELECT c.userid FROM ppcorappusergroup c WHERE c.applicationid = 13 and c.groupid = r.groupid) 
+and r.applicationid = a.applicationid and r.moduleid = m.moduleid and m.applicationid = r.applicationid 
+and r.branchregionid = 51 and br.branchid = 51
+ORDER BY 2,3

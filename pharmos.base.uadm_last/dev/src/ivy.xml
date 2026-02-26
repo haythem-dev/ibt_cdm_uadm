@@ -1,0 +1,40 @@
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.
+-->
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+    <!-- don't forget to set the version in win32/constants/uadm_version.h -->
+    <info organisation="eu.phoenixgroup" module="uadm" revision="01.03.07.11-${platform}"/>
+
+	<configurations>
+		<conf name="win32"/>
+		<conf name="win64"/>
+		<conf name="aix"/>
+		<conf name="compile" visibility="private" />
+	</configurations>
+
+	<publications>
+		<artifact type="zip" ext="zip" name="uadm" conf="win32,win64"/>
+		<artifact type="zip" ext="tar.gz" name="uadm" conf="aix"/>
+	</publications>
+
+	<dependencies>
+		<dependency org="eu.phoenixgroup" name="servclnt" rev="01.19.04.02-${platform}" conf="win64+compile,aix+compile->*"/>
+		<dependency org="eu.phoenixgroup" name="servclnt" rev="01.18.02.05"             conf="win32+compile->*"/>
+		
+	</dependencies>
+</ivy-module>

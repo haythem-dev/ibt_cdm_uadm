@@ -1,0 +1,21 @@
+SELECT DISTINCT a.name, m.name, r.description 
+FROM ppapplication a, ppappmodright r, ppappmodule m, ppappright ar
+WHERE ar.applicationid IN (SELECT a.applicationid FROM ppapplication a WHERE a.name LIKE 'BI-%') 
+	and ar.applicationid = a.applicationid and 
+	m.applicationid = ar.applicationid and 
+	r.applicationid = ar.applicationid and 
+	m.moduleid = r.moduleid and
+	r.rightname = ar.rightname and
+	ar.userid IN (SELECT u.userid FROM ppuser u WHERE u.username = 'c.bettinger')
+UNION
+SELECT DISTINCT a.name, m.name, r.description 
+FROM ppapplication a, ppappmodright r, ppappmodule m, ppappright ar
+WHERE ar.applicationid IN (SELECT a.applicationid FROM ppapplication a WHERE a.name LIKE 'BI-%') 
+	and ar.applicationid = a.applicationid and 
+	m.applicationid = ar.applicationid and 
+	r.applicationid = ar.applicationid and 
+	m.moduleid = r.moduleid and
+	r.rightname = ar.rightname and
+	ar.groupid IN (SELECT c.groupid FROM ppcorappusergroup c WHERE c.applicationid = ar.applicationid and c.userid IN
+	(SELECT u.userid FROM ppuser u WHERE u.username = 'c.bettinger') )
+

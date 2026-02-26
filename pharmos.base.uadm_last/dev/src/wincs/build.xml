@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<project name="uadm" default="help" basedir=".">
+    <!-- ====================================================== -->
+
+	<property name="settings_server" value="tfs-nexus"/>
+	<property name="settings_version" value="3.0.0"/>
+
+	<include>
+		<url url="http://${settings_server}:8081/repository/genesis/eu/phoenixgroup/buildenv_ivy/${settings_version}/macro.ant-${settings_version}.xml"/>
+	</include>
+
+	<property name="projdir"      value="."/>
+	<property name="solutionfile" value="${projdir}/UadmWebLoginService.csproj"/>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="help">
+        <displayHelp/>
+    </target>
+
+  
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="export" description="exporting and compressing created artifacts">
+        <buildScriptWin  path="." script="export.bat" />
+        <buildScriptUnix path="." script="export.sh"  />
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="publish">
+        <publish/>
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="retrieve">
+        <retrieve additional-config="compile"/>
+    </target>
+
+    <!-- ====================================================== -->
+</project>

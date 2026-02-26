@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<project name="uadm" default="help" basedir=".">
+    <!-- ====================================================== -->
+
+	<property name="settings_server" value="tfs-nexus"/>
+	<property name="settings_version" value="3.0.0"/>
+
+	<include>
+		<url url="http://${settings_server}:8081/repository/genesis/eu/phoenixgroup/buildenv_ivy/${settings_version}/macro.ant-${settings_version}.xml"/>
+	</include>
+
+	<property name="projdir"      value="."/>
+	<property name="solutionfile" value="${projdir}/uadm.sln"/>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="help">
+        <displayHelp/>
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="full" description="clean rebuild">
+		<buildVS solution="${solutionfile}" mode="rebuild" config="Debug"/>
+		<buildVS solution="${solutionfile}" mode="rebuild" config="Release"/>
+		
+		<buildMake path="${projdir}" mode="cleanall"/>		
+		<buildMake path="${projdir}" mode="dbg"/>
+		<buildMake path="${projdir}" mode="rel"/>		
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="incremental" description="only changed sources are built">
+		<buildVS solution="${solutionfile}" mode="build" config="Debug"/>
+		<buildVS solution="${solutionfile}" mode="build" config="Release"/>
+		
+		<buildMake path="${projdir}" mode="dbg"/>
+		<buildMake path="${projdir}" mode="rel"/>		
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="export" description="exporting and compressing created artifacts">
+        <buildScriptWin  path="." script="export.bat" />
+        <buildScriptUnix path="." script="export.sh"  />
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="publish">
+        <publish/>
+    </target>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <target name="retrieve">
+        <retrieve additional-config="compile"/>
+    </target>
+
+    <!-- ====================================================== -->
+</project>

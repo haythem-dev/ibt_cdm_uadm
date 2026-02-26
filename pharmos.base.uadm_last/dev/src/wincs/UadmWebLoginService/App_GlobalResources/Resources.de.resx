@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LabelApplication" xml:space="preserve">
+    <value>Anwendung</value>
+  </data>
+  <data name="LabelCountry" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="LabelEnvironment" xml:space="preserve">
+    <value>Umgebung</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="LabelRegionOrBranch" xml:space="preserve">
+    <value>Region oder Filiale</value>
+  </data>
+  <data name="LabelUsername" xml:space="preserve">
+    <value>Benutzerkennung</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="LabelNewPassword2" xml:space="preserve">
+    <value>Neues Passwort 2</value>
+  </data>
+  <data name="LabelOldPassword" xml:space="preserve">
+    <value>Altes Passwort</value>
+  </data>
+  <data name="LabelChangePassword" xml:space="preserve">
+    <value>Passwort ändern</value>
+  </data>
+  <data name="LabelNewPassword1" xml:space="preserve">
+    <value>Neues Passwort 1</value>
+  </data>
+  <data name="ButtonChangePW" xml:space="preserve">
+    <value>Ändern</value>
+  </data>
+  <data name="ButtonCancelPW" xml:space="preserve">
+    <value>Abbruch</value>
+  </data>
+  <data name="TitleNewPassword" xml:space="preserve">
+    <value>Neues Passwort</value>
+  </data>
+  <data name="TitleLogin" xml:space="preserve">
+    <value>Anmeldung</value>
+  </data>
+  <data name="ErrorFieldsRequired" xml:space="preserve">
+    <value>Bitte alle Felder ausfüllen.</value>
+  </data>
+  <data name="ErrorUadmConnection" xml:space="preserve">
+    <value>UADM Verbindungsfehler</value>
+  </data>
+  <data name="ErrorLoginFailed" xml:space="preserve">
+    <value>Anmeldung fehlgeschlagen. Bitte prüfen sie die Eingaben</value>
+  </data>
+  <data name="ValidationUsername" xml:space="preserve">
+    <value>Bitte geben Sie einen Benutzernamen ein</value>
+  </data>
+  <data name="ValidationPassword" xml:space="preserve">
+    <value>Bitte geben Sie ein Passwort ein</value>
+  </data>
+  <data name="ValidationEnvironment" xml:space="preserve">
+    <value>Bitte wählen Sie eine Umgebung</value>
+  </data>
+  <data name="ValidationCountry" xml:space="preserve">
+    <value>Bitte wählen Sie ein Land</value>
+  </data>
+  <data name="ValidationBranchRegion" xml:space="preserve">
+    <value>Bitte wählen Sie eine Filiale oder Region</value>
+  </data>
+  <data name="ValidationLanguage" xml:space="preserve">
+    <value>Bitte wählen Sie eine Sprache</value>
+  </data>
+  <data name="ValidationNewPassword1" xml:space="preserve">
+    <value>Bitte geben Sie ein neue Passwort ein</value>
+  </data>
+  <data name="ValidationNewPassword2" xml:space="preserve">
+    <value>Bitte geben Sie das Kontroll Passwort ein</value>
+  </data>
+  <data name="ErrorCurrentPasswordRequired" xml:space="preserve">
+    <value>Das aktuelle Passwort fehlt</value>
+  </data>
+  <data name="ErrorNewPassword1Required" xml:space="preserve">
+    <value>Das neue Passwort fehlt</value>
+  </data>
+  <data name="ErrorNewPassword2Required" xml:space="preserve">
+    <value>Das Kontroll Passwort fehlt</value>
+  </data>
+  <data name="ErrorNewPasswordEqualOldPassword" xml:space="preserve">
+    <value>Das neue Passwort muss anders sein</value>
+  </data>
+  <data name="ErrorNewPasswordVerification" xml:space="preserve">
+    <value>Neue Passwörter nicht identisch</value>
+  </data>
+  <data name="ErrorResponseCouldNotInitialize" xml:space="preserve">
+    <value>UADM Initialisierung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorResponseManagerIsNull" xml:space="preserve">
+    <value>UADM Verbindungsfehler (Manager)</value>
+  </data>
+  <data name="ErrorResponseNoEnvironmentFound" xml:space="preserve">
+    <value>UADM Kein Environment</value>
+  </data>
+  <data name="ErrorResponseCouldNotVerifyUser" xml:space="preserve">
+    <value>Benutzer konnte nicht verifiziert werden</value>
+  </data>
+  <data name="ErrorResponseUserIsNotAuthenticated" xml:space="preserve">
+    <value>Benutzer ist nicht authentisiert</value>
+  </data>
+  <data name="ErrorResponseUserIsNotActivated" xml:space="preserve">
+    <value>Benutzer ist nicht aktiv</value>
+  </data>
+  <data name="ErrorResponseLastPasswordVerifyFailed" xml:space="preserve">
+    <value>Last password verify failed</value>
+  </data>
+  <data name="ErrorResponseHistoryVerifyFailed" xml:space="preserve">
+    <value>Passwort History Problem</value>
+  </data>
+  <data name="ErrorResponseNoPreviousLoginDataFound" xml:space="preserve">
+    <value>Probleme mit vorangegangenen Login Daten</value>
+  </data>
+  <data name="ErrorResponsePasswordNotValidNewRules" xml:space="preserve">
+    <value>Ihr neues Passwort entspricht nicht den Passwort-Richtlinien: 8-64 Zeichen, erlaubt sind a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 der Kategorien (Großbuchstaben, Kleinbuchstaben, Sonderzeichen oder Ziffern).</value>
+  </data>
+  <data name="ErrorResponsePasswordNotValidOldRules" xml:space="preserve">
+    <value>Ihr neues Passwort entspricht nicht den Passwort-Richtlinien: 6-8 Zeichen, erlaubt sind a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 der Kategorien (Großbuchstaben, Kleinbuchstaben, Sonderzeichen oder Ziffern).</value>
+  </data>
+  <data name="ErrorResponseSavePasswordFailed" xml:space="preserve">
+    <value>Speichern des neuen Passworts fehlgeschlagen</value>
+  </data>
+  <data name="ErrorResponseLoginInterfaceIsNull" xml:space="preserve">
+    <value>UADM Verbindungsfehler (LoginInterface)</value>
+  </data>
+  <data name="ErrorNewPasswordLength" xml:space="preserve">
+    <value>Das neue Passwort muss mindestens 6 Zeichen lang sein</value>
+  </data>
+  <data name="ErrorUsernameRequired" xml:space="preserve">
+    <value>Der Benutzername fehlt</value>
+  </data>
+  <data name="ValidationPasswordChangeRequired" xml:space="preserve">
+    <value>Passwort muss geändert werden</value>
+  </data>
+</root>

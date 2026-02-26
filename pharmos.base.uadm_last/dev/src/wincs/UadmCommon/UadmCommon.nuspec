@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Pharmos.Base.Uadm.UadmCommon</id>
+    <version>1.1.0</version>
+    <authors>Rolf Brahm-Vogelsanger</authors>
+    <owners>Phoenix</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Common library for Uadm functionality, including controllers, extensions, and utilities.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright © 2025</copyright>
+    <tags>Uadm Common Library</tags>
+  </metadata>
+  <files>
+    <file src="bin\release\UadmCommon.dll" target="lib\net48" />
+    <file src="bin\release\UadmCommon.pdb" target="lib\net48" />
+    <file src="bin\release\UadmCommon.xml" target="lib\net48" />
+  </files>
+</package>

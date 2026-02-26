@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win64Proj</Keyword>
+    <ProjectGuid>{9189b221-1a63-48ae-a6eb-8b190789dbd7}</ProjectGuid>
+    <RootNamespace>libiamuadm</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>libiamuadm</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(SolutionDir)\win\libiamuadm\Debug\</OutDir>
+    <IntDir>libiamuadm.dir\Debug\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(SolutionDir)\win\libiamuadm\Release\</OutDir>
+    <IntDir>libiamuadm.dir\Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\unix\onlineserver;$(SolutionDir)\win\business;$(SolutionDir)\win\server;$(SolutionDir)\win\constants;$(SolutionDir)\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)win\common\Debug\libcommon.lib;$(SolutionDir)win\constants\Debug\libconstants.lib;$(SolutionDir)win\server\Debug\libserver.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscgmmeb.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscsvoodoo.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libsccdate.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscczlib.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libsccutil.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libsccstring.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libsccpattern.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscmlogin.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscgmctrl.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscgmmultilang.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscsaccodbc.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscsaccvdoo.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscsaccess.lib;$(SolutionDir)\..\ext\servclnt\lib\Debug\libscbmeb.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;EBUG;_AFXDLL;_CRT_SECURE_NO_WARNINGS;NO_WARN_MBCS_MFC_DEPRECATION</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\unix\onlineserver;$(SolutionDir)\win\business;$(SolutionDir)\win\server;$(SolutionDir)\win\constants;$(SolutionDir)\win\common;$(SolutionDir)\..\ext\servclnt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\unix\onlineserver\Release\libuadmonlsrv.lib;..\business\Release\libbusiness.lib;..\common\Release\libcommon.lib;..\constants\Release\libconstants.lib;..\server\Release\libserver.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscgmmeb.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscsvoodoo.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libsccdate.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscczlib.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libsccutil.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libsccstring.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libsccpattern.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscmlogin.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscgmctrl.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscgmmultilang.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscsaccodbc.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscsaccvdoo.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscsaccess.lib;$(SolutionDir)\..\ext\servclnt\lib\Release\libscbmeb.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="UadmClient.cpp" />
+    <ClCompile Include="UadmHelper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C_DELETE_IDENTITY_REQUEST.h" />
+    <ClInclude Include="PPCONFIG.h" />
+    <ClInclude Include="UadmClient.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="UadmHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\unix\onlineserver\libuadmonlsrv.vcxproj">
+      <Project>{0b54cee6-798a-3af4-895c-168b1059b163}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\business\libbusiness.vcxproj">
+      <Project>{a1205c08-2257-3543-9275-b33f68c9f166}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\common\libcommon.vcxproj">
+      <Project>{e5598469-5776-3516-8d8a-073fcc3cee4d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\constants\libconstants.vcxproj">
+      <Project>{622b56b6-b2eb-37d4-aeda-f1607fc2f643}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\server\libserver.vcxproj">
+      <Project>{9f781536-6575-3038-ad19-f6d5170a1ab1}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

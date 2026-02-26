@@ -1,0 +1,1 @@
+ant -DuseConfig=win32 %1

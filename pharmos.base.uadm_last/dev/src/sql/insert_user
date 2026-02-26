@@ -1,0 +1,48 @@
+. /etc/profile_prz
+####################################
+# Start
+###################################
+## Variable
+INFORMIXDIR=/opt/lib/informix
+export INFORMIXDIR
+
+# file
+TMPPATH=/export/home/t.hoerat/uadm
+FILE=${TMPPATH}/userdata
+FILE2=${TMPPATH}/userdata2
+SQLFILE=${TMPPATH}/sqlppuser
+
+cat $FILE | sed 's/;/|/g' > $FILE2
+
+awk -F\| ' 
+NR==1 { 
+printf("INFORMIXDIR=/opt/lib/informix\n");
+printf("export INFORMIXDIR\n");
+printf("dbaccess pcua1 -<<EOF \n");
+}
+
+{
+ NTUSER=$1;SURNAME=$2;FORENAME=$3;DESC=$4;BRANCH=$5;BRANCHNAME=$6;USERNAME=$7;DOMAIN=$8;
+ SQL="INSERT INTO ppuser (username, password, surname, forename, description, changepw, activ, ntuser) VALUES ( `"USERNAME"`,`O(~%CY3)`,`"SURNAME"`,`"FORENAME"`,`"DESC" VZ:"BRANCH"`,1,1,`"NTUSER"` );\n"
+ printf(SQL);
+}' $FILE2 > $SQLFILE 
+
+if [[ $? -ne 0 ]]
+then
+   echo "Formatierung des Skripts fuer Insert auf Tabelle ppuser nicht erfolgreich"
+   exit 99
+else
+   rm $FILE 2>/dev/null
+   rm $FILE2 2>/dev/null
+fi
+
+test -s $SQLFILE
+if [[ $? -eq 0 ]]
+then
+  echo EOF >> $SQLFILE
+  chmod 777 $SQLFILE
+fi
+
+exit 0;
+
+

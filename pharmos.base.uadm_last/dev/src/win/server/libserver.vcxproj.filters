@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SSqlStat.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SBiDefault.cpp">
+      <Filter>BiDefault</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SConnectOdbc.cpp">
+      <Filter>Connect</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SLog.cpp">
+      <Filter>LogFile</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppApp.cpp">
+      <Filter>ppApplication</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppAppRight.cpp">
+      <Filter>ppAppRight</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppBranchReg.cpp">
+      <Filter>ppBranchReg</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppGroup.cpp">
+      <Filter>ppGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppLanguage.cpp">
+      <Filter>ppLoginLanguage</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppMod.cpp">
+      <Filter>ppAppModule</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppPara.cpp">
+      <Filter>ppParameter</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppPrev.cpp">
+      <Filter>ppPrevious</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppText.cpp">
+      <Filter>ppText</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SppUser.cpp">
+      <Filter>ppUser</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\STest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SRightAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SUserAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SUserGroupAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\src\win\server\SUserRightAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="SppUsertype.cpp">
+      <Filter>ppUsertype</Filter>
+    </ClCompile>
+    <ClCompile Include="SppUserPara.cpp">
+      <Filter>ppUserPara</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\srv.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SSqlStat.h" />
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SBiDefault.h">
+      <Filter>BiDefault</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SConnectOdbc.h">
+      <Filter>Connect</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SLog.h">
+      <Filter>LogFile</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppApp.h">
+      <Filter>ppApplication</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppAppRight.h">
+      <Filter>ppAppRight</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppBranchReg.h">
+      <Filter>ppBranchReg</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppGroup.h">
+      <Filter>ppGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppLanguage.h">
+      <Filter>ppLoginLanguage</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppMod.h">
+      <Filter>ppAppModule</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppPara.h">
+      <Filter>ppParameter</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppPrev.h">
+      <Filter>ppPrevious</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppText.h">
+      <Filter>ppText</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SppUser.h">
+      <Filter>ppUser</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_application.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_appmodule.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_appright.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_branchreg.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_group.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_ibiuser.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_language.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_para.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_previous.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_rightanalysis.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_text.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_user.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_useranalysis.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_usergroupanalysis.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\struct_userrightanalysis.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\STest.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SRightAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SUserAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SUserGroupAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(SolutionDir)\..\src\win\server\SUserRightAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_usertype.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="SppUsertype.h">
+      <Filter>ppUsertype</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_userpara.h">
+      <Filter>structs</Filter>
+    </ClInclude>
+    <ClInclude Include="SppUserPara.h">
+      <Filter>ppUserPara</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Analysis">
+      <UniqueIdentifier>{55FA507D-9CD0-35BD-9873-C0DEAF1CB639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BiDefault">
+      <UniqueIdentifier>{A79DE097-646F-3BC4-B008-2C07D9C1EC54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connect">
+      <UniqueIdentifier>{FE604A31-71A5-3868-AF8A-74AB311BBE23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogFile">
+      <UniqueIdentifier>{6CF007B0-8341-32C6-BC61-EE62E0876415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{A18EAD14-19E6-3862-9B15-9901C7BDB979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppAppModule">
+      <UniqueIdentifier>{475B6F7E-1C46-3619-AA6C-2DCE342A689B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppAppRight">
+      <UniqueIdentifier>{53665F25-B61A-339B-BFF6-62E628158AD4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppApplication">
+      <UniqueIdentifier>{F1DB8435-EBAA-37BC-B197-288F994FA77E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppBranchReg">
+      <UniqueIdentifier>{70C73869-B370-3F5B-BA78-95A3A0778AD5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppGroup">
+      <UniqueIdentifier>{31C6D720-548D-30F1-B41F-CCE4A0179806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppLoginLanguage">
+      <UniqueIdentifier>{39AFBBD3-B268-3D01-BA19-C2AF2337688F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppParameter">
+      <UniqueIdentifier>{6838BD1D-7E2C-3E0B-BEBD-CB5C5BA16C67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppPrevious">
+      <UniqueIdentifier>{93769AF7-6231-304C-854B-6026D1E8C793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppText">
+      <UniqueIdentifier>{613679B2-223A-3DF5-8658-121501F9214F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppUser">
+      <UniqueIdentifier>{D7D8A17F-46D6-3C53-967B-7797F78FD19C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="structs">
+      <UniqueIdentifier>{CDFB1382-EB58-3513-B22B-49D5D48FAACD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppUsertype">
+      <UniqueIdentifier>{963209bd-00fe-4f16-b00a-32bff8f7b7f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ppUserPara">
+      <UniqueIdentifier>{87791769-90c8-47c3-93e5-06982f9a4be1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

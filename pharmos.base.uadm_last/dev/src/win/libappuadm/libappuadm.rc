@@ -1,0 +1,591 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "libappuadm_resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "libappuadm_resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_UADM_LOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 165
+    END
+
+    IDD_UADM_CHANGEPW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 288
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UADM_LOGIN DIALOGEX 0, 0, 333, 172
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Application Login"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "<APP> Version <Version>",IDC_LBL_UADM_APPVERSION,78,42,168,12,SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    RTEXT           "Username:",IDC_LBL_UADM_USERNAME,78,59,60,13,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_TXT_UADM_USERNAME,144,59,102,13,ES_AUTOHSCROLL
+    RTEXT           "Password:",IDC_LBL_UADM_PASSWORD,78,74,60,13,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_TXT_UADM_PASSWORD,144,74,102,13,ES_PASSWORD | ES_AUTOHSCROLL
+    RTEXT           "Environment:",IDC_LBL_UADM_ENVIRONMENT,78,89,60,13,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_CMB_UADM_ENVIRONMENT,144,89,102,121,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Country:",IDC_LBL_UADM_COUNTRY,78,104,60,13,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_CMB_UADM_COUNTRY,144,104,102,67,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Region/Branch:",IDC_LBL_UADM_REGIONBRANCH,78,119,60,13,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_CMB_UADM_REGIONBRANCH,144,119,102,121,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Language:",IDC_LBL_UADM_LANGUAGE,78,134,60,13,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_CMB_UADM_LANGUAGE,144,134,102,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           " Status:",IDC_LBL_UADM_STATUS,0,159,333,13,SS_CENTERIMAGE | SS_SUNKEN
+    PUSHBUTTON      "Change...",IDC_BTN_UADM_CHANGE_PWD,252,74,60,13
+    PUSHBUTTON      "OK",IDC_BTN_UADM_OK,252,119,60,13
+    PUSHBUTTON      "Cancel",IDC_BTN_UADM_CANCEL,252,134,60,13
+END
+
+IDD_UADM_CHANGEPW DIALOGEX 0, 0, 295, 108
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Change Password"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    RTEXT           "Username:",IDC_LBL_UADM_USERNAME,12,12,90,13,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_TXT_UADM_USERNAME,108,12,102,13,ES_AUTOHSCROLL
+    RTEXT           "Old Password:",IDC_LBL_UADM_OLDPASSWORD,12,27,90,13,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_TXT_UADM_OLDPASSWORD,108,27,102,13,ES_PASSWORD | ES_AUTOHSCROLL
+    RTEXT           "New Password:",IDC_LBL_UADM_NEWPASSWORD,12,42,90,13,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_TXT_UADM_NEWPASSWORD,108,42,102,13,ES_PASSWORD | ES_AUTOHSCROLL
+    RTEXT           "Confirm New Password:",IDC_LBL_UADM_CONFIRMPASSWORD,12,56,90,13,SS_CENTERIMAGE | SS_SUNKEN
+    EDITTEXT        IDC_TXT_UADM_CONFIRMPASSWORD,108,56,102,13,ES_PASSWORD | ES_AUTOHSCROLL
+    RTEXT           "Environment:",IDC_LBL_UADM_ENVIRONMENT,12,72,90,13,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_CMB_UADM_ENVIRONMENT,108,71,102,121,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "OK",IDC_BTN_UADM_OK,222,56,60,13
+    PUSHBUTTON      "Cancel",IDC_BTN_UADM_CANCEL,222,71,60,13
+    LTEXT           " Status:",IDC_LBL_UADM_STATUS,0,95,294,13,SS_CENTERIMAGE | SS_SUNKEN
+    CONTROL         IDB_UADM_CHANGEPW,IDC_STATIC,"Static",SS_BITMAP,234,16,33,31
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_UADM_LOGIN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_UADM_CHANGEPW AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_UADM_LOGIN          BITMAP                  "UADMLogin.bmp"
+
+IDB_UADM_CHANGEPW       BITMAP                  "UADMChangePW.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_LOGIN_TITLE_EN "Application Login"
+    IDS_UADM_LOGIN_TITLE_DE "Anwendungs-Login"
+    IDS_UADM_LOGIN_TITLE_FR "Login de l'application"
+    IDS_UADM_LOGIN_TITLE_BG "Vkhod vieu prilozheniyeto"
+    IDS_UADM_LOGIN_TITLE_HR "Prijava u aplikaciju"
+    IDS_UADM_CHANGEPW_TITLE_EN "Change Password"
+    IDS_UADM_CHANGEPW_TITLE_DE "Passwort Änderung"
+    IDS_UADM_CHANGEPW_TITLE_FR "Changer le mot de passe"
+    IDS_UADM_CHANGEPW_TITLE_BG "Smiana na parola"
+    IDS_UADM_CHANGEPW_TITLE_HR "Promijeni lozinku"
+    IDS_UADM_USERNAME_EN    "Username:"
+    IDS_UADM_USERNAME_DE    "Benutzername:"
+    IDS_UADM_USERNAME_FR    "Nom d'utilisateur:"
+    IDS_UADM_USERNAME_BG    "Potrebitelsko ime:"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_USERNAME_HR    "Korisnicko ime:"
+    IDS_UADM_PASSWORD_EN    "Password:"
+    IDS_UADM_PASSWORD_DE    "Passwort:"
+    IDS_UADM_PASSWORD_FR    "Mot de passe:"
+    IDS_UADM_PASSWORD_BG    "Parola:"
+    IDS_UADM_PASSWORD_HR    "Lozinka:"
+    IDS_UADM_COUNTRY_EN     "Country:"
+    IDS_UADM_COUNTRY_DE     "Land:"
+    IDS_UADM_COUNTRY_FR     "Pays:"
+    IDS_UADM_COUNTRY_BG     "Drzava:"
+    IDS_UADM_COUNTRY_HR     "Država:"
+    IDS_UADM_REGIONBRANCH_EN "Region/Branch:"
+    IDS_UADM_REGIONBRANCH_DE "Region/Filiale:"
+    IDS_UADM_REGIONBRANCH_FR "Région/Branche:"
+    IDS_UADM_REGIONBRANCH_BG "Region/Branchat:"
+    IDS_UADM_REGIONBRANCH_HR "Regija/Podruznica:"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_OK_DE          "OK"
+    IDS_UADM_OK_FR          "OK"
+    IDS_UADM_OK_BG          "Dobre"
+    IDS_UADM_OK_HR          "Dobro"
+    IDS_UADM_CANCEL_EN      "Cancel"
+    IDS_UADM_CANCEL_DE      "Abbrechen"
+    IDS_UADM_CANCEL_FR      "Annuler"
+    IDS_UADM_CANCEL_BG      "Otmiana"
+    IDS_UADM_CANCEL_HR      "Otkaži"
+    IDS_UADM_PLEASE_SELECT_EN "-please select-"
+    IDS_UADM_PLEASE_SELECT_DE "-bitte auswählen-"
+    IDS_UADM_PLEASE_SELECT_FR "-veuillez sélectionner-"
+    IDS_UADM_PLEASE_SELECT_BG "-mola, izberete-"
+    IDS_UADM_PLEASE_SELECT_HR "-molimo vas da odaberete-"
+    IDS_UADM_COUNTRY_GERMANY_EN "Germany"
+    IDS_UADM_COUNTRY_GERMANY_DE "Deutschland"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_COUNTRY_GERMANY_FR "Allemagne"
+    IDS_UADM_COUNTRY_GERMANY_BG "Germania"
+    IDS_UADM_COUNTRY_GERMANY_HR "Njemacka"
+    IDS_UADM_COUNTRY_AUSTRIA_EN "Austria"
+    IDS_UADM_COUNTRY_AUSTRIA_DE "Österreich"
+    IDS_UADM_COUNTRY_AUSTRIA_FR "Autriche"
+    IDS_UADM_COUNTRY_AUSTRIA_BG "Avstria"
+    IDS_UADM_COUNTRY_AUSTRIA_HR "Austrija"
+    IDS_UADM_COUNTRY_SWITZERLAND_EN "Switzerland"
+    IDS_UADM_COUNTRY_SWITZERLAND_DE "Schweiz"
+    IDS_UADM_COUNTRY_SWITZERLAND_FR "Suisse"
+    IDS_UADM_COUNTRY_SWITZERLAND_BG "Svejtsaria"
+    IDS_UADM_COUNTRY_SWITZERLAND_HR "Švicarska"
+    IDS_UADM_COUNTRY_FRANCE_EN "France"
+    IDS_UADM_COUNTRY_FRANCE_DE "Frankreich"
+    IDS_UADM_COUNTRY_FRANCE_FR "France"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_COUNTRY_FRANCE_BG "Frantia"
+    IDS_UADM_COUNTRY_FRANCE_HR "Francuska"
+    IDS_UADM_COUNTRY_BULGARIA_EN "Bulgaria"
+    IDS_UADM_COUNTRY_BULGARIA_DE "Bulgarien"
+    IDS_UADM_COUNTRY_BULGARIA_FR "Bulgaria"
+    IDS_UADM_COUNTRY_BULGARIA_BG "Bulgaria"
+    IDS_UADM_COUNTRY_BULGARIA_HR "Bugarska"
+    IDS_UADM_COUNTRY_CROATIA_EN "Croatia"
+    IDS_UADM_COUNTRY_CROATIA_DE "Kroatien"
+    IDS_UADM_COUNTRY_CROATIA_FR "Croatie"
+    IDS_UADM_COUNTRY_CROATIA_BG "Kharvatiya"
+    IDS_UADM_COUNTRY_CROATIA_HR "Hrvatska"
+    IDS_UADM_STATUS_USERNAME_EN "Status: Please enter your Username"
+    IDS_UADM_STATUS_USERNAME_DE 
+                            "Status: Bitte geben Sie Ihren Benutzernamen ein"
+    IDS_UADM_STATUS_USERNAME_FR 
+                            "Statut : Veuillez entrer votre nom d'utilisateur"
+    IDS_UADM_STATUS_USERNAME_BG 
+                            "Status: Mola, vavedete vacheteau potrebitelsko ime"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ERROR_PASSWORD_HISTORIC_DE 
+                            "Sie haben dieses Passwort in den letzten 6 Passwortänderungen verwendet, bitte wählen Sie ein anderes Passwort."
+    IDS_UADM_ERROR_PASSWORD_HISTORIC_FR 
+                            "Vous avez utilisé ce mot de passe lors des 6 derniers changements de mot de passe, veuillez choisir un mot de passe différent."
+    IDS_UADM_ERROR_PASSWORD_HISTORIC_BG 
+                            "Izpolzvali ste tazi parola pri poslednite 6 promeni na parolata, molya, izberete druga parola."
+    IDS_UADM_ERROR_PASSWORD_HISTORIC_HR 
+                            "Ovu ste lozinku koristili u posljednjih 6 promjena lozinke, molimo odaberite drugu lozinku."
+    IDS_UADM_COUNTRY_GLOBAL_EN "Global"
+    IDS_UADM_COUNTRY_GLOBAL_DE "Global"
+    IDS_UADM_COUNTRY_GLOBAL_FR "Global"
+    IDS_UADM_COUNTRY_GLOBAL_BG "Global"
+    IDS_UADM_COUNTRY_GLOBAL_HR "Global"
+    IDS_UADM_ERROR_NEW_PASSWORD_SAME_AS_OLD_EN 
+                            "Your new password cannot be the same as your old password, please choose a different password."
+    IDS_UADM_ERROR_NEW_PASSWORD_SAME_AS_OLD_DE 
+                            "Ihr neues Passwort darf nicht mit Ihrem alten Passwort identisch sein, bitte wählen Sie ein anderes Passwort."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ERROR_NEW_PASSWORD_SAME_AS_OLD_FR 
+                            "Votre nouveau mot de passe ne peut pas être le même que votre ancien mot de passe, veuillez choisir un mot de passe différent."
+    IDS_UADM_ERROR_NEW_PASSWORD_SAME_AS_OLD_BG 
+                            "Novata vi parola ne mozhe da bude sushtata kato starata vi parola, molya, izberete druga parola."
+    IDS_UADM_ERROR_NEW_PASSWORD_SAME_AS_OLD_HR 
+                            "Vaša nova lozinka ne može biti ista kao vaša stara lozinka, molimo odaberite drugu lozinku."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_OLD_RULES_EN 
+                            "Your new password does not fit the password rules: 6-8 chars, allowed a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 of categories (uppercase, lowercase, special char or digit)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_OLD_RULES_DE 
+                            "Ihr neues Passwort entspricht nicht den Passwort-Richtlinien: 6-8 Zeichen, erlaubt sind a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 der Kategorien (Großbuchstaben, Kleinbuchstaben, Sonderzeichen oder Ziffern)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_OLD_RULES_FR 
+                            "Votre nouveau mot de passe ne correspond pas aux règles de mot de passe: 6-8 caractères, permise a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 de catégories (majuscule, minuscule, caractère spécial ou chiffre)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_OLD_RULES_BG 
+                            "Novata vi parola ne otgovarya na pravilata za paroli: 6-8 znaka, razresheni sa a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 kategorii (glavni bukvi, malki bukvi, spetsialen simvol ili tsifra)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_OLD_RULES_HR 
+                            "Vaša nova lozinka ne odgovara pravilima za lozinke: 6-8 znakova, dopušteno a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 kategorije (velika slova, mala slova, posebni znakovi ili znamenke)."
+    IDS_UADM_COUNTRY_SERBIA_EN "Serbia"
+    IDS_UADM_COUNTRY_SERBIA_DE "Serbien"
+    IDS_UADM_COUNTRY_SERBIA_FR "Serbia"
+    IDS_UADM_COUNTRY_SERBIA_BG "Serbia"
+    IDS_UADM_COUNTRY_SERBIA_HR "Serbia"
+    IDS_UADM_ERROR_PASSWORD_ALREADY_CHANGED_EN 
+                            "Your password has already been changed today, you cannot change it again."
+    IDS_UADM_ERROR_PASSWORD_ALREADY_CHANGED_DE 
+                            "Ihr Passwort wurde heute bereits geändert, Sie können es nicht erneut ändern."
+    IDS_UADM_ERROR_PASSWORD_ALREADY_CHANGED_FR 
+                            "Votre mot de passe a déjà été changé aujourd'hui, vous ne pouvez pas le changer à nouveau."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_STATUS_USERNAME_HR "Status: Molimo unesite svoje korisnicko ime"
+    IDS_UADM_STATUS_PASSWORD_EN "Status: Please enter your Password"
+    IDS_UADM_STATUS_PASSWORD_DE "Status: Bitte geben Sie Ihr Passwort ein"
+    IDS_UADM_STATUS_PASSWORD_FR "Statut: Veuillez entrer votre mot de passe"
+    IDS_UADM_STATUS_PASSWORD_BG "Status: Mola, vavedete vashata parola"
+    IDS_UADM_STATUS_PASSWORD_HR "Status: Molimo unesite svoju lozinku"
+    IDS_UADM_STATUS_ENVIRONMENT_EN "Status: Please select an environment"
+    IDS_UADM_STATUS_ENVIRONMENT_DE 
+                            "Status: Bitte wählen Sie eine Umgebung aus"
+    IDS_UADM_STATUS_ENVIRONMENT_FR 
+                            "Statut: Veuillez sélectionner un environnement"
+    IDS_UADM_STATUS_ENVIRONMENT_BG "Status: Mola, izberete sreda"
+    IDS_UADM_STATUS_ENVIRONMENT_HR "Status: Molimo odaberite okruženje"
+    IDS_UADM_STATUS_COUNTRY_EN "Status: Please select a country"
+    IDS_UADM_STATUS_COUNTRY_DE "Status: Bitte wählen Sie ein Land aus"
+    IDS_UADM_STATUS_COUNTRY_FR "Statut: Veuillez sélectionner un pays"
+    IDS_UADM_STATUS_COUNTRY_BG "Status: Mola, izberete strana"
+    IDS_UADM_STATUS_COUNTRY_HR "Status: Molimo odaberite državu"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ENVIRONMENT_EN "Environment:"
+    IDS_UADM_ENVIRONMENT_DE "Umgebung:"
+    IDS_UADM_ENVIRONMENT_FR "Environnement:"
+    IDS_UADM_ENVIRONMENT_BG "Sreda:"
+    IDS_UADM_ENVIRONMENT_HR "Okoliš:"
+    IDS_UADM_LANGUAGE_EN    "Language:"
+    IDS_UADM_LANGUAGE_DE    "Sprache:"
+    IDS_UADM_LANGUAGE_FR    "Langue:"
+    IDS_UADM_LANGUAGE_BG    "Ezik:"
+    IDS_UADM_LANGUAGE_HR    "Jezik:"
+    IDS_UADM_CHANGEPW_EN    "Change..."
+    IDS_UADM_CHANGEPW_DE    "Ändern..."
+    IDS_UADM_CHANGEPW_FR    "Changer..."
+    IDS_UADM_CHANGEPW_BG    "Smiana..."
+    IDS_UADM_CHANGEPW_HR    "Promjena..."
+    IDS_UADM_OK_EN          "OK"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_STATUS_REGIONBRANCH_EN "Status: Please select a region / branch"
+    IDS_UADM_STATUS_REGIONBRANCH_DE 
+                            "Status: Bitte wählen Sie eine Region / Filiale aus"
+    IDS_UADM_STATUS_REGIONBRANCH_FR 
+                            "Statut: Veuillez sélectionner une région / branche"
+    IDS_UADM_STATUS_REGIONBRANCH_BG "Status: Mola, izberete region / branchat"
+    IDS_UADM_STATUS_REGIONBRANCH_HR 
+                            "Status: Molimo odaberite regija / podruznica"
+    IDS_UADM_STATUS_PASSWORD_CHANGE_REQUIRED_EN 
+                            "Status: Password change required, please change your password."
+    IDS_UADM_STATUS_PASSWORD_CHANGE_REQUIRED_DE 
+                            "Status: Passwortänderung erforderlich, bitte ändern Sie Ihr Passwort."
+    IDS_UADM_STATUS_PASSWORD_CHANGE_REQUIRED_FR 
+                            "Statut: Changement de mot de passe requis, veuillez changer votre mot de passe."
+    IDS_UADM_STATUS_PASSWORD_CHANGE_REQUIRED_BG 
+                            "Status: Izmenenieto na parolata a zadalzhitelno, mola promenete parolata si."
+    IDS_UADM_STATUS_PASSWORD_CHANGE_REQUIRED_HR 
+                            "Status: Potrebna promjena lozinke, molimo promijenite svoju lozinku."
+    IDS_UADM_ERROR_INTERFACE_NOT_SET_EN 
+                            "UADM Connection Interface not defined, please contect your system administrator."
+    IDS_UADM_ERROR_INTERFACE_NOT_SET_DE 
+                            "UADM Verbindungsschnittstelle nicht definiert, bitte kontaktieren Sie Ihren System Administrator."
+    IDS_UADM_ERROR_INTERFACE_NOT_SET_FR 
+                            "L'interface de connexion UADM n'est pas définie, veuillez contacter votre administrateur système."
+    IDS_UADM_ERROR_INTERFACE_NOT_SET_BG 
+                            "Interfaces na UADM Connection nay a definiran, mola svrzete sie s administrator na systemata."
+    IDS_UADM_ERROR_INTERFACE_NOT_SET_HR 
+                            "UADM veza nije definirana, molimo kontaktirajte svog sistemskog administratora."
+    IDS_UADM_ERROR_ENVIRONMENT_NOT_FOUND_EN 
+                            "Incorrect environment configuration, please contact your Servicedesk or select a different environment."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ERROR_ENVIRONMENT_NOT_FOUND_DE 
+                            "Umgebungskonfiguration nicht korrekt, bitte kontaktieren Sie Ihren Servicedesk oder wählen Sie eine andere Umgebung aus."
+    IDS_UADM_ERROR_ENVIRONMENT_NOT_FOUND_FR 
+                            "Configuration de l'environnement incorrecte, veuillez contacter votre service d'assistance ou sélectionner un autre environnement."
+    IDS_UADM_ERROR_ENVIRONMENT_NOT_FOUND_BG 
+                            "Nepravilna configuration na okolnata sreda, mola svrzete sie s vashiya servizen tsentr ili izberete razliczna okolna sreda."
+    IDS_UADM_ERROR_ENVIRONMENT_NOT_FOUND_HR 
+                            "Pogresna konfiguracija okruzenja, molimo kontaktirajte svoj Servicedesk ili odaberite drugo okruzenje."
+    IDS_UADM_ERROR_INTERFACE_OPEN_EN 
+                            "UADM Connection Interface could not be opened, please contact your system administrator."
+    IDS_UADM_ERROR_INTERFACE_OPEN_DE 
+                            "UADM Verbindungsschnittstelle konnte nicht geöffnet werden, bitte kontaktieren Sie Ihren System Administrator."
+    IDS_UADM_ERROR_INTERFACE_OPEN_FR 
+                            "L'interface de connexion UADM n'a pas pu être ouverte, veuillez contacter votre administrateur système."
+    IDS_UADM_ERROR_INTERFACE_OPEN_BG 
+                            "Interfaces UADM nay mozhe da budde otvoren, mola svrzete sie s vashiya systemenus administrator."
+    IDS_UADM_ERROR_INTERFACE_OPEN_HR 
+                            "UADM sucelje za povezivanje nije moglo biti otvoreno, molimo kontaktirajte svog sistemskog administratora."
+    IDS_UADM_ERROR_WRONG_USERNAME_PASSWORD_EN 
+                            "Username or Password not correct. Please enter correct Username and Password."
+    IDS_UADM_ERROR_WRONG_USERNAME_PASSWORD_DE 
+                            "Benutzer oder Passwort nicht korrekt. Bitte geben Sie einen korrekten Benutzernamen und Passwort ein."
+    IDS_UADM_ERROR_WRONG_USERNAME_PASSWORD_FR 
+                            "Nom d'utilisateur ou mot de passe incorrect. Veuillez entrer un nom d'utilisateur et un mot de passe correct."
+    IDS_UADM_ERROR_WRONG_USERNAME_PASSWORD_BG 
+                            "Potrebitelskoto ime ili parolata nay sa verney. Mola, vavedete pravilnoto potrebitelsko ime i parola."
+    IDS_UADM_ERROR_WRONG_USERNAME_PASSWORD_HR 
+                            "Korisnicko ime ili lozinka nisu tocni. Molimo unesite ispravno korisnicko ime i lozinku."
+    IDS_UADM_ERROR_USER_INACTIVE_EN 
+                            "Your user account is locked. Please contact your Servicedesk to unlock it."
+    IDS_UADM_ERROR_USER_INACTIVE_DE 
+                            "Ihr Benutzerkonto ist gesperrt. Bitte kontaktieren Sie Ihren Servicedesk, um es zu entsperren."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ERROR_USER_INACTIVE_FR 
+                            "Votre compte utilisateur est verrouillé. Veuillez contacter votre service d'assistance pour le déverrouiller."
+    IDS_UADM_ERROR_USER_INACTIVE_BG 
+                            "Vashiyat potrebitelski akaunt a zakluczen. Mola, svrzete sie s vashiya servizen tsentr, za da go otkluczyte."
+    IDS_UADM_ERROR_USER_INACTIVE_HR 
+                            "Vaš korisnicki racun je zakljucan. Molimo kontaktirajte svoj Servicedesk kako biste ga otkljucali."
+    IDS_UADM_ERROR_TOO_MANY_RETRIES_EN 
+                            "Username or Password not correct. You have tried too many times, Application will be closed."
+    IDS_UADM_ERROR_TOO_MANY_RETRIES_DE 
+                            "Benutzer oder Passwort nicht korrekt. Sie haben zu oft versucht, sich anzumelden. Die Anwendung wird geschlossen."
+    IDS_UADM_ERROR_TOO_MANY_RETRIES_FR 
+                            "Nom d'utilisateur ou mot de passe incorrect. Vous avez essayé trop de fois, l'application va être fermée."
+    IDS_UADM_ERROR_TOO_MANY_RETRIES_BG 
+                            "Potrebitelskoto ime ili parolata nay sa verney. Opitali stee sie tvrde mnogo putty, prilozheniyeto shche budde zatvoreno."
+    IDS_UADM_ERROR_TOO_MANY_RETRIES_HR 
+                            "Korisnicko ime ili lozinka nije tocno. Pokusali ste previse puta, aplikacija ce biti zatvorena."
+    IDS_UADM_ERROR_ENTRY_NOT_FOUND_EN 
+                            "Selection of environment, country and region/branch not possible, please select a different combination or contact your system administrator."
+    IDS_UADM_ERROR_ENTRY_NOT_FOUND_DE 
+                            "Auswahlkombination der Umgebung, Land und Region/Filiale nicht möglich, bitte wählen Sie eine andere Kombination aus oder kontaktieren Sie Ihren System Administrator."
+    IDS_UADM_ERROR_ENTRY_NOT_FOUND_FR 
+                            "Sélection de l'environnement, pays et région/secteur non possible, veuillez sélectionner une autre combinaison ou contacter votre administrateur système."
+    IDS_UADM_ERROR_ENTRY_NOT_FOUND_BG 
+                            "Izborat na sreda, strana i region/klon nay a vazmozhen, mola izberete razliczna combination ili sie svrzete s vashiya systemenus administrator."
+    IDS_UADM_ERROR_ENTRY_NOT_FOUND_HR 
+                            "Odabir okruženja, zemlje i regije/grane nije moguc, molimo vas da odaberete drugu kombinaciju ili kontaktirate svog sistemskog administratora."
+    IDS_UADM_OLDPASSWORD_EN "Old Password:"
+    IDS_UADM_OLDPASSWORD_DE "Altes Passwort:"
+    IDS_UADM_OLDPASSWORD_FR "Ancien mot de passe:"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_OLDPASSWORD_BG "Stara parola:"
+    IDS_UADM_OLDPASSWORD_HR "Stara lozinka:"
+    IDS_UADM_NEWPASSWORD_EN "New Password:"
+    IDS_UADM_NEWPASSWORD_DE "Neues Password:"
+    IDS_UADM_NEWPASSWORD_FR "Nouveau mot de passe:"
+    IDS_UADM_NEWPASSWORD_BG "Nova parola:"
+    IDS_UADM_NEWPASSWORD_HR "Nova lozinka:"
+    IDS_UADM_CONFIRMPASSWORD_EN "Confirm Password:"
+    IDS_UADM_CONFIRMPASSWORD_DE "Passwort bestätigen:"
+    IDS_UADM_CONFIRMPASSWORD_FR "Confirmer le mot de passe:"
+    IDS_UADM_CONFIRMPASSWORD_BG "Potvrdete parolata:"
+    IDS_UADM_CONFIRMPASSWORD_HR "Potvrdi lozinku:"
+    IDS_UADM_STATUS_OLDPASSWORD_EN "Status: Please enter your old Password."
+    IDS_UADM_STATUS_OLDPASSWORD_DE 
+                            "Status: Bitte geben Sie Ihr altes Passwort ein."
+    IDS_UADM_STATUS_OLDPASSWORD_FR 
+                            "Statut: Veuillez entrer votre ancien mot de passe."
+    IDS_UADM_STATUS_OLDPASSWORD_BG "Status: Mola, vavedete starata si parola."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_STATUS_OLDPASSWORD_HR 
+                            "Status: Molimo unesite svoju staru lozinku."
+    IDS_UADM_STATUS_NEWPASSWORD_EN "Status: Please enter your new Password."
+    IDS_UADM_STATUS_NEWPASSWORD_DE 
+                            "Status: Bitte geben Sie Ihr neues Passwort ein."
+    IDS_UADM_STATUS_NEWPASSWORD_FR 
+                            "Statut: Veuillez entrer votre nouveau mot de passe."
+    IDS_UADM_STATUS_NEWPASSWORD_BG "Status: Mola, vavedete novata si parola."
+    IDS_UADM_STATUS_NEWPASSWORD_HR 
+                            "Status: Molimo unesite svoju novu lozinku."
+    IDS_UADM_STATUS_CONFIRMPASSWORD_EN 
+                            "Status: Please re-enter your new Password as confirmation."
+    IDS_UADM_STATUS_CONFIRMPASSWORD_DE 
+                            "Status: Bitte geben Sie Ihr neues Passwort als Bestätigung ein."
+    IDS_UADM_STATUS_CONFIRMPASSWORD_FR 
+                            "Statut: Veuillez saisir de nouveau votre nouveau mot de passe pour confirmer."
+    IDS_UADM_STATUS_CONFIRMPASSWORD_BG 
+                            "Status: Mola, vavedete otnovo novata si parola za potvrzdenie."
+    IDS_UADM_STATUS_CONFIRMPASSWORD_HR 
+                            "Status: Molimo ponovno unesite svoju novu lozinku kao potvrdu."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_NEW_RULES_EN 
+                            "Your new password does not fit the password rules: 8-64 chars, allowed a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min 2 of categories (uppercase, lowercase, special char or digit)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_NEW_RULES_DE 
+                            "Ihr neues Passwort entspricht nicht den Passwort-Richtlinien: 8-64 Zeichen, erlaubt sind a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 der Kategorien (Großbuchstaben, Kleinbuchstaben, Sonderzeichen oder Ziffern)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_NEW_RULES_FR 
+                            "Votre nouveau mot de passe ne correspond pas aux règles de mot de passe: 8-64 caractères, permise a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 de catégories (majuscule, minuscule, caractère spécial ou chiffre)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_NEW_RULES_BG 
+                            "Novata vi parola ne otgovarya na pravilata za paroli: 8-64 znaka, razresheni sa a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 kategorii (glavni bukvi, malki bukvi, spetsialen simvol ili tsifra)."
+    IDS_UADM_ERROR_PASSWORD_DOES_NOT_FIT_NEW_RULES_HR 
+                            "Vaša nova lozinka ne odgovara pravilima za lozinke: 8-64 znakova, dopušteno a-z, A-Z, 0-9, !()=+#,.-;:_ {}[], min. 2 kategorije (velika slova, mala slova, posebni znakovi ili znamenke)."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ERROR_CONFIRM_PASSWORD_WRONG_EN 
+                            "Your confirmed password is different to the new password."
+    IDS_UADM_ERROR_CONFIRM_PASSWORD_WRONG_DE 
+                            "Ihre Passwort Bestätigung ist unterschiedlich zu Ihrem neuen Passwort."
+    IDS_UADM_ERROR_CONFIRM_PASSWORD_WRONG_FR 
+                            "Votre mot de passe confirmé est différent du nouveau mot de passe."
+    IDS_UADM_ERROR_CONFIRM_PASSWORD_WRONG_BG 
+                            "Potvurdenata vi parola e razlichna ot novata parola."
+    IDS_UADM_ERROR_CONFIRM_PASSWORD_WRONG_HR 
+                            "Vaša potvrdena lozinka razlikuje se od nove lozinke."
+    IDS_UADM_ERROR_CANNOT_SAVE_NEW_PASSWORD_EN 
+                            "Something went wrong saving your new password, please retry it or contact your Servicedesk."
+    IDS_UADM_ERROR_CANNOT_SAVE_NEW_PASSWORD_DE 
+                            "Das neue Passwort konnte nicht gespeichert werden, bitte versuchen Sie es noch einmal oder kontaktieren Sie Ihren Servicedesk."
+    IDS_UADM_ERROR_CANNOT_SAVE_NEW_PASSWORD_FR 
+                            "Une erreur s'est produite lors de l'enregistrement de votre nouveau mot de passe, veuillez réessayer ou contacter votre Servicedesk."
+    IDS_UADM_ERROR_CANNOT_SAVE_NEW_PASSWORD_BG 
+                            "Neshto se oburka pri zapazvaneto na novata vi parola. Molya, opitaite otnovo ili se svurzhete s vashiya otdel za obsluzhvane na klienti."
+    IDS_UADM_ERROR_CANNOT_SAVE_NEW_PASSWORD_HR 
+                            "Došlo je do pogreške prilikom spremanja vaše nove lozinke, pokušajte ponovno ili se obratite službi za korisnike."
+    IDS_UADM_STATUS_NEW_PASSWORD_SAVED_EN 
+                            "Your new password was saved successfully."
+    IDS_UADM_STATUS_NEW_PASSWORD_SAVED_DE 
+                            "Ihr neues Passwort wurde erfolgreich gespeichert."
+    IDS_UADM_STATUS_NEW_PASSWORD_SAVED_FR 
+                            "Votre nouveau mot de passe a été enregistré avec succès."
+    IDS_UADM_STATUS_NEW_PASSWORD_SAVED_BG 
+                            "Novata vi parola beshe zapazena uspeshno."
+    IDS_UADM_STATUS_NEW_PASSWORD_SAVED_HR 
+                            "Vaša nova lozinka je uspješno spremljena."
+    IDS_UADM_ERROR_PASSWORD_HISTORIC_EN 
+                            "You have used this password in the last 6 password changes, please choose a different password."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UADM_ERROR_PASSWORD_ALREADY_CHANGED_BG 
+                            "Parolata vi veche beshe promenena dnes, ne mozhete da ya promenite otnovo."
+    IDS_UADM_ERROR_PASSWORD_ALREADY_CHANGED_HR 
+                            "Vasa lozinka je vec danas promijenjena, ne mozete je ponovno mijenjati."
+    IDS_UADM_ERROR_DEFAULT_PASSWORD_EXPIRED_EN 
+                            "Your default password has expired, please contact your local servicedesk for getting a new one."
+    IDS_UADM_ERROR_DEFAULT_PASSWORD_EXPIRED_DE 
+                            "Ihr Standardpasswort ist abgelaufen, bitte kontaktieren Sie Ihren lokalen Servicedesk, um ein neues zu erhalten."
+    IDS_UADM_ERROR_DEFAULT_PASSWORD_EXPIRED_FR 
+                            "Votre mot de passe par défaut a expiré, veuillez contacter votre service d'assistance local pour en obtenir un nouveau."
+    IDS_UADM_ERROR_DEFAULT_PASSWORD_EXPIRED_BG 
+                            "Vashata po podrazbirane parola e iztekla, molya, svrzete sie s vashiya mesten servizen tsentr za da poluchite nova."
+    IDS_UADM_ERROR_DEFAULT_PASSWORD_EXPIRED_HR 
+                            "Vaša zadana lozinka je istekla, molimo kontaktirajte svoju lokalnu službu za korisnike kako biste dobili novu."
+    IDS_UADM_STATUS_USER_MAPPING_EN 
+                            "Your old username was mapped to your already existing UADM username, please use next login your UADM username and password."
+    IDS_UADM_STATUS_USER_MAPPING_DE 
+                            "Ihr alter Benutzername wurde Ihrem bereits bestehenden UADM-Benutzernamen zugeordnet. Bitte verwenden Sie beim nächsten Login Ihren UADM-Benutzernamen und Ihr Passwort."
+    IDS_UADM_STATUS_USER_MAPPING_FR 
+                            "Votre ancien nom d'utilisateur a été associé à votre nom d'utilisateur UADM existant. Veuillez utiliser votre nom d'utilisateur et votre mot de passe UADM lors de votre prochaine connexion."
+    IDS_UADM_STATUS_USER_MAPPING_BG 
+                            "Staroto vi potrebitelsko ime beshe supostaveno s veche sushtestvuvashtoto vi potrebitelsko ime za UADM. Molya, izpolzvai?te sledvashtoto si vlizane s potrebitelskoto si ime i parola za UADM."
+    IDS_UADM_STATUS_USER_MAPPING_HR 
+                            "Vaše staro korisnicko ime je mapirano na vaše vec postojece UADM korisnicko ime. Molimo vas da pri sljedecoj prijavi koristite svoje UADM korisnicko ime i lozinku."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

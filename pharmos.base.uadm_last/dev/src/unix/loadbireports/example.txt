@@ -1,0 +1,59 @@
+//report one for order entry
+http://bi-std-web-p-cs/ibi_apps/WFServlet?IBIF_ex=BSA003&LNGID=D&DOMUSER=phoenix\antje.zoschke&DEFBRANCH=12&RCAboRight=1&DEFSTYLE=phoenix.sty&FEXLNAME=BSA003&WFFMT=HTML&RCUserEmail=%27%27
+http://localhost:7004/ibi_apps/WFServlet?IBIF_ex=BSA003&LNGID=D&DOMUSER=phoenix\antje.zoschke&DEFBRANCH=12&RCAboRight=1&DEFSTYLE=phoenix.sty&FEXLNAME=BSA003&WFFMT=HTML&RCUserEmail=%27%27
+
+// after hitting the start button to get the report
+POST /ibi_apps/WFServlet HTTP/1.1
+Host: localhost:7004
+Connection: keep-alive
+Content-Length: 1528
+Cache-Control: max-age=0
+sec-ch-ua: "Microsoft Edge";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Origin: http://localhost:7004
+DNT: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.41
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://localhost:7004/ibi_apps/WFServlet?IBIF_ex=BSA003&LNGID=D&DOMUSER=phoenix\antje.zoschke&DEFBRANCH=12&RCAboRight=1&DEFSTYLE=phoenix.sty&FEXLNAME=BSA003&WFFMT=HTML&RCUserEmail=%27%27
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,de;q=0.8
+Cookie: WF-JSESSIONID=075746A00A1EEB5A09119110DE9AB3D1
+
+IBIF_ex=BSA003fex&IBIAPP_app=&RUNTIMEID=12394180730&FEXNAME=BSA003&EVENTID=1&parCReportOutputTarget=bi_report&LNGID=D&DOMUSER=phoenix%5Cantje.zoschke&RCRepNamLong=BSA003&RCLanguage=D&RCUserID=phoenix%5Cantje.zoschke&RCUserEmail=%27%27&RCReportName=BSA003fex&RCDateType=6&RCESchTime=06%3A00&RCMaxBG=5&parCNameOfClickedButton=start&parCChkParameterValues=%23IBIF_ex%5BBSA003fex%5D%23IBIAPP_app%5B%5D%23FEXNAME%5BBSA003%5D%23EVENTID%5B1%5D%23parCReportOutputTarget%5Bbi_report%5D%23LNGID%5BD%5D%23DOMUSER%5Bphoenix%5Cantje.zoschke%5D%23RCRepNamLong%5BBSA003%5D%23RCLanguage%5BD%5D%23RCUserID%5Bphoenix%5Cantje.zoschke%5D%23RCUserEmail%5B%22%22%5D%23RCReportName%5BBSA003fex%5D%23RCDateType%5B6%5D%23RCESchTime%5B06%3A00%5D%23RCMaxBG%5B5%5D%23bgbutton%5BHintergrund%5D%23abobutton%5BAbonnement%5D%23ovbutton%5B%C3%9Cbersicht%5D%23startbutton%5BStart%5D%23LBShowMissingData%5B%5D%23parCStyle%5BUNFHOCH.sty%5D%23WFFMT%5BHTML%5D%23parNBranchHead%5B12%5D%23parNBranchWhere%5B12%5D%23parNBranchSelected%5B%5D%23parNNorthBrDisabled%5B1%5D%23parNSouthBrDisabled%5B1%5D%23parNBranch%5B12%5D%23parCAllNORTHvz%5BY%5Dfalse%23parCAllSOUTHvz%5BY%5Dfalse%23parNUserID%5B%5D%23parNRightID%5B%5D%23parCQCountry%5BY%5Dfalse%23parCSortColumn%5BUserID%5D%23parCSortType%5BLOWEST%5Dtrue%23parCSortType%5BHIGHEST%5Dfalse&startbutton=Start&parCStyle=UNFHOCH.sty&WFFMT=HTML&parNBranchHead=12&parNBranchWhere=12&parNBranchSelected=&parNNorthBrDisabled=1&parNSouthBrDisabled=1&parNBranch=12&parNUserID=&parNRightID=&parCSortColumn=UserID&parCSortType=LOWEST
+
+//report two for mainframe
+http://bi-std-web-p-cs/ibi_apps/WFServlet?IBIF_ex=BSC001&LNGID=D&DOMUSER=phoenix\antje.zoschke&DEFBRANCH=12&RCAboRight=1&DEFSTYLE=phoenix.sty&FEXLNAME=BSC001&WFFMT=HTML&RCUserEmail=%27%27
+http://localhost:7004/ibi_apps/WFServlet?IBIF_ex=BSC001&LNGID=D&DOMUSER=phoenix\antje.zoschke&DEFBRANCH=12&RCAboRight=1&DEFSTYLE=phoenix.sty&FEXLNAME=BSC001&WFFMT=HTML&RCUserEmail=%27%27
+
+// after hitting the start button to get the report
+POST /ibi_apps/WFServlet HTTP/1.1
+Host: localhost:7004
+Connection: keep-alive
+Content-Length: 1564
+Cache-Control: max-age=0
+sec-ch-ua: "Microsoft Edge";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Origin: http://localhost:7004
+DNT: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.41
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://localhost:7004/ibi_apps/WFServlet?IBIF_ex=BSC001&LNGID=D&DOMUSER=phoenix\antje.zoschke&DEFBRANCH=12&RCAboRight=1&DEFSTYLE=phoenix.sty&FEXLNAME=BSC001&WFFMT=HTML&RCUserEmail=%27%27
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,de;q=0.8
+Cookie: WF-JSESSIONID=AE522511C90ADC2219997FD36F3580B6
+
+parCBranchAll=&parCBranchHead=12&parCBranchWhere=%2712%27&parNQtySelBranches=1&IBIF_ex=BSC001fex&IBIAPP_app=&RUNTIMEID=12392160549&FEXNAME=BSC001&EVENTID=1&parCReportOutputTarget=bi_report&LNGID=D&DOMUSER=phoenix%5Cantje.zoschke&RCRepNamLong=BSC001&RCLanguage=D&RCUserID=phoenix%5Cantje.zoschke&RCUserEmail=%27%27&RCReportName=BSC001fex&RCDateType=6&RCESchTime=06%3A00&RCMaxBG=5&parCNameOfClickedButton=start&parCChkParameterValues=%23parCBranchAll%5B%5D%23parCBranchHead%5B12%5D%23parCBranchWhere%5B%2212%22%5D%23parNQtySelBranches%5B1%5D%23IBIF_ex%5BBSC001fex%5D%23IBIAPP_app%5B%5D%23FEXNAME%5BBSC001%5D%23EVENTID%5B1%5D%23parCReportOutputTarget%5Bbi_report%5D%23LNGID%5BD%5D%23DOMUSER%5Bphoenix%5Cantje.zoschke%5D%23RCRepNamLong%5BBSC001%5D%23RCLanguage%5BD%5D%23RCUserID%5Bphoenix%5Cantje.zoschke%5D%23RCUserEmail%5B%22%22%5D%23RCReportName%5BBSC001fex%5D%23RCDateType%5B6%5D%23RCESchTime%5B06%3A00%5D%23RCMaxBG%5B5%5D%23bgbutton%5BHintergrund%5D%23abobutton%5BAbonnement%5D%23ovbutton%5B%C3%9Cbersicht%5D%23startbutton%5BStart%5D%23LBShowMissingData%5B%5D%23parCStyle%5BUNFHOCH.sty%5D%23WFFMT%5BHTML%5D%23parNBranch%5B12%5D%23parCAllVz%5BY%5Dfalse%23parNUserID%5B%5D%23parNRightID%5B%5D%23parCUserName%5B%5D%23parCCICSUserShort%5B%5D%23parCRightCode%5B%5D%23parCQCountry%5BY%5Dfalse%23parCSortColumn%5BCICSUser%5D%23parCSortType%5BLOWEST%5Dtrue%23parCSortType%5BHIGHEST%5Dfalse&startbutton=Start&parCStyle=UNFHOCH.sty&WFFMT=HTML&parNBranch=12&parNUserID=&parNRightID=&parCUserName=&parCCICSUserShort=&parCRightCode=&parCSortColumn=CICSUser&parCSortType=LOWEST
