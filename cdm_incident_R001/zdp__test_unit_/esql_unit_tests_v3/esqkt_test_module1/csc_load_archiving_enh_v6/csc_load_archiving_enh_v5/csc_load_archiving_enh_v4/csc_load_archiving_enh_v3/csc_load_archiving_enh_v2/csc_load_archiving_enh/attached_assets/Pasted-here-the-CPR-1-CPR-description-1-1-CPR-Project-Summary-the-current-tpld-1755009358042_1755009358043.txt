@@ -1,0 +1,34 @@
+here the CPR:
+--------------
+1/ CPR description:
+1/.1. CPR/Project Summary:
+
+- the current tpldauftrag archives closed orders from kdauftrag to akdauftrag.
+
+- normally the process will be started during the night before the next business day
+
+- in emergency case the process need to be started during day but then it also archives closed order from the current business day, so business cannot see those orders from same day anymore and “blind” for the day.
+
+1/.2. CPR/Project Scope:
+
+- the application and start parameters should be verified and reworked that it will be recognized, that only previous business day closed orders will be archived.
+
+challenge: if normal start e.g. at 23:30, then the same business day closed orders should be archived. if start is late, e.g. 8:00 next morning, then previous business day should be used only.
+
+
+----------------
+implemented solution: 
+see: https://replit.com/@cirevor520/EmptyCanvas#csc_load_day_business_miss_cxx_update/csc_load_business_day_revised/csc_load_sol1_2enh/pharmos.outbound.csc_load/dev/src/_scripts/proc/tpldauftr_enhanced.sh
+and : 
+https://replit.com/@cirevor520/EmptyCanvas#csc_load_day_business_miss_cxx_update/csc_load_business_day_revised/csc_load_sol1_2enh/pharmos.outbound.csc_load/dev/src/tpldauftr/tpldauftr_enhanced.cxx
+
+here original version to compare:
+https://replit.com/@cirevor520/EmptyCanvas#csc_load_day_business_miss_cxx_update/csc_load_business_day_revised/csc_load_sol1_2enh/pharmos.outbound.csc_load/dev/src/_scripts/proc/tpldauftr_original.sh
+https://replit.com/@cirevor520/EmptyCanvas#csc_load_day_business_miss_cxx_update/csc_load_business_day_revised/csc_load_sol1_2enh/pharmos.outbound.csc_load/dev/src/tpldauftr/tpldauftr_original.cxx
+
+
+=====> what needed: revise new cxx file : we want that cxx file align with sh file in this Behavior:
+
+./tpldauftr -start -fil 1 → Implicit business day mode enabled (solves the problem automatically)
+./tpldauftr -start -fil 1 --business-day-mode enabled → Explicit business day mode (same behavior, explicit)
+./tpldauftr -start -fil 1 --business-day-mode disabled → Explicit original mode (for special cases)

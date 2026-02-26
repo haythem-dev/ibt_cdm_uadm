@@ -1,0 +1,43 @@
+orted.
+     [exec] LIBRARY: Shared object libifglx.so: 1 symbols imported.
+     [exec] LIBRARY: Shared object libiconv.a[libiconv.so.2]: 13 symbols imported.
+     [exec] LIBRARY: Shared object libiconv.a[shr4_64.o]: 10 symbols imported.
+     [exec] LIBRARY: Shared object libstdc++.a[libstdc++.so.6]: 4027 symbols imported.
+     [exec] LIBRARY: Shared object libgcc_s.a[shr.o]: 142 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[shr_64.o]: 3149 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[posix_aio_64.o]: 20 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[aio_64.o]: 18 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[pse_64.o]: 8 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[dl_64.o]: 4 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[pty_64.o]: 1 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[cthread_64.o]: 25 symbols imported.
+     [exec] LIBRARY: Shared object libc.a[uchar_64.o]: 4 symbols imported.
+     [exec] LIBRARY: Shared object librtl.a[lazy42_64.o]: 3 symbols imported.
+     [exec] FILELIST: Number of previously inserted files processed: 21
+     [exec] (ld): resolve
+     [exec] RESOLVE: 1974 of 16651 symbols were kept.
+     [exec] (ld): addgl /usr/lib/glink64.o
+     [exec] ADDGL: Glink code added for 65 symbols.
+     [exec] (ld): er full
+     [exec] ld: 0711-318 ERROR: Undefined symbols were found.
+     [exec]     The following symbols are in error:
+     [exec]  Symbol                    Inpndx  TY CL Source-File(Object-File) OR Import-File{Shared-object}
+     [exec]                               RLD: Address  Section  Rld-type Referencing Symbol
+     [exec]  ----------------------------------------------------------------------------------------------
+     [exec]  .ReaktiviereKdauftragEreignis [104]   ER PR tpldauftr.c(build/obj/debug/./tpldauftr_cxx.o)
+     [exec]                                    0001faf8 .text    R_RBR    [3688]  <.ReaktiviereAuftrag>
+     [exec] ER: The return code is 8.
+     [exec] make[2]: Leaving directory `/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src/tpldauftr'
+     [exec] make[1]: Leaving directory `/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src/tpldauftr'
+     [exec] ld: 0711-317 ERROR: Undefined symbol: .ReaktiviereKdauftragEreignis
+     [exec] collect2: ld returned 8 exit status
+     [exec] make[2]: *** [build/debug/tpldauftr.bin] Error 1
+     [exec] make[1]: *** [dbg] Error 2
+     [exec] make: *** [dbg] Error 2
+
+BUILD FAILED
+/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src/build.xml:26: The following error occurred while executing this line:
+http://tfs-nexus:8081/repository/genesis/eu/phoenixgroup/buildenv_ivy/3.0.0/macro.ant-3.0.0.xml:545: exec returned: 2
+
+Total time: 1 minute 26 seconds
+h.benabdelaziz@zdev21:/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src #

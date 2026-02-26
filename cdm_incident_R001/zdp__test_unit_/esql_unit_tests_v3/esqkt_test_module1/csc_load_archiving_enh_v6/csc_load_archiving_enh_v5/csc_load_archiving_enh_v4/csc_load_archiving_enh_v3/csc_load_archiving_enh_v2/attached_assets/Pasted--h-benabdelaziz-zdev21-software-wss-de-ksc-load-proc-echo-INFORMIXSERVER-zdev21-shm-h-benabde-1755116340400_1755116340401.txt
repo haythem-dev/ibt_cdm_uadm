@@ -1,0 +1,40 @@
+
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # echo $INFORMIXSERVER
+zdev21_shm
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # echo $INFORMIXDIR
+/opt/lib/informix11.70FC7
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # cd ..
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load # ls
+bin   data  ini   log   proc  test  vars
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load # cd vars
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/vars # ls
+activationarticle.vars                loadarticlecodes.vars                 loaddktmd.vars                        loadplannedcalls.vars                 loadtradegroup.vars                   tpldcsvtest.vars
+csc_deltransactiondata.vars           loadarticlecodesean.vars              loadflyersubsequent.vars              loadpricelist.vars                    loadworkingdayscalendar.vars          tplddkkui.vars
+debtlimit.vars                        loadarticlecodeseanzdp.vars           loadibtbrancharticleconfig.vars       loadpubranchsupplier.vars             longtermlackloader.vars               tplddrnat.vars
+delartikelkonto.vars                  loadbrancharticleconfig.vars          loadimexblock.vars                    loadpusupplier.vars                   old                                   tpldhipath.vars
+deldupquota.vars                      loadcharge.vars                       loadimexpermission.vars               loadreturnperiods.vars                old_cscozek.vars                      tpldhipath2.vars
+delkdkritik.vars                      loadconditions.vars                   loadlogfilewatchdog.vars              loadroutecheck.vars                   release                               tpldlokalart.vars
+deloldsubsequent.vars                 loadcscarticleprognosis.vars          loadmanufacturer.vars                 loadroutes.vars                       resetquota.vars                       tpldreakauft.vars
+delrufplan.vars                       loadcscbeskopfandposi.vars            loadnarcgroup.vars                    loadrouting.vars                      rufzeitvor.vars                       tpldreimp.vars
+delvaccinsubsequent.vars              loadcscbrancharticle.vars             loadnewquota.new.vars                 loadroutingms.vars                    setarticlecategory.vars               tpldtour.vars
+delvaccinsubsequent.vars.20241226     loadcscpubatchorderpos.vars           loadnewquota.vars                     loadsalesman.vars                     tpldanrufplan.vars                    tpldvseauftrag.vars
+filldeliveryadvicedata.vars           loadcstpharmgrp.vars                  loadordertypes.vars                   loadsupplier.vars                     tpldant.vars                          tpldzentknd.vars
+ksc_load_global.vars                  loadcustgroups.vars                   loadpayterm.vars                      loadsupplier.vars_old                 tpldartindex.vars                     tpldzentral.vars
+ksc_load_global_profile_phoenix.vars  loaddkkaa.vars                        loadpharmgrp.vars                     loadsupport.vars                      tpldarttext.vars                      unload_orderivcvoucherno.vars
+loadartcom.vars                       loaddkkaa.vars.backup                 loadpharmgrpvse.vars                  loadtempquota.vars                    tpldauftr.vars
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/vars # cat tpldauftr.vars
+###############################################################################################
+# HEADER-DATA
+###############################################################################################
+#Author:                        devuser
+#Creation-Date:         04.09.2008
+#Creation-Time:         16:56
+#Purpose:                       declares additional procedure specific variables read in from the procedure file
+###############################################################################################
+
+#========================================================================================#
+# DECLARATION SECTION FOR ADDITIONAL VARIABLES
+#========================================================================================#
+ADDITIONAL_PARA="-db ode21@zdev21_shm -del 35"
+
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/vars #

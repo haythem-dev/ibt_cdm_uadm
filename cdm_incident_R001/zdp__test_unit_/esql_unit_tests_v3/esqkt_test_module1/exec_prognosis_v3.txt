@@ -1,0 +1,306 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+DEBUG: persistent_connection config value: '1'
+DEBUG: isTrue() result: 1
+Using persistent connection mode.
+Executing transaction 0: CREATE TEMP TABLE ich21@zdev21_tcp:temp_artprog_source (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER NOT NULL,     datum INTEGER NOT NULL,     prog_s FLOAT,     wprog_s FLOAT,     PRIMARY KEY (filialnr, artikel_nr, datum) );
+Persistent connection established to: ich21@zdev21_tcp
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 0 returned: 0
+Executing transaction 1: CREATE TEMP TABLE ich21@zdev21_tcp:temp_cscarticleprognosis (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER NOT NULL,     datum INTEGER NOT NULL,     prog_s FLOAT,     wprog_s FLOAT,     lastupdatedate INTEGER DEFAULT 0,     PRIMARY KEY (filialnr, artikel_nr, datum) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 1 returned: 0
+Executing transaction 2: CREATE TEMP TABLE ich21@zdev21_tcp:temp_processing_artprog (     filialnr INTEGER,     artikel_nr INTEGER,     datum INTEGER,     prog_s FLOAT,     wprog_s FLOAT );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 2 returned: 0
+Executing transaction 3: CREATE TEMP TABLE ich21@zdev21_tcp:temp_branch_reference (     filialnr INTEGER NOT NULL PRIMARY KEY,     branchname VARCHAR(40),     region VARCHAR(20),     active_flag INTEGER DEFAULT 1 );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 3 returned: 0
+Executing transaction 4: CREATE TEMP TABLE ich21@zdev21_tcp:temp_validation_results (     validation_type VARCHAR(50),     metric_name VARCHAR(50),     metric_value INTEGER,     description VARCHAR(100) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 4 returned: 0
+Executing transaction 5: INSERT INTO ich21@zdev21_tcp:temp_branch_reference (filialnr, branchname, region, active_flag) VALUES (10, 'Central Pharmacy Berlin', 'North', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 5 returned: 0
+Executing transaction 6: INSERT INTO ich21@zdev21_tcp:temp_branch_reference (filialnr, branchname, region, active_flag) VALUES (20, 'Regional Pharmacy Munich', 'South', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 6 returned: 0
+Executing transaction 7: INSERT INTO ich21@zdev21_tcp:temp_branch_reference (filialnr, branchname, region, active_flag) VALUES (30, 'Metro Pharmacy Vienna', 'Central', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 7 returned: 0
+Executing transaction 8: INSERT INTO ich21@zdev21_tcp:temp_branch_reference (filialnr, branchname, region, active_flag) VALUES (40, 'City Pharmacy Zurich', 'West', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 8 returned: 0
+Executing transaction 9: INSERT INTO ich21@zdev21_tcp:temp_branch_reference (filialnr, branchname, region, active_flag) VALUES (50, 'District Pharmacy Prague', 'East', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 9 returned: 0
+Executing transaction 10: INSERT INTO ich21@zdev21_tcp:temp_cscarticleprognosis (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) VALUES (10, 100001, 20241201, 150.5, 35.2, 20241201);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 10 returned: 0
+Executing transaction 11: INSERT INTO ich21@zdev21_tcp:temp_cscarticleprognosis (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) VALUES (10, 100001, 20241202, 148.3, 34.8, 20241201);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 11 returned: 0
+Executing transaction 12: INSERT INTO ich21@zdev21_tcp:temp_cscarticleprognosis (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) VALUES (10, 100002, 20241201, 89.7, 21.1, 20241201);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 12 returned: 0
+Executing transaction 13: INSERT INTO ich21@zdev21_tcp:temp_cscarticleprognosis (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) VALUES (20, 100001, 20241201, 201.4, 47.3, 20241201);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 13 returned: 0
+Executing transaction 14: INSERT INTO ich21@zdev21_tcp:temp_cscarticleprognosis (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) VALUES (20, 100003, 20241202, 76.8, 18.9, 20241201);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 14 returned: 0
+Executing transaction 15: INSERT INTO ich21@zdev21_tcp:temp_artprog_source (filialnr, artikel_nr, datum, prog_s, wprog_s) VALUES (10, 100001, 20241203, 152.1, 35.9);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 15 returned: 0
+Executing transaction 16: INSERT INTO ich21@zdev21_tcp:temp_artprog_source (filialnr, artikel_nr, datum, prog_s, wprog_s) VALUES (10, 100004, 20241203, 95.3, 22.7);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 16 returned: 0
+Executing transaction 17: INSERT INTO ich21@zdev21_tcp:temp_artprog_source (filialnr, artikel_nr, datum, prog_s, wprog_s) VALUES (30, 100001, 20241203, 178.6, 41.2);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 17 returned: 0
+Executing transaction 18: SELECT (COUNT(*) || ';TOTAL_BRANCH_RECORDS') AS result FROM ich21@zdev21_tcp:temp_branch_reference;
+count              | description          |
+--------------------+---------------------+
+5.0000000000000000 | TOTAL_BRANCH_RECORDS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 18 returned: 0
+Executing transaction 19: SELECT (COUNT(*) || ';TOTAL_SOURCE_RECORDS') AS result FROM ich21@zdev21_tcp:temp_artprog_source;
+count              | description          |
+--------------------+---------------------+
+3.0000000000000000 | TOTAL_SOURCE_RECORDS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 19 returned: 0
+Executing transaction 20: SELECT (COUNT(*) || ';TOTAL_TARGET_RECORDS') AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+count              | description          |
+--------------------+---------------------+
+5.0000000000000000 | TOTAL_TARGET_RECORDS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.012 seconds
+Transaction 20 returned: 0
+Executing transaction 21: SELECT (s.filialnr || ';' || s.artikel_nr || ';' || s.datum || ';' || s.prog_s || ';' || s.wprog_s) AS result FROM ich21@zdev21_tcp:temp_artprog_source s WHERE s.filialnr = 10   AND s.datum >= (SELECT NVL(MAX(lastupdatedate), 0)                   FROM ich21@zdev21_tcp:temp_cscarticleprognosis                   WHERE filialnr = 10) ORDER BY s.datum, s.artikel_nr;
+filialnr | artikel_nr | datum    | prog_s               | wprog_s             |
+----------+-----------+---------+---------------------+--------------------+
+10       | 100001     | 20241203 | 152.0999999999999900 | 35.8999999999999990 |
+10       | 100004     | 20241203 | 95.2999999999999970  | 22.6999999999999990 |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.015 seconds
+Transaction 21 returned: 0
+Executing transaction 22: INSERT INTO ich21@zdev21_tcp:temp_processing_artprog SELECT filialnr, artikel_nr, datum, prog_s, wprog_s FROM ich21@zdev21_tcp:temp_artprog_source WHERE filialnr = 10   AND datum >= (SELECT NVL(MAX(lastupdatedate), 0)                 FROM ich21@zdev21_tcp:temp_cscarticleprognosis                 WHERE filialnr = 10);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 22 returned: 0
+Executing transaction 23: SELECT (COUNT(*) || ';PROCESSING_RECORDS_LOADED') AS result FROM ich21@zdev21_tcp:temp_processing_artprog;
+count              | description               |
+--------------------+--------------------------+
+2.0000000000000000 | PROCESSING_RECORDS_LOADED |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 23 returned: 0
+Executing transaction 24: MERGE INTO ich21@zdev21_tcp:temp_cscarticleprognosis AS cap USING ich21@zdev21_tcp:temp_processing_artprog AS tap ON cap.filialnr = tap.filialnr    AND cap.artikel_nr = tap.artikel_nr    AND cap.datum = tap.datum WHEN MATCHED THEN   UPDATE SET cap.prog_s = tap.prog_s,              cap.wprog_s = tap.wprog_s,              cap.lastupdatedate = 20241203 WHEN NOT MATCHED THEN   INSERT (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate)   VALUES (tap.filialnr, tap.artikel_nr, tap.datum, tap.prog_s, tap.wprog_s, 20241203);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 24 returned: 0
+Executing transaction 25: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'MERGE_SUMMARY', 'updated_today', COUNT(*), 'Records updated today' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE lastupdatedate = 20241203;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 25 returned: 0
+Executing transaction 26: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'MERGE_SUMMARY', 'total_records', COUNT(*), 'Total records in table' FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 26 returned: 0
+Executing transaction 27: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'MERGE_SUMMARY', 'branches_count', COUNT(DISTINCT filialnr), 'Number of branches' FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 27 returned: 0
+Executing transaction 28: SELECT (validation_type || ';' || metric_name || ';' || metric_value || ';' || description) AS result FROM ich21@zdev21_tcp:temp_validation_results WHERE validation_type = 'MERGE_SUMMARY' ORDER BY metric_name;
+operation     | metric         | value | description            |
+---------------+---------------+------+-----------------------+
+MERGE_SUMMARY | branches_count | 2     | Number of branches     |
+MERGE_SUMMARY | total_records  | 7     | Total records in table |
+MERGE_SUMMARY | updated_today  | 2     | Records updated today  |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.016 seconds
+Transaction 28 returned: 0
+Executing transaction 29: SELECT (cap.filialnr || ';' || cap.artikel_nr || ';' || cap.datum || ';' ||            cap.prog_s || ';' || cap.wprog_s || ';' || cap.lastupdatedate) AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap WHERE cap.filialnr = 10 AND cap.lastupdatedate = 20241203 ORDER BY cap.artikel_nr, cap.datum;
+filialnr | artikel_nr | datum    | prog_s               | wprog_s             | lastupdatedate |
+----------+-----------+---------+---------------------+--------------------+---------------+
+10       | 100001     | 20241203 | 152.0999999999999900 | 35.8999999999999990 | 20241203       |
+10       | 100004     | 20241203 | 95.2999999999999970  | 22.6999999999999990 | 20241203       |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 29 returned: 0
+Executing transaction 30: SELECT (cap.filialnr || ';' || cap.artikel_nr || ';' || cap.datum || ';CLEANUP_CANDIDATE') AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap LEFT OUTER JOIN ich21@zdev21_tcp:temp_artprog_source src   ON cap.filialnr = src.filialnr      AND cap.artikel_nr = src.artikel_nr      AND cap.datum = src.datum WHERE cap.filialnr = 10   AND src.datum IS NULL ORDER BY cap.artikel_nr, cap.datum;
+filialnr | artikel_nr | datum    | cleanup_status    |
+----------+-----------+---------+------------------+
+10       | 100001     | 20241201 | CLEANUP_CANDIDATE |
+10       | 100001     | 20241202 | CLEANUP_CANDIDATE |
+10       | 100002     | 20241201 | CLEANUP_CANDIDATE |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.040 seconds
+Transaction 30 returned: 0
+Executing transaction 31: DELETE FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE filialnr = 10   AND NOT EXISTS (SELECT 1 FROM ich21@zdev21_tcp:temp_artprog_source src                   WHERE src.filialnr = temp_cscarticleprognosis.filialnr                     AND src.artikel_nr = temp_cscarticleprognosis.artikel_nr                     AND src.datum = temp_cscarticleprognosis.datum);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 31 returned: 0
+Executing transaction 32: SELECT (COUNT(*) || ';RECORDS_AFTER_CLEANUP') AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE filialnr = 10;
+count              | description           |
+--------------------+----------------------+
+2.0000000000000000 | RECORDS_AFTER_CLEANUP |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.012 seconds
+Transaction 32 returned: 0
+Executing transaction 33: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'CLEANUP_SUMMARY', 'branch_10_records', COUNT(*), 'Records for branch 10 after cleanup' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE filialnr = 10;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 33 returned: 0
+Executing transaction 34: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'CLEANUP_SUMMARY', 'total_records', COUNT(*), 'Total records after cleanup' FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.005 seconds
+Transaction 34 returned: 0
+Executing transaction 35: SELECT (validation_type || ';' || metric_name || ';' || metric_value || ';' || description) AS result FROM ich21@zdev21_tcp:temp_validation_results WHERE validation_type = 'CLEANUP_SUMMARY' ORDER BY metric_name;
+operation       | metric            | value | description                         |
+-----------------+------------------+------+------------------------------------+
+CLEANUP_SUMMARY | branch_10_records | 2     | Records for branch 10 after cleanup |
+CLEANUP_SUMMARY | total_records     | 4     | Total records after cleanup         |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.015 seconds
+Transaction 35 returned: 0
+Executing transaction 36: INSERT INTO ich21@zdev21_tcp:temp_artprog_source SELECT 20, (100000 + (MOD(rowid, 50) + 1)), (20241204 + MOD(rowid, 7)),        (150.0 + MOD(rowid, 100)), (30.0 + MOD(rowid, 20)) FROM ich21@zdev21_tcp:temp_branch_reference WHERE rowid <= 5;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 36 returned: 0
+Executing transaction 37: DELETE FROM ich21@zdev21_tcp:temp_processing_artprog;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.007 seconds
+Transaction 37 returned: 0
+Executing transaction 38: INSERT INTO ich21@zdev21_tcp:temp_processing_artprog SELECT filialnr, artikel_nr, datum, prog_s, wprog_s FROM ich21@zdev21_tcp:temp_artprog_source WHERE filialnr = 20   AND datum >= (SELECT NVL(MAX(lastupdatedate), 0)                 FROM ich21@zdev21_tcp:temp_cscarticleprognosis                 WHERE filialnr = 20);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 38 returned: 0
+Executing transaction 39: MERGE INTO ich21@zdev21_tcp:temp_cscarticleprognosis AS cap USING ich21@zdev21_tcp:temp_processing_artprog AS tap ON cap.filialnr = tap.filialnr    AND cap.artikel_nr = tap.artikel_nr    AND cap.datum = tap.datum WHEN MATCHED THEN   UPDATE SET cap.prog_s = tap.prog_s,              cap.wprog_s = tap.wprog_s,              cap.lastupdatedate = 20241204 WHEN NOT MATCHED THEN   INSERT (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate)   VALUES (tap.filialnr, tap.artikel_nr, tap.datum, tap.prog_s, tap.wprog_s, 20241204);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.007 seconds
+Transaction 39 returned: 0
+Executing transaction 40: SELECT (br.branchname || ';' || COUNT(cap.artikel_nr) || ';' || AVG(cap.prog_s) || ';' || MAX(cap.lastupdatedate)) AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap,      ich21@zdev21_tcp:temp_branch_reference br WHERE cap.filialnr = br.filialnr GROUP BY br.filialnr, br.branchname ORDER BY COUNT(cap.artikel_nr) DESC;
+branchname               | article_count      | avg_prognosis        | last_update |
+--------------------------+-------------------+---------------------+------------+
+Regional Pharmacy Munich | 2.0000000000000000 | 139.0999999999999900 | 20241201    |
+Central Pharmacy Berlin  | 2.0000000000000000 | 123.6999999999999900 | 20241203    |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 40 returned: 0
+Executing transaction 41: SELECT (EXTEND(lastupdatedate, YEAR TO DAY) || ';' || COUNT(*) || ';' || AVG(prog_s)) AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE lastupdatedate >= 20241201 GROUP BY lastupdatedate ORDER BY lastupdatedate;
+Open cursor failed: SQLCODE = -1260 [It is not possible to convert between the specified types.].
+Transaction 41 returned: 2
+Executing transaction 42: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'DATA_QUALITY', 'null_prog_s', COUNT(*), 'Records with NULL prog_s' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE prog_s IS NULL;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 42 returned: 0
+Executing transaction 43: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'DATA_QUALITY', 'null_wprog_s', COUNT(*), 'Records with NULL wprog_s' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE wprog_s IS NULL;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 43 returned: 0
+Executing transaction 44: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'DATA_QUALITY', 'negative_prog_s', COUNT(*), 'Records with negative prog_s' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE prog_s < 0;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 44 returned: 0
+Executing transaction 45: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'DATA_QUALITY', 'negative_wprog_s', COUNT(*), 'Records with negative wprog_s' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE wprog_s < 0;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 45 returned: 0
+Executing transaction 46: SELECT (validation_type || ';' || metric_name || ';' || metric_value || ';' || description) AS result FROM ich21@zdev21_tcp:temp_validation_results WHERE validation_type = 'DATA_QUALITY' ORDER BY metric_name;
+check_type   | metric           | value | description                   |
+--------------+-----------------+------+------------------------------+
+DATA_QUALITY | negative_prog_s  | 0     | Records with negative prog_s  |
+DATA_QUALITY | negative_wprog_s | 0     | Records with negative wprog_s |
+DATA_QUALITY | null_prog_s      | 0     | Records with NULL prog_s      |
+DATA_QUALITY | null_wprog_s     | 0     | Records with NULL wprog_s     |
+Returned 4 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.015 seconds
+Transaction 46 returned: 0
+Executing transaction 47: DELETE FROM ich21@zdev21_tcp:temp_processing_artprog;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 47 returned: 0
+Executing transaction 48: INSERT INTO ich21@zdev21_tcp:temp_artprog_source (filialnr, artikel_nr, datum, prog_s, wprog_s) VALUES (30, 100008, 20241205, NULL, 25.5);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.006 seconds
+Transaction 48 returned: 0
+Executing transaction 49: INSERT INTO ich21@zdev21_tcp:temp_artprog_source (filialnr, artikel_nr, datum, prog_s, wprog_s) VALUES (30, 100009, 20241205, 125.3, NULL);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 49 returned: 0
+Executing transaction 50: INSERT INTO ich21@zdev21_tcp:temp_processing_artprog SELECT filialnr, artikel_nr, datum, prog_s, wprog_s FROM ich21@zdev21_tcp:temp_artprog_source WHERE filialnr = 30 AND datum = 20241205;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 50 returned: 0
+Executing transaction 51: MERGE INTO ich21@zdev21_tcp:temp_cscarticleprognosis AS cap USING ich21@zdev21_tcp:temp_processing_artprog AS tap ON cap.filialnr = tap.filialnr    AND cap.artikel_nr = tap.artikel_nr    AND cap.datum = tap.datum WHEN MATCHED THEN   UPDATE SET cap.prog_s = NVL(tap.prog_s, cap.prog_s),              cap.wprog_s = NVL(tap.wprog_s, cap.wprog_s),              cap.lastupdatedate = 20241205 WHEN NOT MATCHED THEN   INSERT (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate)   VALUES (tap.filialnr, tap.artikel_nr, tap.datum,           NVL(tap.prog_s, 0), NVL(tap.wprog_s, 0), 20241205);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.005 seconds
+Transaction 51 returned: 0
+Executing transaction 52: SELECT (cap.filialnr || ';' || COUNT(*) || ';' ||            SUM(cap.prog_s) || ';' || SUM(cap.wprog_s) || ';' ||            MIN(cap.datum) || ';' || MAX(cap.datum)) AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap GROUP BY cap.filialnr ORDER BY COUNT(*) DESC;
+filialnr | record_count       | total_prog_s         | total_wprog_s       | min_date | max_date |
+----------+-------------------+---------------------+--------------------+---------+---------+
+10       | 2.0000000000000000 | 247.3999999999999800 | 58.5999999999999940 | 20241203 | 20241203 |
+20       | 2.0000000000000000 | 278.1999999999999900 | 66.1999999999999890 | 20241201 | 20241202 |
+30       | 2.0000000000000000 | 125.3000000000000000 | 25.5000000000000000 | 20241205 | 20241205 |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 52 returned: 0
+Executing transaction 53: SELECT (cap.filialnr || ';' || br.branchname || ';' || cap.artikel_nr || ';' ||            cap.prog_s || ';' || cap.wprog_s || ';' || cap.lastupdatedate) AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap,      ich21@zdev21_tcp:temp_branch_reference br WHERE cap.filialnr = br.filialnr   AND br.active_flag = 1   AND cap.prog_s > 100 ORDER BY cap.prog_s DESC, cap.artikel_nr;
+filialnr | branchname               | artikel_nr | prog_s               | wprog_s             | lastupdatedate |
+----------+-------------------------+-----------+---------------------+--------------------+---------------+
+20       | Regional Pharmacy Munich | 100001     | 201.4000000000000100 | 47.2999999999999970 | 20241201       |
+10       | Central Pharmacy Berlin  | 100001     | 152.0999999999999900 | 35.8999999999999990 | 20241203       |
+30       | Metro Pharmacy Vienna    | 100009     | 125.3000000000000000 | 0.0000000000000000  | 20241205       |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.020 seconds
+Transaction 53 returned: 0
+Executing transaction 54: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'FINAL_VALIDATION', 'total_records', COUNT(*), 'Total records in final table' FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 54 returned: 0
+Executing transaction 55: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'FINAL_VALIDATION', 'unique_branches', COUNT(DISTINCT filialnr), 'Number of unique branches' FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 55 returned: 0
+Executing transaction 56: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'FINAL_VALIDATION', 'unique_articles', COUNT(DISTINCT artikel_nr), 'Number of unique articles' FROM ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 56 returned: 0
+Executing transaction 57: INSERT INTO ich21@zdev21_tcp:temp_validation_results SELECT 'FINAL_VALIDATION', 'recent_updates', COUNT(*), 'Records updated since 20241203' FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE lastupdatedate >= 20241203;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.004 seconds
+Transaction 57 returned: 0
+Executing transaction 58: SELECT (validation_type || ';' || metric_name || ';' || metric_value || ';' || description) AS result FROM ich21@zdev21_tcp:temp_validation_results WHERE validation_type = 'FINAL_VALIDATION' ORDER BY metric_name;
+validation_type  | metric          | value | description                    |
+------------------+----------------+------+-------------------------------+
+FINAL_VALIDATION | recent_updates  | 4     | Records updated since 20241203 |
+FINAL_VALIDATION | total_records   | 6     | Total records in final table   |
+FINAL_VALIDATION | unique_articles | 5     | Number of unique articles      |
+FINAL_VALIDATION | unique_branches | 3     | Number of unique branches      |
+Returned 4 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 58 returned: 0
+Executing transaction 59: SELECT (cap.filialnr || ';' ||            COUNT(*) || ';' ||            COUNT(CASE WHEN cap.prog_s > 0 THEN 1 END) || ';' ||            COUNT(CASE WHEN cap.wprog_s > 0 THEN 1 END)) AS result FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap GROUP BY cap.filialnr HAVING COUNT(*) > 0 ORDER BY cap.filialnr;
+filialnr | total_records      | positive_prog_s    | positive_wprog_s   |
+----------+-------------------+-------------------+-------------------+
+10       | 2.0000000000000000 | 2.0000000000000000 | 2.0000000000000000 |
+20       | 2.0000000000000000 | 2.0000000000000000 | 2.0000000000000000 |
+30       | 2.0000000000000000 | 1.0000000000000000 | 1.0000000000000000 |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 59 returned: 0
+Executing transaction 60: DROP TABLE ich21@zdev21_tcp:temp_artprog_source;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 60 returned: 0
+Executing transaction 61: DROP TABLE ich21@zdev21_tcp:temp_cscarticleprognosis;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 61 returned: 0
+Executing transaction 62: DROP TABLE ich21@zdev21_tcp:temp_processing_artprog;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.007 seconds
+Transaction 62 returned: 0
+Executing transaction 63: DROP TABLE ich21@zdev21_tcp:temp_branch_reference;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 63 returned: 0
+Executing transaction 64: DROP TABLE ich21@zdev21_tcp:temp_validation_results;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 64 returned: 0
+Executing transaction 65: SELECT 'VALIDATION_COMPLETE;ALL_TABLES_DROPPED;TEST_COMPLETED' AS result;
+Open cursor failed: SQLCODE = -404 [The cursor or statement is not available.].
+Transaction 65 returned: 2
+Closing persistent database connection.
+Persistent Disconnect failed: SQLCODE = -1800 [Invalid transaction state.].
++--------------------------------------------------------------------------------------------------------+
+| 66 transactions processed, successful: 64, skipped: 0, total TXN time: 0.602s, average per TXN: 0.009s |
++--------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld\pharmos.base.libtpld\dev\src\x64\Release\esqltest.exe (process 9796) exited with code 0 (0x0).
+Press any key to close this window . . .

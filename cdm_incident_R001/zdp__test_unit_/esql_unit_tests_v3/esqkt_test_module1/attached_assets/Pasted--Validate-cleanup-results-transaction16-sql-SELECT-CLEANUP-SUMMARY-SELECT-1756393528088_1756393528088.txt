@@ -1,0 +1,162 @@
+# Validate cleanup results
+[transaction16]
+sql=SELECT ('CLEANUP_SUMMARY;' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE filialnr = 10) || ';' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis)) AS result;
+header=operation;branch_10_records;total_records
+
+# ==============================================================================
+# PHASE 6: BATCH PROCESSING SIMULATION - Test large dataset handling
+# ==============================================================================
+
+# Create larger dataset for batch processing test - using fixed values instead of RANDOM
+[transaction17]
+sql=INSERT INTO ich21@zdev21_tcp:temp_artprog_source \
+SELECT 20, (100000 + (MOD(rowid, 50) + 1)), (20241204 + MOD(rowid, 7)), \
+       (150.0 + MOD(rowid, 100)), (30.0 + MOD(rowid, 20)) \
+FROM ich21@zdev21_tcp:temp_branch_reference \
+WHERE rowid <= 5;
+
+# Simulate batch processing with branch 20
+[transaction18]  
+sql=INSERT INTO ich21@zdev21_tcp:temp_processing_artprog \
+SELECT filialnr, artikel_nr, datum, prog_s, wprog_s \
+FROM ich21@zdev21_tcp:temp_artprog_source \
+WHERE filialnr = 20 \
+  AND datum >= (SELECT NVL(MAX(lastupdatedate), 0) \
+                FROM ich21@zdev21_tcp:temp_cscarticleprognosis \
+                WHERE filialnr = 20);
+
+# Execute batch MERGE
+[transaction19]
+sql=MERGE INTO ich21@zdev21_tcp:temp_cscarticleprognosis AS cap \
+USING ich21@zdev21_tcp:temp_processing_artprog AS tap \
+ON cap.filialnr = tap.filialnr \
+   AND cap.artikel_nr = tap.artikel_nr \
+   AND cap.datum = tap.datum \
+WHEN MATCHED THEN \
+  UPDATE SET cap.prog_s = tap.prog_s, \
+             cap.wprog_s = tap.wprog_s, \
+             cap.lastupdatedate = 20241204 \
+WHEN NOT MATCHED THEN \
+  INSERT (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) \
+  VALUES (tap.filialnr, tap.artikel_nr, tap.datum, tap.prog_s, tap.wprog_s, 20241204);
+
+# ==============================================================================
+# PHASE 7: BUSINESS LOGIC VALIDATION - Test module-specific scenarios
+# ==============================================================================
+
+# Test multi-branch processing results
+[transaction20]
+sql=SELECT (br.branchname || ';' || COUNT(cap.artikel_nr) || ';' || AVG(cap.prog_s) || ';' || MAX(cap.lastupdatedate)) AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap, \
+     ich21@zdev21_tcp:temp_branch_reference br \
+WHERE cap.filialnr = br.filialnr \
+GROUP BY br.filialnr, br.branchname \
+ORDER BY COUNT(cap.artikel_nr) DESC;
+header=branchname;article_count;avg_prognosis;last_update
+
+# Validate date-based incremental logic
+[transaction21]
+sql=SELECT (DATE(lastupdatedate) || ';' || COUNT(*) || ';' || AVG(prog_s)) AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis \
+WHERE lastupdatedate >= 20241201 \
+GROUP BY DATE(lastupdatedate) \
+ORDER BY DATE(lastupdatedate);
+header=update_date;record_count;avg_prognosis
+
+# Test prognosis value ranges and data quality
+[transaction22]
+sql=SELECT ('DATA_QUALITY;' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE prog_s IS NULL) || ';' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE wprog_s IS NULL) || ';' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE prog_s < 0) || ';' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE wprog_s < 0)) AS result;
+header=check_type;null_prog_s;null_wprog_s;negative_prog_s;negative_wprog_s
+
+# ==============================================================================
+# PHASE 8: ERROR HANDLING SIMULATION - Test edge cases
+# ==============================================================================
+
+# Test with NULL values handling
+[transaction23]
+sql=INSERT INTO ich21@zdev21_tcp:temp_artprog_source \
+(filialnr, artikel_nr, datum, prog_s, wprog_s) VALUES \
+(30, 100008, 20241205, NULL, 25.5), \
+(30, 100009, 20241205, 125.3, NULL);
+
+# Test duplicate key handling (should update existing)
+[transaction24]
+sql=INSERT INTO ich21@zdev21_tcp:temp_processing_artprog \
+SELECT filialnr, artikel_nr, datum, prog_s, wprog_s \
+FROM ich21@zdev21_tcp:temp_artprog_source \
+WHERE filialnr = 30 AND datum = 20241205;
+
+# Execute final MERGE with edge cases
+[transaction25]
+sql=MERGE INTO ich21@zdev21_tcp:temp_cscarticleprognosis AS cap \
+USING ich21@zdev21_tcp:temp_processing_artprog AS tap \
+ON cap.filialnr = tap.filialnr \
+   AND cap.artikel_nr = tap.artikel_nr \
+   AND cap.datum = tap.datum \
+WHEN MATCHED THEN \
+  UPDATE SET cap.prog_s = NVL(tap.prog_s, cap.prog_s), \
+             cap.wprog_s = NVL(tap.wprog_s, cap.wprog_s), \
+             cap.lastupdatedate = 20241205 \
+WHEN NOT MATCHED THEN \
+  INSERT (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) \
+  VALUES (tap.filialnr, tap.artikel_nr, tap.datum, \
+          NVL(tap.prog_s, 0), NVL(tap.wprog_s, 0), 20241205);
+
+# ==============================================================================
+# PHASE 9: PERFORMANCE VALIDATION - Test timing and efficiency
+# ==============================================================================
+
+# Performance test - large result set with aggregations
+[transaction26]
+sql=SELECT (cap.filialnr || ';' || COUNT(*) || ';' || \
+           SUM(cap.prog_s) || ';' || SUM(cap.wprog_s) || ';' || \
+           MIN(cap.datum) || ';' || MAX(cap.datum)) AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap \
+GROUP BY cap.filialnr \
+ORDER BY COUNT(*) DESC;
+header=filialnr;record_count;total_prog_s;total_wprog_s;min_date;max_date
+limit=20
+
+# Test complex joins (simulates module's complex operations)
+[transaction27]
+sql=SELECT (cap.filialnr || ';' || br.branchname || ';' || cap.artikel_nr || ';' || \
+           cap.prog_s || ';' || cap.wprog_s || ';' || cap.lastupdatedate) AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap, \
+     ich21@zdev21_tcp:temp_branch_reference br \
+WHERE cap.filialnr = br.filialnr \
+  AND br.active_flag = 1 \
+  AND cap.prog_s > 100 \
+ORDER BY cap.prog_s DESC, cap.artikel_nr;
+header=filialnr;branchname;artikel_nr;prog_s;wprog_s;lastupdatedate
+limit=15
+
+# ==============================================================================
+# PHASE 10: FINAL VALIDATION - Comprehensive data integrity check
+# ==============================================================================
+
+# Final comprehensive validation
+[transaction28]
+sql=SELECT ('FINAL_VALIDATION;' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis) || ';' || \
+           (SELECT COUNT(DISTINCT filialnr) FROM ich21@zdev21_tcp:temp_cscarticleprognosis) || ';' || \
+           (SELECT COUNT(DISTINCT artikel_nr) FROM ich21@zdev21_tcp:temp_cscarticleprognosis) || ';' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE lastupdatedate >= 20241203)) AS result;
+header=validation_type;total_records;unique_branches;unique_articles;recent_updates
+
+# Data consistency cross-check
+[transaction29]
+sql=SELECT (cap.filialnr || ';' || \
+           COUNT(*) || ';' || \
+           COUNT(CASE WHEN cap.prog_s > 0 THEN 1 END) || ';' || \
+           COUNT(CASE WHEN cap.wprog_s > 0 THEN 1 END)) AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap \
+GROUP BY cap.filialnr \
+HAVING COUNT(*) > 0 \
+ORDER BY cap.filialnr;
+header=filialnr;total_records;positive_prog_s;positive_wprog_s

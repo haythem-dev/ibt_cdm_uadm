@@ -1,0 +1,39 @@
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # ./tpldauftr.sh -start -fil 50
+INFO: CPR Enhancement - Business day mode implicitly enabled (default behavior)
+INFO: CPR Enhancement - Business day logic ACTIVE (mode: enabled)
+=====================================================================================
+SH: START /software/wss/de/ksc/load/proc/printStartStop -start -fil 50
+=====================================================================================
+O 00 13.08.25 22:50:09 pid=15073610 ================================================
+O 00 13.08.25 22:50:09 pid=15073610 START
+O 00 13.08.25 22:50:09 pid=15073610 ================================================
+CPR LOG: Building main kdauftrag query for filial 50
+CPR LOG: Business day mode enabled but cutoff_date not set (0) - no filter applied
+CPR LOG: Final main query SQL: select KDAUFTRAG.KDAUFTRAGNR,KDAUFTRAG.KDAUFTRAGSTAT,KDAUFTRAG.IDFNR,KDAUFTRAG.GERAETNAME,KDAUFTRAG.TOURID,KDAUFTRAG.TOURIDALT,KDAUFTRAG.PERSONALNR,KDAUFTRAG.MATCHCODE,KDAUFTRAG.RECHNUNGNR,KDAUFTRAG.FILIALNR,KDAUFTRAG.ETAUFTRAGSCHALTER1,KDAUFTRAG.ETAUFTRAGSCHALTER2,KDAUFTRAG.ETAUFTRAGSCHALTER3,KDAUFTRAG.ETAUFTRAGSCHALTER4,KDAUFTRAG.KDAUFTRAGART,KDAUFTRAG.KOART,KDAUFTRAG.BUCHART,KDAUFTRAG.DATUMVALUTA,KDAUFTRAG.WERTAUFTRAG,KDAUFTRAG.WERTLIEFERUNG,KDAUFTRAG.WERTZEILEN,KDAUFTRAG.ANZPOS,KDAUFTRAG.ANZPOSOB,KDAUFTRAG.ANZPOSLETZTE,KDAUFTRAG.ANZPOSDAFUE,KDAUFTRAG.ANZPOSDAFUEFEHLER,KDAUFTRAG.ANZALPHATEXT,KDAUFTRAG.ANZBTM,KDAUFTRAG.ANZCONTAINER,KDAUFTRAG.ANZBEHAELTWECHSEL,KDAUFTRAG.ANZBEHAELT,KDAUFTRAG.ANZSONDERWANNE,KDAUFTRAG.BEHAELTERGEWICHT,KDAUFTRAG.RABATTBARPROZ,KDAUFTRAG.ZEITENDEAM,KDAUFTRAG.ZEITENDEPM,KDAUFTRAG.LAGERNRRECHNUNG,KDAUFTRAG.AUFTRAGNRKO,KDAUFTRAG.DMOBILPLATZNR,KDAUFTRAG.SKDDEFEKTABSAGEN,KDAUFTRAG.DRUCKPOSITION,KDAUFTRAG.BATCHSCHREIBEN,KDAUFTRAG.BEMERKUNGEN,KDAUFTRAG.KUNDETEXT,KDAUFTRAG.HERKUNFTFILIALE,KDAUFTRAG.NAECHSTETOUR,KDAUFTRAG.LETZTETOUR,KDAUFTRAG.DAFUEAUFTRAGNR,KDAUFTRAG.DAFUEGERAETENAME,KDAUFTRAG.VERTRIEBSZENTRUMNR,KDAUFTRAG.KUNDENNR,KDAUFTRAG.KDAUFTRAGNRFILIALE,KDAUFTRAG.SENDESTATUS,KDAUFTRAG.POOLTYP,KDAUFTRAG.POOLNR,KDAUFTRAG.ZUGRUND,KDAUFTRAG.DATUMAUSLIEFERUNG,KDAUFTRAG.KDAUFTRAGNRORG,KDAUFTRAG.DATUMORG,KDAUFTRAG.KZRESTORED,KDAUFTRAG.BATCHAUFTRAGNR,KDAUFTRAG.SUB_ORDER_TYPE,KDAUFTRAG.PAYMENT_TERM,KDAUFTRAG.ANZAUF,KDAUFTRAG.DATUMVALUTABATCH,KDAUFTRAG.VALUTAMONAUTO,KDAUFTRAG.VALUTAMONMANUELL,KDAUFTRAG.TENDERNO,KDAUFTRAG.DATUMVERSAND,KDAUFTRAG.DATUMBTM,KDAUFTRAG.BTMFORMULARNR,KDAUFTRAG.WERTNETTO,KDAUFTRAG.WERTRABATT,KDAUFTRAG.INVOICENUMBER,KDAUFTRAG.PAYMENTDATE,KDAUFTRAG.PAYMENTTYPE,KDAUFTRAG.ETAUFTRAGSCHALTER5,KDAUFTRAG.ETAUFTRAGSCHALTER6,KDAUFTRAG.DRIVERID,KDAUFTRAG.XMLREFERENCENO,KDAUFTRAG.LOGISTICVOLUME,KDAUFTRAG.ORDERLABEL,KDAUFTRAG.DPODAYS,KDAUFTRAG.ORDERPERIODID,KDAUFTRAG.ORIGINTYPEORG from kdauftrag where vertriebszentrumnr= 50 for update
+CPR LOG: Preparing Skdauftrag query...
+CPR LOG: Skdauftrag query prepared successfully
+CPR LOG: Building fkwarteschlange subquery for filial 50
+CPR LOG: Business day mode enabled but cutoff_date not set (0) - no filter applied to subquery
+CPR LOG: Final fkwarteschlange query SQL: select * from fkwarteschlange where kdauftragnr in (select kdauftragnr from kdauftrag where vertriebszentrumnr=50) for update
+CPR LOG: Preparing Sfkwarteschlange query...
+CPR LOG: Sfkwarteschlange query prepared successfully
+CPR LOG: Business day mode status: ENABLED (mode=1, explicit=1)
+CPR LOG: Initializing business day enhancement (version 1.0.0)
+CPR LOG: Current settings - cutoff_hour=6, cutoff_minute=0, force_date=0, archive_mode=normal
+CPR LOG: Starting business day cutoff calculation
+CPR LOG: Current time: 2025-08-13 22:50:09
+CPR LOG: Time comparison - current_minutes=1370, cutoff_minutes=360 (cutoff at 06:00)
+CPR LOG: Normal run after 06:00 - using current business day
+CPR LOG: Final cutoff date calculated: 20250813 (target date: 2025-08-13)
+CPR LOG: Business day enhancement ready - cutoff date: 20250813
+CPR LOG: Business day logic will be applied to SQL queries
+start_process:
+        RC:<0>: --> OK:    Application started.
+        Parameter: </software/wss/de/ksc/load/bin/tpldauftr.bin --business-day-mode enabled -fil 50 -db ode21@zdev21_shm -del 35>;
+O 00 13.08.25 22:50:09 pid=15073610 ================================================
+O 00 13.08.25 22:50:09 pid=15073610 STOP with Return-Code: <<0>>.
+O 00 13.08.25 22:50:09 pid=15073610 ================================================
+=====================================================================================
+SH: STOP /software/wss/de/ksc/load/proc/printStartStop -start -fil 50
+=====================================================================================
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc #

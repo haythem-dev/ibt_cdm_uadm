@@ -1,0 +1,127 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+Executing transaction 0: CREATE TABLE test_artikelf_source (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER NOT NULL,     besla_nr INTEGER,     bestand_min INTEGER,     artikelaktiv CHAR(1),     lagerfachnr CHAR(10),     offene_bestmenge INTEGER,     datum_aender INTEGER NOT NULL,     openorderqty_noteffective INTEGER ) WITH NO LOG;
+Connection successful.
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 0 returned: 2
+Executing transaction 1: CREATE TABLE test_cscbrancharticle (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER NOT NULL,     besla_nr INTEGER,     bestand_min INTEGER,     artikelaktiv CHAR(1),     lagerfachnr CHAR(10),     offene_bestmenge INTEGER,     openorderqty_noteffective INTEGER,     lastupdatedate INTEGER DEFAULT 0 ) WITH NO LOG;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 1 returned: 1
+Executing transaction 2: CREATE TABLE test_processing_artikelf (     filialnr INTEGER,     artikel_nr INTEGER,     besla_nr INTEGER,     bestand_min INTEGER,     artikelaktiv CHAR(1),     lagerfachnr CHAR(10),     offene_bestmenge INTEGER,     datum_aender INTEGER,     openorderqty_noteffective INTEGER ) WITH NO LOG;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 2 returned: 1
+Executing transaction 3: CREATE TABLE test_branch_reference (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER,     branchname VARCHAR(40),     region VARCHAR(20),     active_flag INTEGER DEFAULT 1 ) WITH NO LOG;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 3 returned: 1
+Executing transaction 4: CREATE TABLE test_validation_results (     validation_type VARCHAR(50),     metric_name VARCHAR(50),     metric_value INTEGER,     description VARCHAR(100) ) WITH NO LOG;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 4 returned: 1
+Executing transaction 5: BEGIN WORK; INSERT INTO test_branch_reference (filialnr, branchname, region, active_flag) VALUES (10, 'Central Branch Berlin', 'North', 1); INSERT INTO test_branch_reference (filialnr, branchname, region, active_flag) VALUES (20, 'Regional Branch Munich', 'South', 1); INSERT INTO test_branch_reference (filialnr, branchname, region, active_flag) VALUES (30, 'Metro Branch Vienna', 'Central', 1); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 5 returned: 1
+Executing transaction 6: BEGIN WORK; INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) VALUES (10, 100001, 501, 25, 'Y', 'A001', 150, 75, 20250125); INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) VALUES (10, 100002, 502, 30, 'Y', 'A002', 200, 100, 20250125); INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) VALUES (20, 100001, 503, 20, 'Y', 'B001', 180, 90, 20250125); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 6 returned: 1
+Executing transaction 7: BEGIN WORK; INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (10, 100001, 501, 30, 'Y', 'A001', 175, 20250126, 80); INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (10, 100003, 504, 15, 'Y', 'A003', 120, 20250126, 60); INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (30, 100001, 505, 25, 'Y', 'C001', 160, 20250126, 85); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 7 returned: 1
+Executing transaction 8: SELECT (COUNT(*)::VARCHAR(10) || ';TOTAL_BRANCH_RECORDS') AS result FROM test_branch_reference;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 8 returned: 1
+Executing transaction 9: SELECT (COUNT(*)::VARCHAR(10) || ';TOTAL_SOURCE_RECORDS') AS result FROM test_artikelf_source;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 9 returned: 1
+Executing transaction 10: SELECT (COUNT(*)::VARCHAR(10) || ';TOTAL_TARGET_RECORDS') AS result FROM test_cscbrancharticle;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 10 returned: 1
+Executing transaction 11: SELECT (s.filialnr::VARCHAR(10) || ';' || s.artikel_nr::VARCHAR(10) || ';' ||            CASE WHEN s.besla_nr IS NULL THEN 'NULL' ELSE s.besla_nr::VARCHAR(10) END || ';' ||            CASE WHEN s.bestand_min IS NULL THEN 'NULL' ELSE s.bestand_min::VARCHAR(10) END || ';' ||            CASE WHEN s.artikelaktiv IS NULL THEN 'NULL' ELSE s.artikelaktiv END || ';' ||            CASE WHEN s.lagerfachnr IS NULL THEN 'NULL' ELSE s.lagerfachnr END || ';' ||            CASE WHEN s.offene_bestmenge IS NULL THEN 'NULL' ELSE s.offene_bestmenge::VARCHAR(10) END || ';' ||            s.datum_aender::VARCHAR(10) || ';' ||            CASE WHEN s.openorderqty_noteffective IS NULL THEN 'NULL' ELSE s.openorderqty_noteffective::VARCHAR(10) END) AS result FROM test_artikelf_source s WHERE s.filialnr = 10   AND s.datum_aender >= (SELECT NVL(MAX(lastupdatedate), 0)                          FROM test_cscbrancharticle                          WHERE filialnr = 10) ORDER BY s.artikel_nr;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 11 returned: 1
+Executing transaction 12: BEGIN WORK; DELETE FROM test_processing_artikelf; INSERT INTO test_processing_artikelf SELECT filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective FROM test_artikelf_source WHERE filialnr = 10   AND datum_aender >= (SELECT NVL(MAX(lastupdatedate), 0)                        FROM test_cscbrancharticle                        WHERE filialnr = 10); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 12 returned: 1
+Executing transaction 13: SELECT (COUNT(*)::VARCHAR(10) || ';PROCESSING_RECORDS_LOADED') AS result FROM test_processing_artikelf;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 13 returned: 1
+Executing transaction 14: BEGIN WORK; UPDATE test_cscbrancharticle SET besla_nr = (SELECT taf.besla_nr FROM test_processing_artikelf taf                 WHERE taf.filialnr = test_cscbrancharticle.filialnr                 AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     bestand_min = (SELECT taf.bestand_min FROM test_processing_artikelf taf                    WHERE taf.filialnr = test_cscbrancharticle.filialnr                    AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     artikelaktiv = (SELECT taf.artikelaktiv FROM test_processing_artikelf taf                     WHERE taf.filialnr = test_cscbrancharticle.filialnr                     AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     lagerfachnr = (SELECT taf.lagerfachnr FROM test_processing_artikelf taf                    WHERE taf.filialnr = test_cscbrancharticle.filialnr                    AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     offene_bestmenge = (SELECT taf.offene_bestmenge FROM test_processing_artik
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 14 returned: 1
+Executing transaction 15: BEGIN WORK; INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) SELECT taf.filialnr, taf.artikel_nr, taf.besla_nr, taf.bestand_min, taf.artikelaktiv, taf.lagerfachnr, taf.offene_bestmenge, taf.openorderqty_noteffective, 20250126 FROM test_processing_artikelf taf WHERE NOT EXISTS (SELECT 1 FROM test_cscbrancharticle cba                   WHERE cba.filialnr = taf.filialnr                   AND cba.artikel_nr = taf.artikel_nr); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 15 returned: 1
+Executing transaction 16: BEGIN WORK; INSERT INTO test_validation_results SELECT 'MERGE_SUMMARY', 'updated_today', COUNT(*), 'Records updated today' FROM test_cscbrancharticle WHERE lastupdatedate = 20250126; INSERT INTO test_validation_results SELECT 'MERGE_SUMMARY', 'total_records', COUNT(*), 'Total records in table' FROM test_cscbrancharticle; COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 16 returned: 1
+Executing transaction 17: SELECT (validation_type || ';' || metric_name || ';' || metric_value::VARCHAR(10) || ';' || description) AS result FROM test_validation_results WHERE validation_type = 'MERGE_SUMMARY' ORDER BY metric_name;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 17 returned: 1
+Executing transaction 18: SELECT (cba.filialnr::VARCHAR(10) || ';' || cba.artikel_nr::VARCHAR(10) || ';' ||            CASE WHEN cba.besla_nr IS NULL THEN 'NULL' ELSE cba.besla_nr::VARCHAR(10) END || ';' ||            CASE WHEN cba.bestand_min IS NULL THEN 'NULL' ELSE cba.bestand_min::VARCHAR(10) END || ';' ||            CASE WHEN cba.artikelaktiv IS NULL THEN 'NULL' ELSE cba.artikelaktiv END || ';' ||            CASE WHEN cba.lagerfachnr IS NULL THEN 'NULL' ELSE cba.lagerfachnr END || ';' ||            CASE WHEN cba.offene_bestmenge IS NULL THEN 'NULL' ELSE cba.offene_bestmenge::VARCHAR(10) END || ';' ||            CASE WHEN cba.openorderqty_noteffective IS NULL THEN 'NULL' ELSE cba.openorderqty_noteffective::VARCHAR(10) END || ';' ||            cba.lastupdatedate::VARCHAR(10)) AS result FROM test_cscbrancharticle cba WHERE cba.filialnr = 10 AND cba.lastupdatedate = 20250126 ORDER BY cba.artikel_nr;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 18 returned: 1
+Executing transaction 19: SELECT (cba.filialnr::VARCHAR(10) || ';' || cba.artikel_nr::VARCHAR(10) || ';' ||            CASE WHEN cba.besla_nr IS NULL THEN 'NULL' ELSE cba.besla_nr::VARCHAR(10) END || ';CLEANUP_CANDIDATE') AS result FROM test_cscbrancharticle cba WHERE cba.filialnr = 10   AND NOT EXISTS (SELECT 1 FROM test_artikelf_source src                   WHERE cba.filialnr = src.filialnr AND cba.artikel_nr = src.artikel_nr) ORDER BY cba.artikel_nr;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 19 returned: 1
+Executing transaction 20: BEGIN WORK; DELETE FROM test_cscbrancharticle WHERE filialnr = 10   AND NOT EXISTS (SELECT 1 FROM test_artikelf_source src                   WHERE test_cscbrancharticle.filialnr = src.filialnr                   AND test_cscbrancharticle.artikel_nr = src.artikel_nr); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 20 returned: 1
+Executing transaction 21: SELECT (COUNT(*)::VARCHAR(10) || ';RECORDS_AFTER_CLEANUP') AS result FROM test_cscbrancharticle WHERE filialnr = 10;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 21 returned: 1
+Executing transaction 22: BEGIN WORK; INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (20, 100010, 510, 15, 'Y', 'B010', 110, 20250127, 55); INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (20, 100011, 511, 20, 'Y', 'B011', 130, 20250127, 65); INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (20, 100012, 512, 25, 'Y', 'B012', 150, 20250127, 75); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 22 returned: 1
+Executing transaction 23: BEGIN WORK; DELETE FROM test_processing_artikelf; INSERT INTO test_processing_artikelf SELECT filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective FROM test_artikelf_source WHERE filialnr = 20   AND datum_aender >= (SELECT NVL(MAX(lastupdatedate), 0)                        FROM test_cscbrancharticle                        WHERE filialnr = 20); COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 23 returned: 1
+Executing transaction 24: BEGIN WORK; UPDATE test_cscbrancharticle SET besla_nr = (SELECT taf.besla_nr FROM test_processing_artikelf taf                 WHERE taf.filialnr = test_cscbrancharticle.filialnr                 AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     bestand_min = (SELECT taf.bestand_min FROM test_processing_artikelf taf                    WHERE taf.filialnr = test_cscbrancharticle.filialnr                    AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     artikelaktiv = (SELECT taf.artikelaktiv FROM test_processing_artikelf taf                     WHERE taf.filialnr = test_cscbrancharticle.filialnr                     AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     lagerfachnr = (SELECT taf.lagerfachnr FROM test_processing_artikelf taf                    WHERE taf.filialnr = test_cscbrancharticle.filialnr                    AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     offene_bestmenge = (SELECT taf.offene_bestmenge FROM test_processing_artik
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 24 returned: 1
+Executing transaction 25: SELECT (br.branchname || ';' || COUNT(cba.artikel_nr)::VARCHAR(10) || ';' ||            ROUND(AVG(cba.bestand_min), 2)::VARCHAR(10) || ';' || MAX(cba.lastupdatedate)::VARCHAR(10)) AS result FROM test_cscbrancharticle cba, test_branch_reference br WHERE cba.filialnr = br.filialnr GROUP BY br.filialnr, br.branchname ORDER BY COUNT(cba.artikel_nr) DESC;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 25 returned: 1
+Executing transaction 26: SELECT (CASE WHEN artikelaktiv IS NULL THEN 'NULL' ELSE artikelaktiv END || ';' || COUNT(*)::VARCHAR(10) || ';ACTIVITY_STATUS') AS result FROM test_cscbrancharticle GROUP BY artikelaktiv ORDER BY artikelaktiv;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 26 returned: 1
+Executing transaction 27: BEGIN WORK; INSERT INTO test_validation_results SELECT 'DATA_QUALITY', 'null_besla_nr', COUNT(*), 'Records with NULL besla_nr' FROM test_cscbrancharticle WHERE besla_nr IS NULL; INSERT INTO test_validation_results SELECT 'DATA_QUALITY', 'negative_bestand_min', COUNT(*), 'Records with negative bestand_min' FROM test_cscbrancharticle WHERE bestand_min < 0; INSERT INTO test_validation_results SELECT 'DATA_QUALITY', 'inactive_articles', COUNT(*), 'Records with inactive articles' FROM test_cscbrancharticle WHERE artikelaktiv = 'N'; COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 27 returned: 1
+Executing transaction 28: SELECT (validation_type || ';' || metric_name || ';' || metric_value::VARCHAR(10) || ';' || description) AS result FROM test_validation_results WHERE validation_type = 'DATA_QUALITY' ORDER BY metric_name;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 28 returned: 1
+Executing transaction 29: SELECT (cba.filialnr::VARCHAR(10) || ';' || COUNT(*)::VARCHAR(10) || ';' ||            SUM(cba.bestand_min)::VARCHAR(10) || ';' || SUM(cba.offene_bestmenge)::VARCHAR(10) || ';' ||            MIN(cba.lastupdatedate)::VARCHAR(10) || ';' || MAX(cba.lastupdatedate)::VARCHAR(10)) AS result FROM test_cscbrancharticle cba GROUP BY cba.filialnr ORDER BY COUNT(*) DESC;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 29 returned: 1
+Executing transaction 30: SELECT (cba.filialnr::VARCHAR(10) || ';' || br.branchname || ';' || cba.artikel_nr::VARCHAR(10) || ';' ||            CASE WHEN cba.bestand_min IS NULL THEN 'NULL' ELSE cba.bestand_min::VARCHAR(10) END || ';' ||            CASE WHEN cba.offene_bestmenge IS NULL THEN 'NULL' ELSE cba.offene_bestmenge::VARCHAR(10) END || ';' ||            CASE WHEN cba.artikelaktiv IS NULL THEN 'NULL' ELSE cba.artikelaktiv END || ';' ||            cba.lastupdatedate::VARCHAR(10)) AS result FROM test_cscbrancharticle cba, test_branch_reference br WHERE cba.filialnr = br.filialnr   AND br.active_flag = 1   AND cba.artikelaktiv = 'Y' ORDER BY cba.bestand_min DESC, cba.artikel_nr;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 30 returned: 1
+Executing transaction 31: BEGIN WORK; INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'total_records', COUNT(*), 'Total records in final table' FROM test_cscbrancharticle; INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'unique_branches', COUNT(DISTINCT filialnr), 'Number of unique branches' FROM test_cscbrancharticle; INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'unique_articles', COUNT(DISTINCT artikel_nr), 'Number of unique articles' FROM test_cscbrancharticle; INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'recent_updates', COUNT(*), 'Records updated since 20250126' FROM test_cscbrancharticle WHERE lastupdatedate >= 20250126; COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 31 returned: 1
+Executing transaction 32: SELECT (validation_type || ';' || metric_name || ';' || metric_value::VARCHAR(10) || ';' || description) AS result FROM test_validation_results WHERE validation_type = 'FINAL_VALIDATION' ORDER BY metric_name;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 32 returned: 1
+Executing transaction 33: SELECT (cba.filialnr::VARCHAR(10) || ';' || COUNT(*)::VARCHAR(10) || ';' ||            COUNT(CASE WHEN cba.artikelaktiv = 'Y' THEN 1 END)::VARCHAR(10) || ';' ||            COUNT(CASE WHEN cba.bestand_min > 0 THEN 1 END)::VARCHAR(10)) AS result FROM test_cscbrancharticle cba GROUP BY cba.filialnr HAVING COUNT(*) > 0 ORDER BY cba.filialnr;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 33 returned: 1
+Executing transaction 34: BEGIN WORK; DROP TABLE test_artikelf_source; DROP TABLE test_cscbrancharticle; DROP TABLE test_processing_artikelf; DROP TABLE test_branch_reference; DROP TABLE test_validation_results; COMMIT WORK;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 34 returned: 1
+Executing transaction 35: SELECT (COUNT(*)::VARCHAR(10) || ';REMAINING_TEST_TABLES') AS result FROM systables WHERE tabname LIKE 'test_%';
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 35 returned: 1
++-------------------------------------------------------------------------------------------------------+
+| 36 transactions processed, successful: 0, skipped: 0, total TXN time: 0.116s, average per TXN: 0.000s |
++-------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld_new\pharmos.base.libtpld\dev\src\x64\Debug\esqltest.exe (process 14392) exited with code 0 (0x0).
+Press any key to close this window . . .

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="allgemein.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ascitocobol.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="cobolbuf.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="coboltoasci.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="cprztype.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="cstdio.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="dadedb.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="fehlercode.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="hsystfkt.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="logfile.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="qsort.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="qsortdef.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="qtime.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="vtcodum.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="allgemein.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ascitocobol.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="coboltoasci.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="cstdio.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="hsystem.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="logfile.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="qsort.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="qtime.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="version.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="vtcodum.c">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="dadedb.cxx">
+      <Filter>Sources</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

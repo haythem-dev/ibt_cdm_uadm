@@ -1,0 +1,220 @@
+Captured 5 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+Database name read from INI: ich21@zdev21_tcp
+Executing transaction 0: CREATE TEMP TABLE ich21@zdev21_tcp:temp_exportexclusionparameter (     country VARCHAR(3) NOT NULL,     branchno SMALLINT NOT NULL,     rule_id SMALLINT NOT NULL,     rule_name VARCHAR(50),     parameter_value VARCHAR(100),     activation_flag SMALLINT DEFAULT 1,     lastchangedatetime DATETIME YEAR TO SECOND,     PRIMARY KEY (country, branchno, rule_id) );
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.006 seconds
+Disconnected successfully.
+Transaction 0 returned: 0
+Executing transaction 1: CREATE TEMP TABLE ich21@zdev21_tcp:temp_article_master (     article_no INTEGER NOT NULL PRIMARY KEY,     article_name VARCHAR(80),     manufacturer VARCHAR(40),     atc_code VARCHAR(20),     narcotics_flag SMALLINT DEFAULT 0,     un_no VARCHAR(10),     notifiable_flag SMALLINT DEFAULT 0,     explosion_flag SMALLINT DEFAULT 0,     psychotropic_flag SMALLINT DEFAULT 0,     animal_medicine_flag SMALLINT DEFAULT 0,     narcotic_substance_flag SMALLINT DEFAULT 0,     distribution_binding_mode VARCHAR(20),     distribution_binding_ifa VARCHAR(20),     prismae_no INTEGER,     export_block_flag SMALLINT DEFAULT 0,     outsale_date INTEGER,     expiry_date INTEGER,     biozid_flag VARCHAR(1),     article_locked_flag VARCHAR(1),     storage_location VARCHAR(20),     active_article_flag VARCHAR(1) DEFAULT 'Y',     cool_article_mode VARCHAR(20),     hazardous_substance_old SMALLINT DEFAULT 0,     hazardous_substance_new SMALLINT DEFAULT 0,     homeopathy_flag VARCHAR(1) DEFAULT 'N', );
+Connection successful.
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 1 returned: 2
+Executing transaction 2: CREATE TEMP TABLE ich21@zdev21_tcp:temp_exportarticle (     article_no INTEGER NOT NULL,     country VARCHAR(3) NOT NULL,     branchno SMALLINT NOT NULL,     export_permission_flag SMALLINT DEFAULT 1,     last_update_date INTEGER,     change_counter INTEGER DEFAULT 0,     PRIMARY KEY (article_no, country, branchno) );
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 2 returned: 1
+Executing transaction 3: CREATE TEMP TABLE ich21@zdev21_tcp:temp_processing_stats (     stat_type VARCHAR(30),     rule_id SMALLINT,     rule_name VARCHAR(50),     article_count INTEGER,     exclusion_count INTEGER,     processed_count INTEGER DEFAULT 0,     description VARCHAR(100) );
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 3 returned: 1
+Executing transaction 4: CREATE TEMP TABLE ich21@zdev21_tcp:temp_branch_info (     branchno SMALLINT NOT NULL PRIMARY KEY,     branchname VARCHAR(40),     country VARCHAR(3),     region VARCHAR(20),     active_flag SMALLINT DEFAULT 1 );
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 4 returned: 1
+Executing transaction 5: INSERT INTO ich21@zdev21_tcp:temp_branch_info (branchno, branchname, country, region, active_flag) VALUES (10, 'Central Pharmacy Berlin', 'DE', 'North', 1);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 5 returned: 1
+Executing transaction 6: INSERT INTO ich21@zdev21_tcp:temp_branch_info (branchno, branchname, country, region, active_flag) VALUES (20, 'Regional Pharmacy Munich', 'DE', 'South', 1);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 6 returned: 1
+Executing transaction 7: INSERT INTO ich21@zdev21_tcp:temp_branch_info (branchno, branchname, country, region, active_flag) VALUES (30, 'Metro Pharmacy Vienna', 'AT', 'Central', 1);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 7 returned: 1
+Executing transaction 8: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 1, 'NARCOTICS', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 8 returned: 1
+Executing transaction 9: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 2, 'UN_NO', 'NOT_NULL', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 9 returned: 1
+Executing transaction 10: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 3, 'NOTIFIABLE', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 10 returned: 1
+Executing transaction 11: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 4, 'EXPLOSION', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 11 returned: 1
+Executing transaction 12: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 5, 'PSYCHOTROPIC', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 12 returned: 1
+Executing transaction 13: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 6, 'ANIMAL_MEDICINE', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 13 returned: 1
+Executing transaction 14: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 7, 'ATC_CODE', 'NOT_NULL', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 14 returned: 1
+Executing transaction 15: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 8, 'NARCOTIC_SUBSTANCE', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 15 returned: 1
+Executing transaction 16: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 9, 'MEDICINE', 'COMPLEX_RULE', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 16 returned: 1
+Executing transaction 17: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 10, 'DISTRIBUTION_RESTR', 'RESTRICTED', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 17 returned: 1
+Executing transaction 18: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 11, 'INTERNAL_ARTICLE', 'NOT_NULL', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 18 returned: 1
+Executing transaction 19: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 12, 'EXPORT_BLOCK', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 19 returned: 1
+Executing transaction 20: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 13, 'OUTSALE', 'DATE_CHECK', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 20 returned: 1
+Executing transaction 21: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 14, 'EXPIRY', 'DATE_CHECK', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 21 returned: 1
+Executing transaction 22: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 15, 'BIOZID', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 22 returned: 1
+Executing transaction 23: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 16, 'ARTICLE_LOCK', 'Y', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 23 returned: 1
+Executing transaction 24: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 17, 'STORAGE_LOCATION', 'RESTRICTED', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 24 returned: 1
+Executing transaction 25: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 18, 'ACTIVE_ARTICLE', 'N', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 25 returned: 1
+Executing transaction 26: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 19, 'COOL_ARTICLE', 'COLD_CHAIN', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 26 returned: 1
+Executing transaction 27: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 20, 'HAZARDOUS_OLD', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 27 returned: 1
+Executing transaction 28: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 21, 'HAZARDOUS_NEW', '1', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 28 returned: 1
+Executing transaction 29: INSERT INTO ich21@zdev21_tcp:temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 22, 'DISTRIBUTION_IFA', 'IFA_RESTRICTED', 1, '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 29 returned: 1
+Executing transaction 30: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, atc_code, active_article_flag, medicine_flag, lastchangedatetime) VALUES (100001, 'Aspirin 100mg', 'Bayer AG', 'B01AC06', 'Y', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 30 returned: 1
+Executing transaction 31: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, narcotics_flag, medicine_flag, lastchangedatetime) VALUES (100002, 'Morphine 10mg', 'Pharma Corp', 1, 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 31 returned: 1
+Executing transaction 32: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, un_no, medicine_flag, lastchangedatetime) VALUES (100003, 'Ethanol Solution', 'Chemical Co', 'UN1170', 'N', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 32 returned: 1
+Executing transaction 33: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, notifiable_flag, medicine_flag, lastchangedatetime) VALUES (100004, 'Radioactive Tracer', 'Nuclear Med', 1, 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 33 returned: 1
+Executing transaction 34: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, explosion_flag, medicine_flag, lastchangedatetime) VALUES (100005, 'Nitroglycerin Tablets', 'CardioPharm', 1, 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 34 returned: 1
+Executing transaction 35: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, psychotropic_flag, atc_code, medicine_flag, lastchangedatetime) VALUES (100006, 'Diazepam 5mg', 'BenzoPharm', 1, 'N05BA01', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 35 returned: 1
+Executing transaction 36: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, animal_medicine_flag, medicine_flag, lastchangedatetime) VALUES (100007, 'Veterinary Antibiotic', 'VetCorp', 1, 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 36 returned: 1
+Executing transaction 37: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, atc_code, homeopathy_flag, anthroposophic_flag, medicine_flag, lastchangedatetime) VALUES (100008, 'Unclassified Medicine', 'GenericPharm', '', 'N', 'N', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 37 returned: 1
+Executing transaction 38: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, atc_code, homeopathy_flag, anthroposophic_flag, medicine_flag, lastchangedatetime) VALUES (100009, 'Arnica Homeopathic', 'HomeoPharm', '', '1', 'N', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 38 returned: 1
+Executing transaction 39: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, atc_code, homeopathy_flag, anthroposophic_flag, medicine_flag, lastchangedatetime) VALUES (100010, 'Anthroposophic Remedy', 'AnthroMed', '', 'N', '1', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 39 returned: 1
+Executing transaction 40: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, distribution_binding_mode, medicine_flag, lastchangedatetime) VALUES (100011, 'Restricted Distribution Drug', 'RestrictPharm', 'RESTRICTED', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 40 returned: 1
+Executing transaction 41: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, prismae_no, medicine_flag, lastchangedatetime) VALUES (100012, 'Internal Test Product', 'InternalLab', 999999, 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 41 returned: 1
+Executing transaction 42: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, export_block_flag, medicine_flag, lastchangedatetime) VALUES (100013, 'Export Blocked Medicine', 'BlockedPharm', 1, 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 42 returned: 1
+Executing transaction 43: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, storage_location, medicine_flag, lastchangedatetime) VALUES (100014, 'Special Storage Drug', 'StoragePharm', 'RESTRICTED', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 43 returned: 1
+Executing transaction 44: INSERT INTO ich21@zdev21_tcp:temp_article_master (article_no, article_name, manufacturer, active_article_flag, medicine_flag, lastchangedatetime) VALUES (100015, 'Inactive Product', 'InactivePharm', 'N', 'Y', '2025-01-01 10:00:00');
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 44 returned: 1
+Executing transaction 45: SELECT (country || ';' || branchno || ';' || rule_id || ';' || rule_name || ';' || activation_flag) AS result FROM ich21@zdev21_tcp:temp_exportexclusionparameter WHERE country = 'DE' AND branchno = 10 ORDER BY rule_id;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 45 returned: 1
+Executing transaction 46: SELECT (COUNT(*) || ';TOTAL_ARTICLES_LOADED') AS result FROM ich21@zdev21_tcp:temp_article_master;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 46 returned: 1
+Executing transaction 47: SELECT (COUNT(*) || ';TOTAL_RULES_LOADED') AS result FROM ich21@zdev21_tcp:temp_exportexclusionparameter;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 47 returned: 1
+Executing transaction 48: SELECT (a.article_no || ';' || a.article_name || ';' || a.narcotics_flag || ';NARCOTICS_RULE') AS result FROM ich21@zdev21_tcp:temp_article_master a WHERE a.narcotics_flag = 1 ORDER BY a.article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 48 returned: 1
+Executing transaction 49: SELECT (a.article_no || ';' || a.article_name || ';' || NVL(a.un_no, 'NULL') || ';UN_NO_RULE') AS result FROM ich21@zdev21_tcp:temp_article_master a WHERE a.un_no IS NOT NULL ORDER BY a.article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 49 returned: 1
+Executing transaction 50: SELECT (a.article_no || ';' || a.article_name || ';' || NVL(a.atc_code, 'EMPTY') || ';' ||            a.homeopathy_flag || ';' || a.anthroposophic_flag || ';' || a.medicine_flag || ';MEDICINE_RULE') AS result FROM ich21@zdev21_tcp:temp_article_master a WHERE a.medicine_flag = 'Y'   AND (a.atc_code IS NULL OR a.atc_code = '') ORDER BY a.article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 50 returned: 1
+Executing transaction 51: SELECT (a.article_no || ';' ||            CASE WHEN (a.atc_code IS NULL OR a.atc_code = '')                 AND a.homeopathy_flag != '1'                 AND a.anthroposophic_flag != '1'                 AND a.medicine_flag = 'Y'                 THEN 'EXCLUDED' ELSE 'ALLOWED' END || ';MEDICINE_EXCLUSION_RESULT') AS result FROM ich21@zdev21_tcp:temp_article_master a WHERE a.medicine_flag = 'Y' ORDER BY a.article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 51 returned: 1
+Executing transaction 52: INSERT INTO ich21@zdev21_tcp:temp_exportarticle SELECT article_no, 'DE', 10, 1, 20250101, 0 FROM ich21@zdev21_tcp:temp_article_master;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 52 returned: 1
+Executing transaction 53: UPDATE ich21@zdev21_tcp:temp_exportarticle SET export_permission_flag = 0,     change_counter = change_counter + 1,     last_update_date = 20250101 WHERE article_no IN (     SELECT article_no FROM ich21@zdev21_tcp:temp_article_master     WHERE narcotics_flag = 1        OR un_no IS NOT NULL        OR notifiable_flag = 1        OR explosion_flag = 1        OR psychotropic_flag = 1        OR animal_medicine_flag = 1        OR export_block_flag = 1        OR storage_location = 'RESTRICTED'        OR active_article_flag = 'N'        OR distribution_binding_mode = 'RESTRICTED'        OR prismae_no IS NOT NULL );
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 53 returned: 1
+Executing transaction 54: UPDATE ich21@zdev21_tcp:temp_exportarticle SET export_permission_flag = 0,     change_counter = change_counter + 1 WHERE article_no IN (     SELECT article_no FROM ich21@zdev21_tcp:temp_article_master     WHERE medicine_flag = 'Y'       AND (atc_code IS NULL OR atc_code = '')       AND homeopathy_flag != '1'       AND anthroposophic_flag != '1' );
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 54 returned: 1
+Executing transaction 55: SELECT (e.article_no || ';' || a.article_name || ';' || e.export_permission_flag || ';' ||            CASE WHEN e.export_permission_flag = 0 THEN 'EXCLUDED' ELSE 'ALLOWED' END) AS result FROM ich21@zdev21_tcp:temp_exportarticle e,      ich21@zdev21_tcp:temp_article_master a WHERE e.article_no = a.article_no ORDER BY e.article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 55 returned: 1
+Executing transaction 56: SELECT ('TOTAL_ARTICLES;' || COUNT(*) || ';Total articles processed') AS result FROM ich21@zdev21_tcp:temp_exportarticle UNION ALL SELECT ('ALLOWED_EXPORTS;' || COUNT(*) || ';Articles allowed for export') AS result FROM ich21@zdev21_tcp:temp_exportarticle WHERE export_permission_flag = 1 UNION ALL SELECT ('EXCLUDED_EXPORTS;' || COUNT(*) || ';Articles excluded from export') AS result FROM ich21@zdev21_tcp:temp_exportarticle WHERE export_permission_flag = 0;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 56 returned: 1
+Executing transaction 57: SELECT ('NULL_HANDLING;' ||            SUM(CASE WHEN atc_code IS NULL THEN 1 ELSE 0 END) || ';' ||            SUM(CASE WHEN un_no IS NULL THEN 1 ELSE 0 END) || ';' ||            SUM(CASE WHEN prismae_no IS NULL THEN 1 ELSE 0 END)) AS result FROM ich21@zdev21_tcp:temp_article_master;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 57 returned: 1
+Executing transaction 58: SELECT (article_no || ';' ||            CASE WHEN narcotics_flag IS NOT NULL                 THEN CAST(narcotics_flag AS VARCHAR(10))                 ELSE 'NULL' END || ';' ||            'DATA_TYPE_TEST') AS result FROM ich21@zdev21_tcp:temp_article_master WHERE article_no BETWEEN 100001 AND 100005 ORDER BY article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 58 returned: 1
+Executing transaction 59: SELECT ('INTEGRITY_CHECK;' ||            COUNT(DISTINCT a.article_no) || ';' ||            COUNT(DISTINCT e.article_no) || ';' ||            CASE WHEN COUNT(DISTINCT a.article_no) = COUNT(DISTINCT e.article_no)                 THEN 'CONSISTENT' ELSE 'INCONSISTENT' END) AS result FROM ich21@zdev21_tcp:temp_article_master a LEFT JOIN ich21@zdev21_tcp:temp_exportarticle e ON a.article_no = e.article_no;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 59 returned: 1
+Executing transaction 60: SELECT (p.rule_id || ';' || p.rule_name || ';' ||            CASE WHEN p.activation_flag = 1 THEN 'ACTIVE' ELSE 'INACTIVE' END || ';' ||            'RULE_COVERAGE') AS result FROM ich21@zdev21_tcp:temp_exportexclusionparameter p WHERE p.country = 'DE' AND p.branchno = 10 ORDER BY p.rule_id;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 60 returned: 1
+Executing transaction 61: SELECT ('PROCESSING_SUMMARY;' ||            SUM(CASE WHEN export_permission_flag = 1 THEN 1 ELSE 0 END) || ';' ||            SUM(CASE WHEN export_permission_flag = 0 THEN 1 ELSE 0 END) || ';' ||            SUM(change_counter) || ';' ||            'FINAL_RESULTS') AS result FROM ich21@zdev21_tcp:temp_exportarticle;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 61 returned: 1
+Executing transaction 62: DROP TABLE ich21@zdev21_tcp:temp_exportexclusionparameter;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 62 returned: 1
+Executing transaction 63: DROP TABLE ich21@zdev21_tcp:temp_article_master;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 63 returned: 1
+Executing transaction 64: DROP TABLE ich21@zdev21_tcp:temp_exportarticle;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 64 returned: 1
+Executing transaction 65: DROP TABLE ich21@zdev21_tcp:temp_processing_stats;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 65 returned: 1
+Executing transaction 66: DROP TABLE ich21@zdev21_tcp:temp_branch_info;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 66 returned: 1
+Executing transaction 67: SELECT COUNT(*) AS remaining_temp_tables FROM systables WHERE tabname LIKE 'temp_%'   AND owner = USER;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 67 returned: 1
++-------------------------------------------------------------------------------------------------------+
+| 68 transactions processed, successful: 1, skipped: 0, total TXN time: 0.242s, average per TXN: 0.004s |
++-------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld_new\pharmos.base.libtpld\dev\src\x64\Debug\esqltest.exe (process 18372) exited with code 0 (0x0).
+Press any key to close this window . . .

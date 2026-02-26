@@ -1,0 +1,86 @@
+# ==============================================================================
+# PHASE 3: INCREMENTAL LOADING SIMULATION - Test core module logic
+# ==============================================================================
+
+# Test incremental data selection (simulates module's core query)
+[transaction08]
+sql=SELECT (s.filialnr || ';' || s.artikel_nr || ';' || s.datum || ';' || s.prog_s || ';' || s.wprog_s) AS result \
+FROM ich21@zdev21_tcp:temp_artprog_source s \
+WHERE s.filialnr = 10 \
+  AND s.datum >= (SELECT NVL(MAX(lastupdatedate), 0) \
+                  FROM ich21@zdev21_tcp:temp_cscarticleprognosis \
+                  WHERE filialnr = 10) \
+ORDER BY s.datum, s.artikel_nr;
+header=filialnr;artikel_nr;datum;prog_s;wprog_s
+
+# Load processing temp table (simulates module's tmp_artprog loading)
+[transaction09]  
+sql=INSERT INTO ich21@zdev21_tcp:temp_processing_artprog \
+SELECT filialnr, artikel_nr, datum, prog_s, wprog_s \
+FROM ich21@zdev21_tcp:temp_artprog_source \
+WHERE filialnr = 10 \
+  AND datum >= (SELECT NVL(MAX(lastupdatedate), 0) \
+                FROM ich21@zdev21_tcp:temp_cscarticleprognosis \
+                WHERE filialnr = 10);
+
+# Validate processing table load
+[transaction10]
+sql=SELECT (COUNT(*) || ';PROCESSING_RECORDS_LOADED') AS result \
+FROM ich21@zdev21_tcp:temp_processing_artprog;
+header=count;description
+
+# ==============================================================================
+# PHASE 4: MERGE OPERATION TESTING - Test UPDATE and INSERT logic
+# ==============================================================================
+
+# Execute MERGE operation (simulates module's core MERGE logic)
+[transaction11]
+sql=MERGE INTO ich21@zdev21_tcp:temp_cscarticleprognosis AS cap \
+USING ich21@zdev21_tcp:temp_processing_artprog AS tap \
+ON cap.filialnr = tap.filialnr \
+   AND cap.artikel_nr = tap.artikel_nr \
+   AND cap.datum = tap.datum \
+WHEN MATCHED THEN \
+  UPDATE SET cap.prog_s = tap.prog_s, \
+             cap.wprog_s = tap.wprog_s, \
+             cap.lastupdatedate = 20241203 \
+WHEN NOT MATCHED THEN \
+  INSERT (filialnr, artikel_nr, datum, prog_s, wprog_s, lastupdatedate) \
+  VALUES (tap.filialnr, tap.artikel_nr, tap.datum, tap.prog_s, tap.wprog_s, 20241203);
+
+# Validate MERGE results - count records by operation type  
+[transaction12]
+sql=SELECT ('MERGE_SUMMARY;' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis WHERE lastupdatedate = 20241203) || ';' || \
+           (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_cscarticleprognosis) || ';' || \
+           (SELECT COUNT(DISTINCT filialnr) FROM ich21@zdev21_tcp:temp_cscarticleprognosis)) AS result;
+header=operation;updated_today;total_records;branches_count
+
+# Test record-level validation after MERGE
+[transaction13]
+sql=SELECT (cap.filialnr || ';' || cap.artikel_nr || ';' || cap.datum || ';' || \
+           cap.prog_s || ';' || cap.wprog_s || ';' || cap.lastupdatedate) AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap \
+WHERE cap.filialnr = 10 AND cap.lastupdatedate = 20241203 \
+ORDER BY cap.artikel_nr, cap.datum;
+header=filialnr;artikel_nr;datum;prog_s;wprog_s;lastupdatedate
+
+# ==============================================================================
+# PHASE 5: DATA CLEANUP SIMULATION - Test deletion of outdated records
+# ==============================================================================
+
+# Identify records for cleanup (simulates module's cleanup SELECT)  
+[transaction14]
+sql=SELECT (cap.filialnr || ';' || cap.artikel_nr || ';' || cap.datum || ';CLEANUP_CANDIDATE') AS result \
+FROM ich21@zdev21_tcp:temp_cscarticleprognosis cap \
+LEFT OUTER JOIN ich21@zdev21_tcp:temp_artprog_source src \
+  ON cap.filialnr = src.filialnr \
+     AND cap.artikel_nr = src.artikel_nr \
+     AND cap.datum = src.datum \
+WHERE cap.filialnr = 10 \
+  AND src.datum IS NULL \
+ORDER BY cap.artikel_nr, cap.datum;
+header=filialnr;artikel_nr;datum;cleanup_status
+
+# Execute cleanup deletion (simulates module's DELETE logic)
+[transaction15]

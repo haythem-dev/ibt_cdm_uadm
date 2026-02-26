@@ -1,0 +1,214 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+Persistent Database connection enabled
+Executing transaction 0: CREATE TEMP TABLE temp_exportexclusionparameter (     country VARCHAR(3) NOT NULL,     branchno SMALLINT NOT NULL,     rule_id SMALLINT NOT NULL,     rule_name VARCHAR(50),     parameter_value VARCHAR(100),     activation_flag SMALLINT DEFAULT 1,     lastchangedatetime DATETIME YEAR TO SECOND,     PRIMARY KEY (country, branchno, rule_id) );
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 0 returned: 0
+Executing transaction 1: CREATE TEMP TABLE temp_article_master (     article_no INTEGER NOT NULL PRIMARY KEY,     article_name VARCHAR(80),     manufacturer VARCHAR(40),     atc_code VARCHAR(20),     narcotics_flag SMALLINT DEFAULT 0,     un_no VARCHAR(10),     notifiable_flag SMALLINT DEFAULT 0,     explosion_flag SMALLINT DEFAULT 0,     psychotropic_flag SMALLINT DEFAULT 0,     animal_medicine_flag SMALLINT DEFAULT 0,     narcotic_substance_flag SMALLINT DEFAULT 0,     distribution_binding_mode VARCHAR(20),     distribution_binding_ifa VARCHAR(20),     prismae_no INTEGER,     export_block_flag SMALLINT DEFAULT 0,     outsale_date INTEGER,     expiry_date INTEGER,     biozid_flag VARCHAR(1),     article_locked_flag VARCHAR(1),     storage_location VARCHAR(20),     active_article_flag VARCHAR(1) DEFAULT 'Y',     cool_article_mode VARCHAR(20),     hazardous_substance_old SMALLINT DEFAULT 0,     hazardous_substance_new SMALLINT DEFAULT 0,     homeopathy_flag VARCHAR(1) DEFAULT 'N',     anthroposophic_flag VARCH
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 1 returned: 2
+Executing transaction 2: CREATE TEMP TABLE temp_exportarticle (     article_no INTEGER NOT NULL,     country VARCHAR(3) NOT NULL,     branchno SMALLINT NOT NULL,     export_permission_flag SMALLINT DEFAULT 1,     last_update_date INTEGER,     change_counter INTEGER DEFAULT 0,     PRIMARY KEY (article_no, country, branchno) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 2 returned: 0
+Executing transaction 3: CREATE TEMP TABLE temp_processing_stats (     stat_type VARCHAR(30),     rule_id SMALLINT,     rule_name VARCHAR(50),     article_count INTEGER,     exclusion_count INTEGER,     processed_count INTEGER DEFAULT 0,     description VARCHAR(100) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 3 returned: 0
+Executing transaction 4: CREATE TEMP TABLE temp_branch_info (     branchno SMALLINT NOT NULL PRIMARY KEY,     branchname VARCHAR(40),     country VARCHAR(3),     region VARCHAR(20),     active_flag SMALLINT DEFAULT 1 );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.020 seconds
+Transaction 4 returned: 0
+Executing transaction 5: INSERT INTO temp_branch_info (branchno, branchname, country, region, active_flag) VALUES (10, 'Central Pharmacy Berlin', 'DE', 'North', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.006 seconds
+Transaction 5 returned: 0
+Executing transaction 6: INSERT INTO temp_branch_info (branchno, branchname, country, region, active_flag) VALUES (20, 'Regional Pharmacy Munich', 'DE', 'South', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 6 returned: 0
+Executing transaction 7: INSERT INTO temp_branch_info (branchno, branchname, country, region, active_flag) VALUES (30, 'Metro Pharmacy Vienna', 'AT', 'Central', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 7 returned: 0
+Executing transaction 8: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 1, 'NARCOTICS', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 8 returned: 0
+Executing transaction 9: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 2, 'UN_NO', 'NOT_NULL', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 9 returned: 0
+Executing transaction 10: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 3, 'NOTIFIABLE', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 10 returned: 0
+Executing transaction 11: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 4, 'EXPLOSION', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 11 returned: 0
+Executing transaction 12: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 5, 'PSYCHOTROPIC', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 12 returned: 0
+Executing transaction 13: INSERT INTO temp_article_master (article_no, article_name, manufacturer, atc_code, active_article_flag, medicine_flag, lastchangedatetime) VALUES (100001, 'Aspirin 100mg', 'Bayer AG', 'B01AC06', 'Y', 'Y', CURRENT);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 13 returned: 2
+Executing transaction 14: INSERT INTO temp_article_master (article_no, article_name, manufacturer, narcotics_flag, medicine_flag, lastchangedatetime) VALUES (100002, 'Morphine 10mg', 'Pharma Corp', 1, 'Y', CURRENT);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 14 returned: 2
+Executing transaction 15: INSERT INTO temp_article_master (article_no, article_name, manufacturer, un_no, medicine_flag, lastchangedatetime) VALUES (100003, 'Ethanol Solution', 'Chemical Co', 'UN1170', 'N', CURRENT);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 15 returned: 2
+Executing transaction 16: INSERT INTO temp_article_master (article_no, article_name, manufacturer, notifiable_flag, medicine_flag, lastchangedatetime) VALUES (100004, 'Radioactive Tracer', 'Nuclear Med', 1, 'Y', CURRENT);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 16 returned: 2
+Executing transaction 17: INSERT INTO temp_article_master (article_no, article_name, manufacturer, explosion_flag, medicine_flag, lastchangedatetime) VALUES (100005, 'Nitroglycerin Tablets', 'CardioPharm', 1, 'Y', CURRENT);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 17 returned: 2
+Executing transaction 18: SELECT (COUNT(*) || ';TOTAL_BRANCH_RECORDS') AS result FROM temp_branch_info;
+count              | description          |
+--------------------+---------------------+
+3.0000000000000000 | TOTAL_BRANCH_RECORDS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.011 seconds
+Transaction 18 returned: 0
+Executing transaction 19: SELECT (COUNT(*) || ';TOTAL_EXCLUSION_PARAMETERS') AS result FROM temp_exportexclusionparameter;
+count              | description                |
+--------------------+---------------------------+
+5.0000000000000000 | TOTAL_EXCLUSION_PARAMETERS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 19 returned: 0
+Executing transaction 20: SELECT (COUNT(*) || ';TOTAL_ARTICLE_RECORDS') AS result FROM temp_article_master;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 20 returned: 2
+Executing transaction 21: INSERT INTO temp_exportarticle SELECT article_no, 'DE', 10, 1, 20250127, 0 FROM temp_article_master;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 21 returned: 2
+Executing transaction 22: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1, last_update_date = 20250127 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE narcotics_flag = 1);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 22 returned: 2
+Executing transaction 23: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1, last_update_date = 20250127 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE un_no IS NOT NULL);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 23 returned: 2
+Executing transaction 24: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1, last_update_date = 20250127 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE notifiable_flag = 1);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 24 returned: 2
+Executing transaction 25: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1, last_update_date = 20250127 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE explosion_flag = 1);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 25 returned: 2
+Executing transaction 26: SELECT (a.article_no || ';' || a.article_name || ';' || NVL(a.atc_code, 'EMPTY') || ';' || a.homeopathy_flag || ';' || a.anthroposophic_flag || ';' || a.medicine_flag || ';MEDICINE_CLASSIFICATION') AS result FROM temp_article_master a WHERE a.medicine_flag = 'Y' ORDER BY a.article_no;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 26 returned: 2
+Executing transaction 27: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE medicine_flag = 'Y' AND (atc_code IS NULL OR atc_code = '') AND homeopathy_flag != '1' AND anthroposophic_flag != '1');
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 27 returned: 2
+Executing transaction 28: SELECT (e.article_no || ';' || a.article_name || ';' || e.export_permission_flag || ';' || CASE WHEN e.export_permission_flag = 0 THEN 'EXCLUDED' ELSE 'ALLOWED' END) AS result FROM temp_exportarticle e, temp_article_master a WHERE e.article_no = a.article_no ORDER BY e.article_no;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 28 returned: 2
+Executing transaction 29: SELECT ('TOTAL_ARTICLES;' || COUNT(*) || ';Total articles processed') AS result FROM temp_exportarticle UNION ALL SELECT ('ALLOWED_EXPORTS;' || COUNT(*) || ';Articles allowed for export') AS result FROM temp_exportarticle WHERE export_permission_flag = 1 UNION ALL SELECT ('EXCLUDED_EXPORTS;' || COUNT(*) || ';Articles excluded from export') AS result FROM temp_exportarticle WHERE export_permission_flag = 0;
+metric           | count              | description                   |
+------------------+-------------------+------------------------------+
+TOTAL_ARTICLES   | 0.0000000000000000 | Total articles processed      |
+ALLOWED_EXPORTS  | 0.0000000000000000 | Articles allowed for export   |
+EXCLUDED_EXPORTS | 0.0000000000000000 | Articles excluded from export |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.015 seconds
+Transaction 29 returned: 0
+Executing transaction 30: SELECT (p.rule_id || ';' || p.rule_name || ';' || CASE WHEN p.activation_flag = 1 THEN 'ACTIVE' ELSE 'INACTIVE' END || ';RULE_STATUS') AS result FROM temp_exportexclusionparameter p WHERE p.country = 'DE' AND p.branchno = 10 ORDER BY p.rule_id;
+rule_id | rule_name    | status | test_type   |
+---------+-------------+-------+------------+
+1       | NARCOTICS    | ACTIVE | RULE_STATUS |
+2       | UN_NO        | ACTIVE | RULE_STATUS |
+3       | NOTIFIABLE   | ACTIVE | RULE_STATUS |
+4       | EXPLOSION    | ACTIVE | RULE_STATUS |
+5       | PSYCHOTROPIC | ACTIVE | RULE_STATUS |
+Returned 5 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 30 returned: 0
+Executing transaction 31: SELECT (a.article_no || ';' || a.article_name || ';' || a.narcotics_flag || ';NARCOTICS_RULE_TEST') AS result FROM temp_article_master a WHERE a.narcotics_flag = 1 ORDER BY a.article_no;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 31 returned: 2
+Executing transaction 32: SELECT (a.article_no || ';' || a.article_name || ';' || NVL(a.un_no, 'NULL') || ';UN_NO_RULE_TEST') AS result FROM temp_article_master a WHERE a.un_no IS NOT NULL ORDER BY a.article_no;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 32 returned: 2
+Executing transaction 33: INSERT INTO temp_processing_stats SELECT 'DATA_QUALITY', 0, 'null_atc_count', COUNT(*), 0, 0, 'Articles with NULL ATC code' FROM temp_article_master WHERE atc_code IS NULL;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 33 returned: 2
+Executing transaction 34: INSERT INTO temp_processing_stats SELECT 'DATA_QUALITY', 0, 'null_un_no_count', COUNT(*), 0, 0, 'Articles with NULL UN number' FROM temp_article_master WHERE un_no IS NULL;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 34 returned: 2
+Executing transaction 35: INSERT INTO temp_processing_stats SELECT 'DATA_QUALITY', 0, 'medicine_no_atc', COUNT(*), 0, 0, 'Medicines without ATC code' FROM temp_article_master WHERE medicine_flag = 'Y' AND (atc_code IS NULL OR atc_code = '');
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 35 returned: 2
+Executing transaction 36: SELECT (stat_type || ';' || rule_name || ';' || article_count || ';' || description) AS result FROM temp_processing_stats WHERE stat_type = 'DATA_QUALITY' ORDER BY rule_name;
+stat_type | metric | count | description |
+-----------+-------+------+------------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.010 seconds
+Transaction 36 returned: 0
+Executing transaction 37: SELECT (e.article_no || ';' || a.article_name || ';' || e.change_counter || ';' || CASE WHEN e.change_counter > 1 THEN 'MULTIPLE_RULES' ELSE 'SINGLE_RULE' END || ';RULE_APPLICATION') AS result FROM temp_exportarticle e, temp_article_master a WHERE e.article_no = a.article_no AND e.export_permission_flag = 0 ORDER BY e.change_counter DESC, e.article_no;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 37 returned: 2
+Executing transaction 38: SELECT (bi.branchname || ';' || COUNT(ea.article_no) || ';' || SUM(CASE WHEN ea.export_permission_flag = 1 THEN 1 ELSE 0 END) || ';' || SUM(CASE WHEN ea.export_permission_flag = 0 THEN 1 ELSE 0 END)) AS result FROM temp_branch_info bi LEFT JOIN temp_exportarticle ea ON bi.branchno = ea.branchno WHERE bi.country = 'DE' GROUP BY bi.branchno, bi.branchname ORDER BY bi.branchno;
+branch_name              | total_articles     | allowed | excluded |
+--------------------------+-------------------+--------+---------+
+Central Pharmacy Berlin  | 0.0000000000000000 | 0       | 0        |
+Regional Pharmacy Munich | 0.0000000000000000 | 0       | 0        |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.022 seconds
+Transaction 38 returned: 0
+Executing transaction 39: INSERT INTO temp_processing_stats SELECT 'FINAL_SUMMARY', 0, 'total_processed', COUNT(*), 0, 0, 'Total articles processed' FROM temp_exportarticle;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 39 returned: 0
+Executing transaction 40: INSERT INTO temp_processing_stats SELECT 'FINAL_SUMMARY', 0, 'exclusion_rate', COUNT(*), 0, 0, 'Articles excluded from export' FROM temp_exportarticle WHERE export_permission_flag = 0;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 40 returned: 0
+Executing transaction 41: INSERT INTO temp_processing_stats SELECT 'FINAL_SUMMARY', 0, 'active_rules', COUNT(*), 0, 0, 'Active exclusion rules' FROM temp_exportexclusionparameter WHERE activation_flag = 1;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.006 seconds
+Transaction 41 returned: 0
+Executing transaction 42: SELECT (stat_type || ';' || rule_name || ';' || article_count || ';' || description) AS result FROM temp_processing_stats WHERE stat_type = 'FINAL_SUMMARY' ORDER BY rule_name;
+summary_type  | metric          | count | description                   |
+---------------+----------------+------+------------------------------+
+FINAL_SUMMARY | active_rules    | 5     | Active exclusion rules        |
+FINAL_SUMMARY | exclusion_rate  | 0     | Articles excluded from export |
+FINAL_SUMMARY | total_processed | 0     | Total articles processed      |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.015 seconds
+Transaction 42 returned: 0
+Executing transaction 43: SELECT (ea.export_permission_flag || ';' || COUNT(*) || ';' || CASE WHEN ea.export_permission_flag = 1 THEN 'EXPORT_ALLOWED' ELSE 'EXPORT_BLOCKED' END || ';FINAL_STATUS') AS result FROM temp_exportarticle ea GROUP BY ea.export_permission_flag ORDER BY ea.export_permission_flag;
+permission_flag | count | status | test_type |
+-----------------+------+-------+----------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.012 seconds
+Transaction 43 returned: 0
+Executing transaction 44: DROP TABLE temp_exportexclusionparameter;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 44 returned: 0
+Executing transaction 45: DROP TABLE temp_article_master;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 45 returned: 2
+Executing transaction 46: DROP TABLE temp_exportarticle;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.005 seconds
+Transaction 46 returned: 0
+Executing transaction 47: DROP TABLE temp_processing_stats;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 47 returned: 0
+Executing transaction 48: DROP TABLE temp_branch_info;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 48 returned: 0
+Executing transaction 49: SELECT (COUNT(*) || ';REMAINING_TEMP_TABLES') AS result FROM systables WHERE tabname LIKE 'temp_%';
+count              | description           |
+--------------------+----------------------+
+0.0000000000000000 | REMAINING_TEMP_TABLES |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.013 seconds
+Disconnected successfully.
+Transaction 49 returned: 0
++--------------------------------------------------------------------------------------------------------+
+| 50 transactions processed, successful: 28, skipped: 0, total TXN time: 0.335s, average per TXN: 0.007s |
++--------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld_new\pharmos.base.libtpld\dev\src\x64\Debug\esqltest.exe (process 15916) exited with code 0 (0x0).
+Press any key to close this window . . .

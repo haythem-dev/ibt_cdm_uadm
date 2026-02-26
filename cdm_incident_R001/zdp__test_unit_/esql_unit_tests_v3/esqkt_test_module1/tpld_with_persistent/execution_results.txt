@@ -1,0 +1,96 @@
+Captured 6 entries:
+  [00] RandomEntry_0_24534
+  [01] RandomEntry_1_12454
+  [02] RandomEntry_2_2058
+  [03] RandomEntry_3_8403
+  [04] RandomEntry_4_17488
+  [05] RandomEntry_5_28739
+Database name read from INI: ich21@zdev21_tcp
+Executing transaction 0: DELETE FROM ich21@zdev21_tcp:akdtext WHERE text LIKE 'ESQLTEST DUMMY %'
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Disconnected successfully.
+Transaction 0 returned: 0
+Executing transaction 1: INSERT INTO ich21@zdev21_tcp:akdtext (datum, vertriebszentrumnr, kddisponr, text_kz, lfdnr, text) VALUES (20250826, 12, 1234, 'I', 0, 'ESQLTEST haythem_benabdelaziz 2025.08.26 16:17:17')
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.004 seconds
+Disconnected successfully.
+Transaction 1 returned: 0
+Sleeping for 1 seconds...
+Executing transaction 2 (iteration 0): INSERT INTO ich21@zdev21_tcp:akdtext (datum, vertriebszentrumnr, kddisponr, text_kz, lfdnr, text) VALUES (20250826, 12, 1230, 'I', 0, 'ESQLTEST DUMMY 0 2025-08-26 16:17:18')
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Disconnected successfully.
+Transaction 2 (iteration 0) returned: 0
+Executing transaction 2 (iteration 1): INSERT INTO ich21@zdev21_tcp:akdtext (datum, vertriebszentrumnr, kddisponr, text_kz, lfdnr, text) VALUES (20250826, 12, 1231, 'I', 0, 'ESQLTEST DUMMY 1 2025-08-26 16:17:18')
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Disconnected successfully.
+Transaction 2 (iteration 1) returned: 0
+Executing transaction 3: SELECT * FROM ich21@zdev21_tcp:akdtext WHERE text LIKE 'ESQLTEST DUMMY%' INTO TEMP temp_akdtext;
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Disconnected successfully.
+Transaction 3 returned: 0
+Executing transaction 4: CREATE TABLE ich21@zdev21_tcp:esqltest (     filialnr INTEGER,     name VARCHAR(32),     plz_strasse VARCHAR(16),     ort VARCHAR(32),     vorwahl VARCHAR(16),     telnr VARCHAR(16),     datum_mwst INTEGER );
+Connection successful.
+Transaction execution failed: SQLCODE = -388 [No resource permission.].
+Transaction 4 returned: 2
+Executing transaction 5 (iteration 0): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (16, 'AMEDIS-UE AG PUIDOUX', '1070', 'PUIDOUX', '004162', '7379797', 20250826+3);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 5 (iteration 0) returned: 1
+Executing transaction 5 (iteration 1): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (16, 'AMEDIS-UE AG PUIDOUX', '1070', 'PUIDOUX', '004162', '7379797', 20250826+14);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 5 (iteration 1) returned: 1
+Executing transaction 5 (iteration 2): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (16, 'AMEDIS-UE AG PUIDOUX', '1070', 'PUIDOUX', '004162', '7379797', 20250826+16);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 5 (iteration 2) returned: 1
+Executing transaction 6 (iteration 0): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (19, 'AMEDIS UE STAMDATEN', '5035', 'UNTERENTFELDEN', '0038551', '257678', 20250826+12);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 6 (iteration 0) returned: 1
+Executing transaction 6 (iteration 1): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (19, 'AMEDIS UE STAMDATEN', '5035', 'UNTERENTFELDEN', '0038551', '257678', 20250826+11);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 6 (iteration 1) returned: 1
+Executing transaction 7 (iteration 0): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (12, 'AVOSANO AG UNTERENTFELDEN', '5035', 'UNTERENTFELDEN', '0', '7379797', 20250826+18);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 7 (iteration 0) returned: 1
+Executing transaction 7 (iteration 1): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (12, 'AVOSANO AG UNTERENTFELDEN', '5035', 'UNTERENTFELDEN', '0', '7379797', 20250826+10);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 7 (iteration 1) returned: 1
+Executing transaction 8 (iteration 0): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (13, 'AVOSANO SA PUIDOUX', '1070', 'PUIDOUX', '004162', '7379797', 20250826+10);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 8 (iteration 0) returned: 1
+Executing transaction 8 (iteration 1): INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (13, 'AVOSANO SA PUIDOUX', '1070', 'PUIDOUX', '004162', '7379797', 20250826+9);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 8 (iteration 1) returned: 1
+Executing transaction 9: ALTER TABLE ich21@zdev21_tcp:esqltest MODIFY (plz_strasse VARCHAR(10));
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 9 returned: 1
+Executing transaction 10: INSERT INTO ich21@zdev21_tcp:esqltest (filialnr, name, plz_strasse, ort, vorwahl, telnr, datum_mwst) VALUES (21, 'SWISS BRANCH ZURICH', '8001', 'ZURICH', '004144', '1234567', 20250826+13);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 10 returned: 1
+Executing transaction 11: SELECT (filialnr || ';' || name || ';' || plz_strasse || ';' || ort || ';' || vorwahl || ';' || telnr || ';' || datum_mwst) AS row FROM ich21@zdev21_tcp:esqltest
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 11 returned: 1
+Executing transaction 12: SELECT (ort || ';' || COUNT(*)) AS row FROM ich21@zdev21_tcp:esqltest GROUP BY ort HAVING COUNT(*) > 1;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 12 returned: 1
+Executing transaction 13: SELECT (filialnr || ';' || name || ';' || datum_mwst) AS row FROM ich21@zdev21_tcp:esqltest WHERE datum_mwst >= 20200101 ORDER BY datum_mwst DESC;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 13 returned: 1
+Executing transaction 14: SELECT (ort || ';' || AVG(datum_mwst)) AS row FROM ich21@zdev21_tcp:esqltest GROUP BY ort;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 14 returned: 1
+Skipping transaction 15 due to skip property.
+Executing transaction 16: SELECT (ort || ';' || ROUND(COUNT(*)) || ';' || MIN(datum_mwst)) AS row FROM ich21@zdev21_tcp:esqltest GROUP BY ort HAVING COUNT(*) > 0;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 16 returned: 1
+Executing transaction 17: DROP TABLE ich21@zdev21_tcp:esqltest;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 17 returned: 1
++-------------------------------------------------------------------------------------------------------+
+| 23 transactions processed, successful: 5, skipped: 1, total TXN time: 0.205s, average per TXN: 0.009s |
++-------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld\pharmos.base.libtpld\dev\src\x64\Release\esqltest.exe (process 13272) exited with code 0 (0x0).
+Press any key to close this window . . .

@@ -1,0 +1,41 @@
+    [exec] ###################################################################
+     [exec] # Store static library version information ...                    #
+     [exec] ###################################################################
+     [exec] Preprocessing './tpldauftr.cxx'
+     [exec] gcc -I/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/ext/pplib/include -I/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/ext/libtpld/include -I../common -pthread -g -maix64 -Dunix -DIFX_DISABLE_LOC_T  -DESQL_C -DZENTRAL -MT build/obj/debug/./tpldauftr.ec -MMD -MP -MF build/dep/./tpldauftr.Td -x c -E -P -o build/obj/debug/./tpldauftr.ec -c ./tpldauftr.cxx
+     [exec] Using version "01.01.05.03" of library "ppunixc"
+     [exec] Using version "1.1.3.3" of library "libtpld"
+     [exec] Omitting "libversion" because no version info could be found!
+     [exec] gcc -maix64 -Dunix -O0 -o build/obj/debug/versioninfo_c.o -c build/obj/debug/versioninfo.c
+     [exec]
+     [exec] ###################################################################
+     [exec] Running esql
+     [exec] # Compiling new/changed sources ...                               #
+     [exec] esql -DESQL_C -DZENTRAL -pthread -g -maix64 -Dunix -DIFX_DISABLE_LOC_T -o build/obj/debug/./tpldauftr_cxx.o -c build/obj/debug/./tpldauftr.ec
+     [exec] ###################################################################
+     [exec] ./oecustomercalls.h:308:0: warning: "OECUSTOMERCALLS_UPDATE" redefined [enabled by default]
+     [exec] ./oecustomercalls.h:97:0: note: this is the location of the previous definition
+     [exec] build/obj/debug/./tpldauftr.ec: In function 'calculate_business_day_cutoff':
+     [exec] build/obj/debug/./tpldauftr.ec:5092:21: error: 'str' undeclared (first use in this function)
+     [exec] build/obj/debug/./tpldauftr.ec:5092:21: note: each undeclared identifier is reported only once for each function it appears in
+     [exec] build/obj/debug/./tpldauftr.ec:5094:13: warning: implicit declaration of function 'PrintMsg' [-Wimplicit-function-declaration]
+     [exec] build/obj/debug/./tpldauftr.ec: At top level:
+     [exec] build/obj/debug/./tpldauftr.ec:5238:14: warning: conflicting types for 'PrintMsg' [enabled by default]
+     [exec] build/obj/debug/./tpldauftr.ec:5238:14: error: static declaration of 'PrintMsg' follows non-static declaration
+     [exec] build/obj/debug/./tpldauftr.ec:5094:13: note: previous implicit declaration of 'PrintMsg' was here
+     [exec] build/obj/debug/./tpldauftr.ec:5304:13: warning: 'ReaktiviereKdauftragEreignis' used but never defined [enabled by default]
+     [exec] rm -f tpldauftr.c
+     [exec] make[2]: Leaving directory `/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src/tpldauftr'
+     [exec] make[1]: Leaving directory `/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src/tpldauftr'
+     [exec] make[2]: [build/obj/debug/./tpldauftr_cxx.o] Error 1 (ignored)
+     [exec] ls: 0653-341 The file build/obj/debug/./tpldauftr_cxx.o does not exist.
+     [exec] make[2]: *** [build/obj/debug/./tpldauftr_cxx.o] Error 2
+     [exec] make[1]: *** [dbg] Error 2
+     [exec] make: *** [dbg] Error 2
+
+BUILD FAILED
+/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src/build.xml:26: The following error occurred while executing this line:
+http://tfs-nexus:8081/repository/genesis/eu/phoenixgroup/buildenv_ivy/3.0.0/macro.ant-3.0.0.xml:545: exec returned: 2
+
+Total time: 1 minute 24 seconds
+h.benabdelaziz@zdev21:/software/home/benabdelaziz/CPR0002781/pharmos.outbound.csc_load/dev/src #

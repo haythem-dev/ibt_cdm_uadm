@@ -1,0 +1,192 @@
+#!/bin/ksh
+###############################################################################################
+# HEADER-DATA --> ATTENTION: INDIVIDUAL MODIFICATION REQUIRED (Purpose) <--
+###############################################################################################
+#Author:                    devuser
+#Creation-Date:             26.11.2008
+#Creation-Time:             15:43
+#Purpose:                   implements the options callable for /software/wss/de/ksc/load/proc/tpldauftr.option
+#Enhancement-Date:          August 2025
+#Enhancement-Purpose:       Enhanced documentation and business day support(h.benabdelaziz)
+###############################################################################################
+
+#========================================================================================#
+# USAGE - Enhanced with detailed documentation
+#========================================================================================#
+readonly USAGE="
+------------------------------------------------------------------------------------------------
+tpldauftr.sh - Order Archiving System with Enhanced Documentation
+------------------------------------------------------------------------------------------------
+USAGE:
+    ./tpldauftr.sh [ACTION] [PARAMETERS] [OPTIONS]
+
+ACTIONS (Choose ONE):
+    -start                        Start the archiving process
+    -stop                         Stop the archiving process  
+    -status                       Check process status
+
+REQUIRED PARAMETERS:
+    -fil            Filial/Branch number (required, must be > 0)
+
+OPTIONAL PARAMETERS:
+    -h24                          Enable 24-hour mode processing
+    -dg                           Enable debug output mode
+    -backup                       Enable backup mode
+    --business-day-mode           Enable/Disable business day enhancement logic
+    --force-date        Override automatic date calculation
+    --archive-mode          Archive mode (normal|previous|current|all)
+
+EXAMPLES:
+    Basic usage:
+        ./tpldauftr.sh -start -fil 50
+
+    With debug mode:
+        ./tpldauftr.sh -start -fil 50 -dg
+
+    24-hour emergency mode:
+        ./tpldauftr.sh -start -fil 50 -h24
+
+    Force specific date:
+        ./tpldauftr.sh -start -fil 50 --force-date 20250814
+
+HELP OPTIONS:
+    -help, -h                     Display this help message
+    -u, -usage                    Display usage syntax only
+    -v, -version                  Display version information
+    -vh                           Display detailed version history
+    -r, -return_value             Display return codes and explanations
+
+NOTES:
+    • The -fil parameter is mandatory and must be a positive number
+    • Only one action (-start, -stop, -status) can be specified
+    • Enhanced documentation provides better troubleshooting support
+    • Use -dg flag for debugging parameter passing issues
+
+For technical support, contact the system administrator.
+------------------------------------------------------------------------------------------------"
+
+#========================================================================================#
+# HELP - Enhanced documentation display
+#========================================================================================#
+if [[ "$1" == "-h" || "$1" == "-help" || "$1" == "--help" ]] ; then
+    echo "------------------------------------------------------------------------------------------------"
+    echo "START: $PWD/$0:"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "$USAGE"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "ENDE: $PWD/$0:"
+    echo "------------------------------------------------------------------------------------------------"
+    exit 0;
+fi
+
+#========================================================================================#
+# RETURN VALUES - Enhanced with detailed explanations
+#========================================================================================#
+if [[ "$1" == "-r" || "$1" == "-return_values" || "$1" == "-return_value" ]] ; then
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "START: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "RETURN CODES AND EXPLANATIONS:"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "| Return Code | Description                    | Action Required                               |"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "|      0      | SUCCESS                        | Process completed successfully                |"
+    echo  "|      8      | BINARY_NOT_FOUND              | Check if \${BIN_PATH}/\${BINARY} exists        |"
+    echo  "|      9      | NO_PARAMETERS                 | Provide at least one parameter               |"
+    echo  "|     10      | NO_ACTION_SPECIFIED           | Use -start, -stop, or -status                |"
+    echo  "|     11      | MULTIPLE_ACTIONS              | Use only one action at a time                |"
+    echo  "|     12      | INVALID_FIL_PARAMETER         | Provide valid -fil  (>0)            |"
+    echo  "|      1      | GENERAL_ERROR                 | Check logs for specific error details        |"
+    echo  "|      2      | INVALID_USAGE                 | Use -help for correct usage information      |"
+    echo  "------------------------------------------------------------------------------------------------"
+    start_process -r
+    stop_process -r
+    status_process -r
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "ENDE: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    exit 0;
+fi
+
+#====================================#
+# USAGE - Short format display
+#====================================#
+if [[ "$1" == "-u" || "$1" == "-usage" ]] ; then
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "START: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo "Usage: ./tpldauftr.sh [-start|-stop|-status] -fil  [OPTIONS]"
+    echo "Use './tpldauftr.sh -help' for detailed information."
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "ENDE: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    exit 0;
+fi
+
+#====================================#
+# CURRENT VERSION - Enhanced version info
+#====================================#
+CUR_VER=2.0
+if [[ "$1" == "-v" || "$1" == "-version" ]] ; then
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "START: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo "tpldauftr.sh - Enhanced Order Archiving System"
+    echo "Script Version: $CUR_VER (Enhanced Documentation)"
+    echo "Binary Version: \${MARATHON_SSUK_VERSION:-Not Available}"
+    echo "Author: devuser"
+    echo "Enhanced: August 2025"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "ENDE: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    exit 0;
+fi
+
+#====================================#
+# VERSION HISTORY - Enhanced with recent updates
+#====================================#
+if [[ "$1" = "-vh" ]] ; then
+    echo "------------------------------------------------------------------------------------------------"
+    echo "START: $PWD/$0:"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "VERSION INFORMATION:"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "Script:     tpldauftr.sh"
+    echo "Author:     devuser"
+    echo "Created:    26.11.2008 15:43"
+    echo "Enhanced:   August 2025 (Documentation Enhancement)"
+    echo "Purpose:    Order archiving wrapper with enhanced documentation"
+    echo "Binary:     \${BIN_PATH}/\${BINARY}"
+    echo "Version:    \${MARATHON_SSUK_VERSION:-Not Available}"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "VERSION HISTORY:"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "V-Nr.     Datum            Zeit        Inhalt"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "1.0       April/Mai 07     00:00       Initial creation"
+    echo "2.0       August 2025      12:00       Enhanced documentation and help system"
+    echo "                                        - Improved usage examples"
+    echo "                                        - Detailed return code explanations"
+    echo "                                        - Enhanced parameter documentation"
+    echo "                                        - Business day options support"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "------------------------------------------------------------------------------------------------"
+    echo "ENDE: $PWD/$0:"
+    echo "------------------------------------------------------------------------------------------------"
+    exit 0;
+fi
+
+#====================================#
+# CURRENT VERSION OF PROGRAMME - Binary version check
+#====================================#
+if [[ "$1" = "-vp" ]] ; then
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "START: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "Version-No. of programme:"
+    \${process} -version
+    echo  "------------------------------------------------------------------------------------------------"
+    echo  "ENDE: $PWD/$0:"
+    echo  "------------------------------------------------------------------------------------------------"
+    exit 0;
+fi

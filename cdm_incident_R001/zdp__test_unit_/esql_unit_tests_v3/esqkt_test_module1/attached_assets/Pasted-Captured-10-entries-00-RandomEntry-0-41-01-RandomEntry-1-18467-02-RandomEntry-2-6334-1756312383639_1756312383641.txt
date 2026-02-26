@@ -1,0 +1,36 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+DEBUG: persistent_connection config value: '1'
+DEBUG: isTrue() result: 1
+Using persistent connection mode.
+Executing transaction 0: CREATE TEMP TABLE ich21@zdev21_tcp:temp_ibtbrancharticleconfig (     articleno INT NOT NULL,     branchno SMALLINT NOT NULL,     ibttypeid SMALLINT,     ibtassortmenttypeid SMALLINT,     ibtonlyflag SMALLINT DEFAULT 0,     lastchangedatetime DATETIME YEAR TO SECOND,     PRIMARY KEY (articleno, branchno) );
+Persistent connection established to: ich21@zdev21_tcp
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 0 returned: 0
+Executing transaction 1: CREATE TEMP TABLE ich21@zdev21_tcp:temp_puibtbrancharticleconfig (     ARTICLENO INT NOT NULL,     BRANCHNO SMALLINT NOT NULL,     IBTROLETYPEID SMALLINT,     ASSORTMENTTYPEID SMALLINT,     LASTCHANGEDATETIME DATETIME YEAR TO SECOND,     RELEVANCEFLAG SMALLINT DEFAULT 1,     PRIMARY KEY (ARTICLENO, BRANCHNO) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 1 returned: 0
+Executing transaction 2: CREATE TEMP TABLE ich21@zdev21_tcp:temp_article_reference (     articleno INT NOT NULL PRIMARY KEY,     articlename VARCHAR(80),     manufacturer VARCHAR(40),     active_flag SMALLINT DEFAULT 1 );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 2 returned: 0
+Executing transaction 3: CREATE TEMP TABLE ich21@zdev21_tcp:temp_branch_reference (     branchno SMALLINT NOT NULL PRIMARY KEY,     branchname VARCHAR(40),     country VARCHAR(20),     region VARCHAR(20) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 3 returned: 0
+Closing persistent database connection.
+Persistent connection closed.
++------------------------------------------------------------------------------------------------------+
+| 4 transactions processed, successful: 4, skipped: 0, total TXN time: 0.114s, average per TXN: 0.029s |
++------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld\pharmos.base.libtpld\dev\src\x64\Release\esqltest.exe (process 15336) exited with code 0 (0x0).
+Press any key to close this window . . .

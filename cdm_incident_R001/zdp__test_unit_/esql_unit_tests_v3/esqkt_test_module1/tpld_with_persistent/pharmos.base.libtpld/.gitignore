@@ -1,0 +1,11 @@
+#
+/export
+/dev/ext
+Debug/
+Release/
+x64/
+.vs/
+*.opendb
+*.db
+*.user
+build/

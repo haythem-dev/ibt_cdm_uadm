@@ -1,0 +1,36 @@
+
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc #
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # ./tpldauftr.sh -dg -start -fil 50
+DEBUG: Debug mode enabled in shell script
+DEBUG: CPR Enhancement - Business hours logic active (8-18: previous day, else: current day)
+DEBUG: Final process command: /software/wss/de/ksc/load/bin/tpldauftr.bin -dg -fil 50 -db ode21@zdev21_shm -del 35
+=====================================================================================
+SH: START /software/wss/de/ksc/load/proc/printStartStop -dg -start -fil 50
+=====================================================================================
+O 00 14.08.25 17:32:53 pid=26739410 ================================================
+O 00 14.08.25 17:32:53 pid=26739410 START
+O 00 14.08.25 17:32:53 pid=26739410 ================================================
+D-DeleteAkoeinheit: Datum ab: Sql:20250710 Isam:20250710 error:0
+D-DeleteAkdverbund: Datum ab: Sql:20250710 Isam:20250710 error:0
+CPR LOG: Building main kdauftrag query for filial 50
+CPR LOG: Business day mode disabled - no date filter applied
+CPR LOG: Final main query SQL: select KDAUFTRAG.KDAUFTRAGNR,KDAUFTRAG.KDAUFTRAGSTAT,KDAUFTRAG.IDFNR,KDAUFTRAG.GERAETNAME,KDAUFTRAG.TOURID,KDAUFTRAG.TOURIDALT,KDAUFTRAG.PERSONALNR,KDAUFTRAG.MATCHCODE,KDAUFTRAG.RECHNUNGNR,KDAUFTRAG.FILIALNR,KDAUFTRAG.ETAUFTRAGSCHALTER1,KDAUFTRAG.ETAUFTRAGSCHALTER2,KDAUFTRAG.ETAUFTRAGSCHALTER3,KDAUFTRAG.ETAUFTRAGSCHALTER4,KDAUFTRAG.KDAUFTRAGART,KDAUFTRAG.KOART,KDAUFTRAG.BUCHART,KDAUFTRAG.DATUMVALUTA,KDAUFTRAG.WERTAUFTRAG,KDAUFTRAG.WERTLIEFERUNG,KDAUFTRAG.WERTZEILEN,KDAUFTRAG.ANZPOS,KDAUFTRAG.ANZPOSOB,KDAUFTRAG.ANZPOSLETZTE,KDAUFTRAG.ANZPOSDAFUE,KDAUFTRAG.ANZPOSDAFUEFEHLER,KDAUFTRAG.ANZALPHATEXT,KDAUFTRAG.ANZBTM,KDAUFTRAG.ANZCONTAINER,KDAUFTRAG.ANZBEHAELTWECHSEL,KDAUFTRAG.ANZBEHAELT,KDAUFTRAG.ANZSONDERWANNE,KDAUFTRAG.BEHAELTERGEWICHT,KDAUFTRAG.RABATTBARPROZ,KDAUFTRAG.ZEITENDEAM,KDAUFTRAG.ZEITENDEPM,KDAUFTRAG.LAGERNRRECHNUNG,KDAUFTRAG.AUFTRAGNRKO,KDAUFTRAG.DMOBILPLATZNR,KDAUFTRAG.SKDDEFEKTABSAGEN,KDAUFTRAG.DRUCKPOSITION,KDAUFTRAG.BATCHSCHREIBEN,KDAUFTRAG.BEMERKUNGEN,KDAUFTRAG.KUNDETEXT,KDAUFTRAG.HERKUNFTFILIALE,KDAUFTRAG.NAECHSTETOUR,KDAUFTRAG.LETZTETOUR,KDAUFTRAG.DAFUEAUFTRAGNR,KDAUFTRAG.DAFUEGERAETENAME,KDAUFTRAG.VERTRIEBSZENTRUMNR,KDAUFTRAG.KUNDENNR,KDAUFTRAG.KDAUFTRAGNRFILIALE,KDAUFTRAG.SENDESTATUS,KDAUFTRAG.POOLTYP,KDAUFTRAG.POOLNR,KDAUFTRAG.ZUGRUND,KDAUFTRAG.DATUMAUSLIEFERUNG,KDAUFTRAG.KDAUFTRAGNRORG,KDAUFTRAG.DATUMORG,KDAUFTRAG.KZRESTORED,KDAUFTRAG.BATCHAUFTRAGNR,KDAUFTRAG.SUB_ORDER_TYPE,KDAUFTRAG.PAYMENT_TERM,KDAUFTRAG.ANZAUF,KDAUFTRAG.DATUMVALUTABATCH,KDAUFTRAG.VALUTAMONAUTO,KDAUFTRAG.VALUTAMONMANUELL,KDAUFTRAG.TENDERNO,KDAUFTRAG.DATUMVERSAND,KDAUFTRAG.DATUMBTM,KDAUFTRAG.BTMFORMULARNR,KDAUFTRAG.WERTNETTO,KDAUFTRAG.WERTRABATT,KDAUFTRAG.INVOICENUMBER,KDAUFTRAG.PAYMENTDATE,KDAUFTRAG.PAYMENTTYPE,KDAUFTRAG.ETAUFTRAGSCHALTER5,KDAUFTRAG.ETAUFTRAGSCHALTER6,KDAUFTRAG.DRIVERID,KDAUFTRAG.XMLREFERENCENO,KDAUFTRAG.LOGISTICVOLUME,KDAUFTRAG.ORDERLABEL,KDAUFTRAG.DPODAYS,KDAUFTRAG.ORDERPERIODID,KDAUFTRAG.ORIGINTYPEORG from kdauftrag where vertriebszentrumnr= 50 for update
+CPR LOG: Preparing Skdauftrag query...
+CPR LOG: Skdauftrag query prepared successfully
+CPR LOG: Building fkwarteschlange subquery for filial 50
+CPR LOG: Business day mode disabled - no date filter applied to subquery
+CPR LOG: Final fkwarteschlange query SQL: select * from fkwarteschlange where kdauftragnr in (select kdauftragnr from kdauftrag where vertriebszentrumnr=50) for update
+CPR LOG: Preparing Sfkwarteschlange query...
+CPR LOG: Sfkwarteschlange query prepared successfully
+CPR LOG: Business day mode status: DISABLED (mode=0, explicit=0)
+CPR LOG: Business day enhancement disabled - using standard archiving logic
+start_process:
+        RC:<0>: --> OK:    Application started.
+        Parameter: </software/wss/de/ksc/load/bin/tpldauftr.bin -dg -fil 50 -db ode21@zdev21_shm -del 35>;
+O 00 14.08.25 17:32:53 pid=26739410 ================================================
+O 00 14.08.25 17:32:53 pid=26739410 STOP with Return-Code: <<0>>.
+O 00 14.08.25 17:32:53 pid=26739410 ================================================
+=====================================================================================
+SH: STOP /software/wss/de/ksc/load/proc/printStartStop -dg -start -fil 50
+=====================================================================================
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc #

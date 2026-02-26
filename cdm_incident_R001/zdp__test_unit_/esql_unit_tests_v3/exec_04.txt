@@ -1,0 +1,197 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+Persistent Database connection enabled
+Executing transaction 0: DROP TABLE IF EXISTS test_artikelf_source;
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 0 returned: 0
+Executing transaction 1: DROP TABLE IF EXISTS test_cscbrancharticle;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 1 returned: 0
+Executing transaction 2: DROP TABLE IF EXISTS test_processing_artikelf;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 2 returned: 0
+Executing transaction 3: DROP TABLE IF EXISTS test_branch_reference;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 3 returned: 0
+Executing transaction 4: DROP TABLE IF EXISTS test_validation_results;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 4 returned: 0
+Executing transaction 5: CREATE TABLE test_artikelf_source (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER NOT NULL,     besla_nr INTEGER,     bestand_min INTEGER,     artikelaktiv CHAR(1),     lagerfachnr CHAR(10),     offene_bestmenge INTEGER,     datum_aender INTEGER NOT NULL,     openorderqty_noteffective INTEGER ) IN datadbs;
+Transaction execution failed: SQLCODE = -388 [No resource permission.].
+Transaction 5 returned: 2
+Executing transaction 6: CREATE TABLE test_cscbrancharticle (     filialnr INTEGER NOT NULL,     artikel_nr INTEGER NOT NULL,     besla_nr INTEGER,     bestand_min INTEGER,     artikelaktiv CHAR(1),     lagerfachnr CHAR(10),     offene_bestmenge INTEGER,     openorderqty_noteffective INTEGER,     lastupdatedate INTEGER DEFAULT 0 ) IN datadbs;
+Transaction execution failed: SQLCODE = -388 [No resource permission.].
+Transaction 6 returned: 2
+Executing transaction 7: CREATE TABLE test_processing_artikelf (     filialnr INTEGER,     artikel_nr INTEGER,     besla_nr INTEGER,     bestand_min INTEGER,     artikelaktiv CHAR(1),     lagerfachnr CHAR(10),     offene_bestmenge INTEGER,     datum_aender INTEGER,     openorderqty_noteffective INTEGER ) IN datadbs;
+Transaction execution failed: SQLCODE = -388 [No resource permission.].
+Transaction 7 returned: 2
+Executing transaction 8: CREATE TABLE test_branch_reference (     filialnr INTEGER NOT NULL,     branchname VARCHAR(40),     region VARCHAR(20),     active_flag INTEGER DEFAULT 1 ) IN datadbs;
+Transaction execution failed: SQLCODE = -388 [No resource permission.].
+Transaction 8 returned: 2
+Executing transaction 9: CREATE TABLE test_validation_results (     validation_type VARCHAR(50),     metric_name VARCHAR(50),     metric_value INTEGER,     description VARCHAR(100) ) IN datadbs;
+Transaction execution failed: SQLCODE = -388 [No resource permission.].
+Transaction 9 returned: 2
+Executing transaction 10: INSERT INTO test_branch_reference (filialnr, branchname, region, active_flag) VALUES (10, 'Central Branch Berlin', 'North', 1);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 10 returned: 2
+Executing transaction 11: INSERT INTO test_branch_reference (filialnr, branchname, region, active_flag) VALUES (20, 'Regional Branch Munich', 'South', 1);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 11 returned: 2
+Executing transaction 12: INSERT INTO test_branch_reference (filialnr, branchname, region, active_flag) VALUES (30, 'Metro Branch Vienna', 'Central', 1);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 12 returned: 2
+Executing transaction 13: INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) VALUES (10, 100001, 501, 25, 'Y', 'A001', 150, 75, 20250125);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 13 returned: 2
+Executing transaction 14: INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) VALUES (10, 100002, 502, 30, 'Y', 'A002', 200, 100, 20250125);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 14 returned: 2
+Executing transaction 15: INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) VALUES (20, 100001, 503, 20, 'Y', 'B001', 180, 90, 20250125);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 15 returned: 2
+Executing transaction 16: INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (10, 100001, 501, 30, 'Y', 'A001', 175, 20250126, 80);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 16 returned: 2
+Executing transaction 17: INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (10, 100003, 504, 15, 'Y', 'A003', 120, 20250126, 60);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 17 returned: 2
+Executing transaction 18: INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (30, 100001, 505, 25, 'Y', 'C001', 160, 20250126, 85);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 18 returned: 2
+Executing transaction 19: SELECT COUNT(*) || ';TOTAL_BRANCH_RECORDS' AS result FROM test_branch_reference;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 19 returned: 2
+Executing transaction 20: SELECT COUNT(*) || ';TOTAL_SOURCE_RECORDS' AS result FROM test_artikelf_source;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 20 returned: 2
+Executing transaction 21: SELECT COUNT(*) || ';TOTAL_TARGET_RECORDS' AS result FROM test_cscbrancharticle;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 21 returned: 2
+Executing transaction 22: SELECT s.filialnr || ';' || s.artikel_nr || ';' || NVL(s.besla_nr, 0) || ';' || NVL(s.bestand_min, 0) || ';' || NVL(s.artikelaktiv, 'N') || ';' || NVL(s.lagerfachnr, 'NONE') || ';' || NVL(s.offene_bestmenge, 0) || ';' || s.datum_aender || ';' || NVL(s.openorderqty_noteffective, 0) AS result FROM test_artikelf_source s WHERE s.filialnr = 10   AND s.datum_aender >= (SELECT NVL(MAX(lastupdatedate), 0) FROM test_cscbrancharticle WHERE filialnr = 10) ORDER BY s.artikel_nr;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 22 returned: 2
+Executing transaction 23: DELETE FROM test_processing_artikelf;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 23 returned: 2
+Executing transaction 24: INSERT INTO test_processing_artikelf SELECT filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective FROM test_artikelf_source WHERE filialnr = 10   AND datum_aender >= (SELECT NVL(MAX(lastupdatedate), 0) FROM test_cscbrancharticle WHERE filialnr = 10);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 24 returned: 2
+Executing transaction 25: SELECT COUNT(*) || ';PROCESSING_RECORDS_LOADED' AS result FROM test_processing_artikelf;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 25 returned: 2
+Executing transaction 26: UPDATE test_cscbrancharticle SET besla_nr = (SELECT taf.besla_nr FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     bestand_min = (SELECT taf.bestand_min FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     artikelaktiv = (SELECT taf.artikelaktiv FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     lagerfachnr = (SELECT taf.lagerfachnr FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     offene_bestmenge = (SELECT taf.offene_bestmenge FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     lastupdatedate = 20250126
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 26 returned: 2
+Executing transaction 27: INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) SELECT taf.filialnr, taf.artikel_nr, taf.besla_nr, taf.bestand_min, taf.artikelaktiv, taf.lagerfachnr, taf.offene_bestmenge, taf.openorderqty_noteffective, 20250126 FROM test_processing_artikelf taf WHERE NOT EXISTS (SELECT 1 FROM test_cscbrancharticle cba WHERE cba.filialnr = taf.filialnr AND cba.artikel_nr = taf.artikel_nr);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 27 returned: 2
+Executing transaction 28: INSERT INTO test_validation_results SELECT 'MERGE_SUMMARY', 'updated_today', COUNT(*), 'Records updated today' FROM test_cscbrancharticle WHERE lastupdatedate = 20250126;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 28 returned: 2
+Executing transaction 29: INSERT INTO test_validation_results SELECT 'MERGE_SUMMARY', 'total_records', COUNT(*), 'Total records in table' FROM test_cscbrancharticle;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 29 returned: 2
+Executing transaction 30: SELECT validation_type || ';' || metric_name || ';' || metric_value || ';' || description AS result FROM test_validation_results WHERE validation_type = 'MERGE_SUMMARY' ORDER BY metric_name;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 30 returned: 2
+Executing transaction 31: SELECT cba.filialnr || ';' || cba.artikel_nr || ';' || NVL(cba.besla_nr, 0) || ';' || NVL(cba.bestand_min, 0) || ';' || NVL(cba.artikelaktiv, 'N') || ';' || NVL(cba.lagerfachnr, 'NONE') || ';' || NVL(cba.offene_bestmenge, 0) || ';' || NVL(cba.openorderqty_noteffective, 0) || ';' || cba.lastupdatedate AS result FROM test_cscbrancharticle cba WHERE cba.filialnr = 10 AND cba.lastupdatedate = 20250126 ORDER BY cba.artikel_nr;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 31 returned: 2
+Executing transaction 32: SELECT br.branchname || ';' || COUNT(cba.artikel_nr) || ';' || ROUND(AVG(cba.bestand_min), 2) || ';' || MAX(cba.lastupdatedate) AS result FROM test_cscbrancharticle cba, test_branch_reference br WHERE cba.filialnr = br.filialnr GROUP BY br.filialnr, br.branchname ORDER BY COUNT(cba.artikel_nr) DESC;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 32 returned: 2
+Executing transaction 33: SELECT NVL(artikelaktiv, 'NULL') || ';' || COUNT(*) || ';ACTIVITY_STATUS' AS result FROM test_cscbrancharticle GROUP BY artikelaktiv ORDER BY artikelaktiv;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 33 returned: 2
+Executing transaction 34: INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (20, 100010, 510, 15, 'Y', 'B010', 110, 20250127, 55);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 34 returned: 2
+Executing transaction 35: INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (20, 100011, 511, 20, 'Y', 'B011', 130, 20250127, 65);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 35 returned: 2
+Executing transaction 36: INSERT INTO test_artikelf_source (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective) VALUES (20, 100012, 512, 25, 'Y', 'B012', 150, 20250127, 75);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 36 returned: 2
+Executing transaction 37: DELETE FROM test_processing_artikelf;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 37 returned: 2
+Executing transaction 38: INSERT INTO test_processing_artikelf SELECT filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, datum_aender, openorderqty_noteffective FROM test_artikelf_source WHERE filialnr = 20 AND datum_aender >= (SELECT NVL(MAX(lastupdatedate), 0) FROM test_cscbrancharticle WHERE filialnr = 20);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 38 returned: 2
+Executing transaction 39: UPDATE test_cscbrancharticle SET besla_nr = (SELECT taf.besla_nr FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     bestand_min = (SELECT taf.bestand_min FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     artikelaktiv = (SELECT taf.artikelaktiv FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     lagerfachnr = (SELECT taf.lagerfachnr FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     offene_bestmenge = (SELECT taf.offene_bestmenge FROM test_processing_artikelf taf WHERE taf.filialnr = test_cscbrancharticle.filialnr AND taf.artikel_nr = test_cscbrancharticle.artikel_nr),     lastupdatedate = 20250127
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 39 returned: 2
+Executing transaction 40: INSERT INTO test_cscbrancharticle (filialnr, artikel_nr, besla_nr, bestand_min, artikelaktiv, lagerfachnr, offene_bestmenge, openorderqty_noteffective, lastupdatedate) SELECT taf.filialnr, taf.artikel_nr, taf.besla_nr, taf.bestand_min, taf.artikelaktiv, taf.lagerfachnr, taf.offene_bestmenge, taf.openorderqty_noteffective, 20250127 FROM test_processing_artikelf taf WHERE NOT EXISTS (SELECT 1 FROM test_cscbrancharticle cba WHERE cba.filialnr = taf.filialnr AND cba.artikel_nr = taf.artikel_nr);
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 40 returned: 2
+Executing transaction 41: INSERT INTO test_validation_results SELECT 'DATA_QUALITY', 'null_besla_nr', COUNT(*), 'Records with NULL besla_nr' FROM test_cscbrancharticle WHERE besla_nr IS NULL;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 41 returned: 2
+Executing transaction 42: INSERT INTO test_validation_results SELECT 'DATA_QUALITY', 'negative_bestand_min', COUNT(*), 'Records with negative bestand_min' FROM test_cscbrancharticle WHERE bestand_min < 0;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 42 returned: 2
+Executing transaction 43: INSERT INTO test_validation_results SELECT 'DATA_QUALITY', 'inactive_articles', COUNT(*), 'Records with inactive articles' FROM test_cscbrancharticle WHERE artikelaktiv = 'N';
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 43 returned: 2
+Executing transaction 44: SELECT validation_type || ';' || metric_name || ';' || metric_value || ';' || description AS result FROM test_validation_results WHERE validation_type = 'DATA_QUALITY' ORDER BY metric_name;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 44 returned: 2
+Executing transaction 45: INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'total_records', COUNT(*), 'Total records in final table' FROM test_cscbrancharticle;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 45 returned: 2
+Executing transaction 46: INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'unique_branches', COUNT(DISTINCT filialnr), 'Number of unique branches' FROM test_cscbrancharticle;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 46 returned: 2
+Executing transaction 47: INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'unique_articles', COUNT(DISTINCT artikel_nr), 'Number of unique articles' FROM test_cscbrancharticle;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 47 returned: 2
+Executing transaction 48: INSERT INTO test_validation_results SELECT 'FINAL_VALIDATION', 'recent_updates', COUNT(*), 'Records updated since 20250126' FROM test_cscbrancharticle WHERE lastupdatedate >= 20250126;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 48 returned: 2
+Executing transaction 49: SELECT validation_type || ';' || metric_name || ';' || metric_value || ';' || description AS result FROM test_validation_results WHERE validation_type = 'FINAL_VALIDATION' ORDER BY metric_name;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 49 returned: 2
+Executing transaction 50: SELECT cba.filialnr || ';' || COUNT(*) || ';' || COUNT(CASE WHEN cba.artikelaktiv = 'Y' THEN 1 END) || ';' || COUNT(CASE WHEN cba.bestand_min > 0 THEN 1 END) AS result FROM test_cscbrancharticle cba GROUP BY cba.filialnr HAVING COUNT(*) > 0 ORDER BY cba.filialnr;
+Open preC1 failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 50 returned: 2
+Executing transaction 51: DROP TABLE test_artikelf_source;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 51 returned: 2
+Executing transaction 52: DROP TABLE test_cscbrancharticle;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 52 returned: 2
+Executing transaction 53: DROP TABLE test_processing_artikelf;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 53 returned: 2
+Executing transaction 54: DROP TABLE test_branch_reference;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 54 returned: 2
+Executing transaction 55: DROP TABLE test_validation_results;
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 55 returned: 2
+Executing transaction 56: SELECT COUNT(*) || ';REMAINING_TEST_TABLES' AS result FROM systables WHERE tabname LIKE 'test_%';
+count              | description           |
+--------------------+----------------------+
+0.0000000000000000 | REMAINING_TEST_TABLES |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.010 seconds
+Disconnected successfully.
+Transaction 56 returned: 0
++-------------------------------------------------------------------------------------------------------+
+| 57 transactions processed, successful: 6, skipped: 0, total TXN time: 0.258s, average per TXN: 0.005s |
++-------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld_new\pharmos.base.libtpld\dev\src\x64\Debug\esqltest.exe (process 7912) exited with code 0 (0x0).
+Press any key to close this window . . .
+

@@ -1,0 +1,38 @@
+Database name read from INI: ich21@zdev21_tcp
+Executing transaction 0: CREATE TEMP TABLE ich21@zdev21_tcp:temp_customers (     kundennr INT,     vertriebszentrumnr INT,     nameapo VARCHAR(40),     ort VARCHAR(32),     skdkundeaegesperrt INT,     idfnr INT,     regionnr INT );
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Disconnected successfully.
+Transaction 0 returned: 0
+Executing transaction 1: INSERT INTO ich21@zdev21_tcp:temp_customers (     kundennr, vertriebszentrumnr, nameapo, ort, skdkundeaegesperrt, idfnr, regionnr ) VALUES (10001, 12, 'Apotheke A', 'Berlin', 0, 5001, 1);
+Connection successful.
+Transaction execution failed: SQLCODE = -206 [The specified table (%s) is not in the database.].
+Transaction 1 returned: 2
+Executing transaction 2: INSERT INTO ich21@zdev21_tcp:temp_customers (     kundennr, vertriebszentrumnr, nameapo, ort, skdkundeaegesperrt, idfnr, regionnr ) VALUES (10002, 13, 'Apotheke B', 'Munich', 0, 5002, 2);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 2 returned: 1
+Executing transaction 3: INSERT INTO ich21@zdev21_tcp:temp_customers (     kundennr, vertriebszentrumnr, nameapo, ort, skdkundeaegesperrt, idfnr, regionnr ) VALUES (10003, 14, 'Apotheke C', 'Hamburg', 1, 5003, 3);
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 3 returned: 1
+Executing transaction 4: SELECT (kundennr || ';' || vertriebszentrumnr || ';' || nameapo || ';' || ort || ';' || skdkundeaegesperrt || ';' || idfnr || ';' || regionnr) AS row FROM ich21@zdev21_tcp:temp_customers
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 4 returned: 1
+Executing transaction 5: SELECT (ort || ';' || COUNT(*)) AS row FROM ich21@zdev21_tcp:temp_customers GROUP BY ort;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 5 returned: 1
+Executing transaction 6: UPDATE ich21@zdev21_tcp:temp_customers SET skdkundeaegesperrt = 0 WHERE kundennr = 10003;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 6 returned: 1
+Executing transaction 7: SELECT (kundennr || ';' || nameapo || ';' || ort || ';' || skdkundeaegesperrt) AS row FROM ich21@zdev21_tcp:temp_customers WHERE skdkundeaegesperrt = 0;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 7 returned: 1
+Executing transaction 8: DROP TABLE ich21@zdev21_tcp:temp_customers;
+Connection failed: SQLCODE = -1801 [Multiple-server transaction not supported.].
+Transaction 8 returned: 1
++------------------------------------------------------------------------------------------------------+
+| 9 transactions processed, successful: 1, skipped: 0, total TXN time: 0.110s, average per TXN: 0.012s |
++------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld\pharmos.base.libtpld\dev\src\x64\Release\esqltest.exe (process 18004) exited with code 0 (0x0).
+Press any key to close this window . . .
+

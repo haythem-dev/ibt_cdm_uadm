@@ -1,0 +1,190 @@
+This page must be filled out for each Change. Without Analysis no implementation will be started.
+
+Business Context (mandatory):
+
+Current Business Problem
+
+The TPLDAUFTR process is a critical component of the PHARMOS CSC_LOAD package responsible for archiving closed customer orders from the active KDAUFTRAG table to the historical AKDAUFTRAG table. The current implementation has a fundamental timing flaw that creates significant business disruption during emergency operations: The original tpldauftrag application archived closed orders from the kdauftrag table to the akdauftrag table WITHOUT ANY BUSINESS DAY LOGIC. This created critical operational issues:
+
+Problem Description:
+
+Normal Operation: Process runs at 23:30 nightly, correctly archiving same business day orders:  before the next business day
+
+Emergency Scenario: When process runs during business hours (e.g., 08:00, 14:00), it archives current day orders
+
+Business Impact: Orders become invisible to customer service representatives, creating operational blindness
+
+Countries Affected:
+
+AT (Austria), BG (Bulgaria), CH (Switzerland), DE (Germany), FR (France), HR (Croatia)
+
+Business Requirements
+
+Primary Goal: Ensure only previous business day closed orders are archived
+
+Challenge: Handle different start times intelligently:
+
+If started late at night (e.g., 23:30) → Archive same business day orders  
+
+If started next morning (e.g., 8:00 AM) → Archive only previous business day orders
+
+Business Value
+
+Maintains visibility of current business day orders for operational teams
+
+Prevents accidental archiving of orders that are still relevant for daily operations
+
+Ensures data integrity and business continuity
+
+Process (mandatory):
+
+Current Process Flow
+
+Normal Night Execution (23:30):
+
+1. TPLDAUFTR starts at 23:30
+2. Queries KDAUFTRAG for CLOSED orders where DATUMVALUTA <= CURRENT_DATE
+3. Archives orders to AKDAUFTRAG tables
+4. Deletes archived orders from active tables
+5. Business day orders properly archived ✓ CORRECT
+
+Emergency Day Execution (08:00-18:00):
+
+1. TPLDAUFTR starts during business hours
+2. Queries KDAUFTRAG for CLOSED orders where DATUMVALUTA <= CURRENT_DATE
+3. Archives TODAY's orders to AKDAUFTRAG tables
+4. Deletes TODAY's orders from active tables
+5. Current business day orders become invisible ✗ PROBLEM
+
+Enhanced Process Flow
+
+Business Day Logic Implementation:
+
+Enhanced TPLDAUFTR Logic:
+├── Execution Time < 06:00 → Archive PREVIOUS calendar day orders
+├── Execution Time 06:00-18:00 → Archive PREVIOUS business day orders + Emergency handling
+└── Execution Time > 18:00 → Archive CURRENT calendar day orders
+
+Emergency Protection Features:
+
+Automatic Detection: Process recognizes business hours execution
+
+User Confirmation: Explicit confirmation required for current-day archiving
+
+Safety Override: --force-current-day parameter for true emergencies
+
+Audit Trail: Complete logging of emergency operations
+
+New Command Line Interface:
+
+# Enhanced parameters
+--business-date=YYYY-MM-DD    # Override automatic date calculation
+--force-current-day           # Allow current day archiving in emergencies
+--emergency-confirmed         # Skip confirmation prompts
+--verbose                     # Enhanced logging for business audit
+--dry-run                     # Test mode for validation
+
+# Usage Examples:
+tpldauftr.sh -start -filial 1                                    # Normal operation
+tpldauftr.sh -start -emergency-confirmed -filial 1               # Emergency with protection
+tpldauftr.sh -start --business-date=2025-08-10 -filial 1         # Specific date override
+
+Data Model/DB Tables (optional if DB is involved and/or to be changed):
+
+Primary Tables Involved
+
+Active Order Tables (Source):
+
+KDAUFTRAG - Main customer orders table
+
+KDAUFTRAGPOS - Order line items
+
+KDAUFTRAGPOSRAB - Order position discounts
+
+KDAUFTRAGEREIGNIS - Order events
+
+Related tables: 30+ associated order data tables
+
+Archive Tables (Target):
+
+AKDAUFTRAG - Archived customer orders
+
+AKDAUFTRAGPOS - Archived order line items
+
+AKDAUFTRAGPOSRAB - Archived order discounts
+
+Related archive tables: 30+ associated archived data tables
+
+Enhanced Query Logic
+
+Current Problematic Query:
+
+SELECT * FROM KDAUFTRAG 
+WHERE KDAUFTRAGSTAT = 'CLOSED'
+AND DATUMVALUTA <= CURRENT_DATE  -- PROBLEM: Uses execution date
+ORDER BY KDAUFTRAGNR;
+
+Enhanced Business-Aware Query:
+
+SELECT kdauftragnr, kdauftragstat, datumvaluta, zeitendeam
+FROM kdauftrag 
+WHERE kdauftragstat = 'CLOSED'
+  AND datumvaluta <= :business_date_parameter  -- Uses calculated business date
+  AND filialnr = :filial_parameter
+  ORDER BY datumvaluta, kdauftragnr;
+
+Data Volume Impact
+
+Typical Daily Order Processing:
+├── DE (Germany): ~50,000 orders/day
+├── AT (Austria): ~15,000 orders/day
+├── FR (France): ~30,000 orders/day
+├── CH (Switzerland): ~12,000 orders/day
+├── Other Countries: ~25,000 orders/day
+└── Total: ~132,000 orders/day across all countries
+
+Schema Changes: NONE - Enhancement maintains full backward compatibility
+
+Frontend - Windows/Citrix (optional if a Frontend is involved and/or to be changed):
+
+Impact Assessment
+
+No Frontend Changes Required
+
+The TPLDAUFTR enhancement is a backend batch process modification. However, the business impact affects frontend systems:
+
+Positive Frontend Impact:
+
+Customer Service Applications: Orders remain visible during emergency operations
+
+Order Management Systems: Consistent order availability during business hours
+
+Reporting Systems: Improved data consistency and availability
+
+User Experience Improvements:
+
+Customer Service Reps: No more "missing order" scenarios during emergencies
+
+Business Users: Consistent order lookup capabilities
+
+Operations Staff: Enhanced control over archiving process
+
+Backend - AIX / Windows Webserver (optional if a Backend is involved and/or to be changed):
+
+
+
+Dependent department inputs (optional if any external department outside PHARMOS is involved):
+
+PINT
+
+Citrix
+
+Infrastructure Env
+
+Schedule/Batch
+
+BI
+
+GxP (in case of GxP relevance)
+
+Documents (Analysis and Solution Specification):

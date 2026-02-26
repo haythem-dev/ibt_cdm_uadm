@@ -1,0 +1,41 @@
+CPR LOG: === FINAL CALCULATION RESULTS ===
+CPR LOG: Final cutoff date: 2025-08-15 (Friday)
+CPR LOG: Internal date format: 20250815
+CPR LOG: === CPR Business Day Calculation Complete ===
+CPR LOG: Business day enhancement ready - cutoff date: 20250815
+CPR LOG: Business day logic will be applied to SQL queries
+CPR LOG:
+=== ARCD-DeleteAkoeinheit: Datum ab: Sql:20250713 Isam:20250713 error:0
+D-DeleteAkdverbund: Datum ab: Sql:20250713 Isam:20250713 error:0
+HIVING PROCESS START ===
+CPR LOG: Process Start Date: 2025-08-17
+CPR LOG: Process Start Time: 17:52:27
+CPR LOG: Day of Week: Sunday (numeric: 0)
+CPR LOG: Weekend Classification: WEEKEND DAY
+CPR LOG: Business Hours Status: WITHIN BUSINESS HOURS (configured: 08:00-18:00)
+CPR LOG: Archive Retention: 35 days
+CPR LOG: Enhanced Weekend Logic: ACTIVE
+CPR LOG: Calculated Cutoff Date: 20250815
+CPR LOG: === STARTING OLD RECORD DELETION ===
+CPR LOG:
+=== ARCHIVING PROCESS COMPLETION SUMMARY ===
+CPR LOG: Process End Date: 2025-08-17
+CPR LOG: Process End Time: 17:52:27
+CPR LOG: Total Orders Archived: 2 (via g_total_orders_archived counter)
+CPR LOG: Total Kdauftrag Records: 2 (via z.DelKdauftrag counter)
+CPR LOG: Weekend Logic Applied: YES
+CPR LOG: Business Day Cutoff Used: 20250815
+CPR LOG: Archive Mode: normal
+CPR LOG: Process completed on: WEEKEND
+CPR LOG: === CPR ARCHIVING PROCESS COMPLETE ===
+ARCHIVING COMPLETE: Filial=5, TotalOrdersArchived=2
+start_process:
+        RC:<0>: --> OK:    Application started.
+        Parameter: </software/wss/de/ksc/load/bin/tpldauftr.bin -dg --business-day-mode enabled -fil 5 -db ode21@zdev21_shm -del 35>;
+O 00 17.08.25 17:52:27 pid=60162396 ================================================
+O 00 17.08.25 17:52:27 pid=60162396 STOP with Return-Code: <<0>>.
+O 00 17.08.25 17:52:27 pid=60162396 ================================================
+=====================================================================================
+SH: STOP /software/wss/de/ksc/load/proc/printStartStop -dg -start -fil 5
+=====================================================================================
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc #

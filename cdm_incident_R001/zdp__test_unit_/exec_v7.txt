@@ -1,0 +1,248 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+Persistent Database connection enabled
+Executing transaction 0: CREATE TEMP TABLE temp_exportexclusionparameter (     country VARCHAR(3) NOT NULL,     branchno SMALLINT NOT NULL,     rule_id SMALLINT NOT NULL,     rule_name VARCHAR(50),     parameter_value VARCHAR(100),     activation_flag SMALLINT DEFAULT 1,     lastchangedatetime DATETIME YEAR TO SECOND,     PRIMARY KEY (country, branchno, rule_id) );
+Connection successful.
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 0 returned: 0
+Executing transaction 1: CREATE TEMP TABLE temp_article_master (     article_no INTEGER NOT NULL PRIMARY KEY,     article_name VARCHAR(80),     manufacturer VARCHAR(40),     atc_code VARCHAR(20),     narcotics_flag SMALLINT DEFAULT 0,     un_no VARCHAR(10),     notifiable_flag SMALLINT DEFAULT 0,     explosion_flag SMALLINT DEFAULT 0,     psychotropic_flag SMALLINT DEFAULT 0,     medicine_flag VARCHAR(1) DEFAULT 'Y',     homeopathy_flag VARCHAR(1) DEFAULT 'N',     anthroposophic_flag VARCHAR(1) DEFAULT 'N',     lastchangedatetime DATETIME YEAR TO SECOND );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 1 returned: 0
+Executing transaction 2: CREATE TEMP TABLE temp_exportarticle (     article_no INTEGER NOT NULL,     country VARCHAR(3) NOT NULL,     branchno SMALLINT NOT NULL,     export_permission_flag SMALLINT DEFAULT 1,     last_update_date INTEGER,     change_counter INTEGER DEFAULT 0,     PRIMARY KEY (article_no, country, branchno) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 2 returned: 0
+Executing transaction 3: CREATE TEMP TABLE temp_processing_stats (     stat_type VARCHAR(30),     rule_name VARCHAR(50),     article_count INTEGER,     description VARCHAR(100) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 3 returned: 0
+Executing transaction 4: CREATE TEMP TABLE temp_branch_info (     branchno SMALLINT NOT NULL PRIMARY KEY,     branchname VARCHAR(40),     country VARCHAR(3),     active_flag SMALLINT DEFAULT 1 );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 4 returned: 0
+Executing transaction 5: INSERT INTO temp_branch_info (branchno, branchname, country, active_flag) VALUES (10, 'Central Pharmacy Berlin', 'DE', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 5 returned: 0
+Executing transaction 6: INSERT INTO temp_branch_info (branchno, branchname, country, active_flag) VALUES (20, 'Regional Pharmacy Munich', 'DE', 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 6 returned: 0
+Executing transaction 7: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 1, 'NARCOTICS', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 7 returned: 0
+Executing transaction 8: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 2, 'UN_NO', 'NOT_NULL', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.005 seconds
+Transaction 8 returned: 0
+Executing transaction 9: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 3, 'NOTIFIABLE', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 9 returned: 0
+Executing transaction 10: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 4, 'EXPLOSION', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 10 returned: 0
+Executing transaction 11: INSERT INTO temp_exportexclusionparameter (country, branchno, rule_id, rule_name, parameter_value, activation_flag, lastchangedatetime) VALUES ('DE', 10, 5, 'PSYCHOTROPIC', '1', 1, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 11 returned: 0
+Executing transaction 12: INSERT INTO temp_article_master (article_no, article_name, manufacturer, atc_code, medicine_flag, lastchangedatetime) VALUES (100001, 'Aspirin 100mg', 'Bayer AG', 'B01AC06', 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 12 returned: 0
+Executing transaction 13: INSERT INTO temp_article_master (article_no, article_name, manufacturer, narcotics_flag, medicine_flag, lastchangedatetime) VALUES (100002, 'Morphine 10mg', 'Pharma Corp', 1, 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 13 returned: 0
+Executing transaction 14: INSERT INTO temp_article_master (article_no, article_name, manufacturer, un_no, medicine_flag, lastchangedatetime) VALUES (100003, 'Ethanol Solution', 'Chemical Co', 'UN1170', 'N', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.004 seconds
+Transaction 14 returned: 0
+Executing transaction 15: INSERT INTO temp_article_master (article_no, article_name, manufacturer, notifiable_flag, medicine_flag, lastchangedatetime) VALUES (100004, 'Radioactive Tracer', 'Nuclear Med', 1, 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 15 returned: 0
+Executing transaction 16: INSERT INTO temp_article_master (article_no, article_name, manufacturer, explosion_flag, medicine_flag, lastchangedatetime) VALUES (100005, 'Nitroglycerin Tablets', 'CardioPharm', 1, 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 16 returned: 0
+Executing transaction 17: INSERT INTO temp_article_master (article_no, article_name, manufacturer, psychotropic_flag, medicine_flag, lastchangedatetime) VALUES (100006, 'Diazepam 5mg', 'BenzoPharm', 1, 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 17 returned: 0
+Executing transaction 18: INSERT INTO temp_article_master (article_no, article_name, manufacturer, homeopathy_flag, medicine_flag, lastchangedatetime) VALUES (100007, 'Arnica Homeopathic', 'HomeoPharm', '1', 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 18 returned: 0
+Executing transaction 19: INSERT INTO temp_article_master (article_no, article_name, manufacturer, anthroposophic_flag, medicine_flag, lastchangedatetime) VALUES (100008, 'Anthroposophic Remedy', 'AnthroMed', '1', 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 19 returned: 0
+Executing transaction 20: INSERT INTO temp_article_master (article_no, article_name, manufacturer, medicine_flag, lastchangedatetime) VALUES (100009, 'Medicine No ATC', 'GenericPharm', 'Y', CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 20 returned: 0
+Executing transaction 21: SELECT (COUNT(*) || ';TOTAL_BRANCH_RECORDS') AS result FROM temp_branch_info;
+count              | description          |
+--------------------+---------------------+
+2.0000000000000000 | TOTAL_BRANCH_RECORDS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.014 seconds
+Transaction 21 returned: 0
+Executing transaction 22: SELECT (COUNT(*) || ';TOTAL_EXCLUSION_PARAMETERS') AS result FROM temp_exportexclusionparameter;
+count              | description                |
+--------------------+---------------------------+
+5.0000000000000000 | TOTAL_EXCLUSION_PARAMETERS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.017 seconds
+Transaction 22 returned: 0
+Executing transaction 23: SELECT (COUNT(*) || ';TOTAL_ARTICLE_RECORDS') AS result FROM temp_article_master;
+count              | description           |
+--------------------+----------------------+
+9.0000000000000000 | TOTAL_ARTICLE_RECORDS |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.029 seconds
+Transaction 23 returned: 0
+Executing transaction 24: INSERT INTO temp_exportarticle SELECT article_no, 'DE', 10, 1, 20250127, 0 FROM temp_article_master;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.006 seconds
+Transaction 24 returned: 0
+Executing transaction 25: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE narcotics_flag = 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 25 returned: 0
+Executing transaction 26: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE un_no IS NOT NULL);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 26 returned: 0
+Executing transaction 27: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE notifiable_flag = 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 27 returned: 0
+Executing transaction 28: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE explosion_flag = 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 28 returned: 0
+Executing transaction 29: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE psychotropic_flag = 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 29 returned: 0
+Executing transaction 30: UPDATE temp_exportarticle SET export_permission_flag = 0, change_counter = change_counter + 1 WHERE article_no IN (SELECT article_no FROM temp_article_master WHERE medicine_flag = 'Y' AND (atc_code IS NULL OR atc_code = '') AND homeopathy_flag != '1' AND anthroposophic_flag != '1');
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.007 seconds
+Transaction 30 returned: 0
+Executing transaction 31: SELECT (e.article_no || ';' || a.article_name || ';' || e.export_permission_flag || ';' || CASE WHEN e.export_permission_flag = 0 THEN 'EXCLUDED' ELSE 'ALLOWED' END) AS result FROM temp_exportarticle e, temp_article_master a WHERE e.article_no = a.article_no ORDER BY e.article_no;
+article_no | article_name          | permission_flag | status   |
+------------+----------------------+----------------+---------+
+100001     | Aspirin 100mg         | 1               | ALLOWED  |
+100002     | Morphine 10mg         | 0               | EXCLUDED |
+100003     | Ethanol Solution      | 0               | EXCLUDED |
+100004     | Radioactive Tracer    | 0               | EXCLUDED |
+100005     | Nitroglycerin Tablets | 0               | EXCLUDED |
+100006     | Diazepam 5mg          | 0               | EXCLUDED |
+100007     | Arnica Homeopathic    | 1               | ALLOWED  |
+100008     | Anthroposophic Remedy | 1               | ALLOWED  |
+100009     | Medicine No ATC       | 0               | EXCLUDED |
+Returned 9 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.030 seconds
+Transaction 31 returned: 0
+Executing transaction 32: SELECT ('TOTAL_ARTICLES;' || COUNT(*) || ';Total articles processed') AS result FROM temp_exportarticle;
+metric         | count              | description              |
+----------------+-------------------+-------------------------+
+TOTAL_ARTICLES | 9.0000000000000000 | Total articles processed |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.011 seconds
+Transaction 32 returned: 0
+Executing transaction 33: SELECT ('ALLOWED_EXPORTS;' || COUNT(*) || ';Articles allowed for export') AS result FROM temp_exportarticle WHERE export_permission_flag = 1;
+metric          | count              | description                 |
+-----------------+-------------------+----------------------------+
+ALLOWED_EXPORTS | 3.0000000000000000 | Articles allowed for export |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 33 returned: 0
+Executing transaction 34: SELECT ('EXCLUDED_EXPORTS;' || COUNT(*) || ';Articles excluded from export') AS result FROM temp_exportarticle WHERE export_permission_flag = 0;
+metric           | count              | description                   |
+------------------+-------------------+------------------------------+
+EXCLUDED_EXPORTS | 6.0000000000000000 | Articles excluded from export |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.013 seconds
+Transaction 34 returned: 0
+Executing transaction 35: SELECT (p.rule_id || ';' || p.rule_name || ';' || CASE WHEN p.activation_flag = 1 THEN 'ACTIVE' ELSE 'INACTIVE' END) AS result FROM temp_exportexclusionparameter p WHERE p.country = 'DE' AND p.branchno = 10 ORDER BY p.rule_id;
+rule_id | rule_name    | status |
+---------+-------------+-------+
+1       | NARCOTICS    | ACTIVE |
+2       | UN_NO        | ACTIVE |
+3       | NOTIFIABLE   | ACTIVE |
+4       | EXPLOSION    | ACTIVE |
+5       | PSYCHOTROPIC | ACTIVE |
+Returned 5 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.016 seconds
+Transaction 35 returned: 0
+Executing transaction 36: SELECT (a.article_no || ';' || a.article_name || ';' || a.narcotics_flag) AS result FROM temp_article_master a WHERE a.narcotics_flag = 1 ORDER BY a.article_no;
+article_no | article_name  | narcotics_flag |
+------------+--------------+---------------+
+100002     | Morphine 10mg | 1              |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.011 seconds
+Transaction 36 returned: 0
+Executing transaction 37: SELECT (a.article_no || ';' || a.article_name || ';' || NVL(a.un_no, 'NULL')) AS result FROM temp_article_master a WHERE a.un_no IS NOT NULL ORDER BY a.article_no;
+article_no | article_name     | un_no  |
+------------+-----------------+-------+
+100003     | Ethanol Solution | UN1170 |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.012 seconds
+Transaction 37 returned: 0
+Executing transaction 38: SELECT (a.article_no || ';' || a.article_name || ';' || NVL(a.atc_code, 'EMPTY') || ';' || a.homeopathy_flag || ';' || a.anthroposophic_flag || ';' || a.medicine_flag) AS result FROM temp_article_master a WHERE a.medicine_flag = 'Y' ORDER BY a.article_no;
+article_no | article_name          | atc_code | homeopathy_flag | anthroposophic_flag | medicine_flag |
+------------+----------------------+---------+----------------+--------------------+--------------+
+100001     | Aspirin 100mg         | B01AC06  | N               | N                   | Y             |
+100002     | Morphine 10mg         | EMPTY    | N               | N                   | Y             |
+100004     | Radioactive Tracer    | EMPTY    | N               | N                   | Y             |
+100005     | Nitroglycerin Tablets | EMPTY    | N               | N                   | Y             |
+100006     | Diazepam 5mg          | EMPTY    | N               | N                   | Y             |
+100007     | Arnica Homeopathic    | EMPTY    | 1               | N                   | Y             |
+100008     | Anthroposophic Remedy | EMPTY    | N               | 1                   | Y             |
+100009     | Medicine No ATC       | EMPTY    | N               | N                   | Y             |
+Returned 8 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.036 seconds
+Transaction 38 returned: 0
+Executing transaction 39: INSERT INTO temp_processing_stats SELECT 'DATA_QUALITY', 'null_atc_count', COUNT(*), 'Articles with NULL ATC code' FROM temp_article_master WHERE atc_code IS NULL;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 39 returned: 0
+Executing transaction 40: INSERT INTO temp_processing_stats SELECT 'DATA_QUALITY', 'medicine_no_atc', COUNT(*), 'Medicines without ATC code' FROM temp_article_master WHERE medicine_flag = 'Y' AND (atc_code IS NULL OR atc_code = '');
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 40 returned: 0
+Executing transaction 41: SELECT (stat_type || ';' || rule_name || ';' || article_count || ';' || description) AS result FROM temp_processing_stats ORDER BY rule_name;
+stat_type    | metric          | count | description                 |
+--------------+----------------+------+----------------------------+
+DATA_QUALITY | medicine_no_atc | 7     | Medicines without ATC code  |
+DATA_QUALITY | null_atc_count  | 8     | Articles with NULL ATC code |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.016 seconds
+Transaction 41 returned: 0
+Executing transaction 42: SELECT (ea.export_permission_flag || ';' || COUNT(*) || ';' || CASE WHEN ea.export_permission_flag = 1 THEN 'EXPORT_ALLOWED' ELSE 'EXPORT_BLOCKED' END) AS result FROM temp_exportarticle ea GROUP BY ea.export_permission_flag ORDER BY ea.export_permission_flag;
+permission_flag | count              | status         |
+-----------------+-------------------+---------------+
+0               | 6.0000000000000000 | EXPORT_BLOCKED |
+1               | 3.0000000000000000 | EXPORT_ALLOWED |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 42 returned: 0
+Executing transaction 43: DROP TABLE temp_exportexclusionparameter;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 43 returned: 0
+Executing transaction 44: DROP TABLE temp_article_master;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 44 returned: 0
+Executing transaction 45: DROP TABLE temp_exportarticle;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 45 returned: 0
+Executing transaction 46: DROP TABLE temp_processing_stats;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 46 returned: 0
+Executing transaction 47: DROP TABLE temp_branch_info;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 47 returned: 0
+Executing transaction 48: SELECT (COUNT(*) || ';REMAINING_TEMP_TABLES') AS result FROM systables WHERE tabname LIKE 'temp_%';
+count              | description           |
+--------------------+----------------------+
+0.0000000000000000 | REMAINING_TEMP_TABLES |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.011 seconds
+Disconnected successfully.
+Transaction 48 returned: 0
++--------------------------------------------------------------------------------------------------------+
+| 49 transactions processed, successful: 49, skipped: 0, total TXN time: 0.434s, average per TXN: 0.009s |
++--------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld_new\pharmos.base.libtpld\dev\src\x64\Debug\esqltest.exe (process 14296) exited with code 0 (0x0).
+Press any key to close this window . . .
+
+
+

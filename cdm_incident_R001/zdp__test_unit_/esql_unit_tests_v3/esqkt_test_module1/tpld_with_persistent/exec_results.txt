@@ -1,0 +1,65 @@
+Captured 6 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+Database name read from INI: ich21@zdev21_tcp
+DEBUG: persistent_connection config value: '1'
+DEBUG: isTrue() result: 1
+Using persistent connection mode.
+Executing transaction 0: CREATE TEMP TABLE ich21@zdev21_tcp:temp_customers (     kundennr INT,     vertriebszentrumnr INT,     nameapo VARCHAR(40),     ort VARCHAR(32),     skdkundeaegesperrt INT,     idfnr INT,     regionnr INT );
+Persistent connection established to: ich21@zdev21_tcp
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.004 seconds
+Transaction 0 returned: 0
+Executing transaction 1: INSERT INTO ich21@zdev21_tcp:temp_customers (     kundennr, vertriebszentrumnr, nameapo, ort, skdkundeaegesperrt, idfnr, regionnr ) VALUES (10001, 12, 'Apotheke A', 'Berlin', 0, 5001, 1);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 1 returned: 0
+Executing transaction 2: INSERT INTO ich21@zdev21_tcp:temp_customers (     kundennr, vertriebszentrumnr, nameapo, ort, skdkundeaegesperrt, idfnr, regionnr ) VALUES (10002, 13, 'Apotheke B', 'Munich', 0, 5002, 2);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 2 returned: 0
+Executing transaction 3: INSERT INTO ich21@zdev21_tcp:temp_customers (     kundennr, vertriebszentrumnr, nameapo, ort, skdkundeaegesperrt, idfnr, regionnr ) VALUES (10003, 14, 'Apotheke C', 'Hamburg', 1, 5003, 3);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 3 returned: 0
+Executing transaction 4: SELECT (kundennr || ';' || vertriebszentrumnr || ';' || nameapo || ';' || ort || ';' || skdkundeaegesperrt || ';' || idfnr || ';' || regionnr) AS row FROM ich21@zdev21_tcp:temp_customers
+kundennr | vertriebszentrumnr | nameapo    | ort     | skdkundeaegesperrt | idfnr | regionnr |
+----------+-------------------+-----------+--------+-------------------+------+---------+
+10001    | 12                 | Apotheke A | Berlin  | 0                  | 5001  | 1        |
+10002    | 13                 | Apotheke B | Munich  | 0                  | 5002  | 2        |
+10003    | 14                 | Apotheke C | Hamburg | 1                  | 5003  | 3        |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.021 seconds
+Transaction 4 returned: 0
+Executing transaction 5: SELECT (ort || ';' || COUNT(*)) AS row FROM ich21@zdev21_tcp:temp_customers GROUP BY ort;
+ort     | customer_count     |
+---------+-------------------+
+Munich  | 1.0000000000000000 |
+Berlin  | 1.0000000000000000 |
+Hamburg | 1.0000000000000000 |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.010 seconds
+Transaction 5 returned: 0
+Executing transaction 6: UPDATE ich21@zdev21_tcp:temp_customers SET skdkundeaegesperrt = 0 WHERE kundennr = 10003;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 6 returned: 0
+Executing transaction 7: SELECT (kundennr || ';' || nameapo || ';' || ort || ';' || skdkundeaegesperrt) AS row FROM ich21@zdev21_tcp:temp_customers WHERE skdkundeaegesperrt = 0;
+kundennr | nameapo    | ort     | status |
+----------+-----------+--------+-------+
+10001    | Apotheke A | Berlin  | 0      |
+10002    | Apotheke B | Munich  | 0      |
+10003    | Apotheke C | Hamburg | 0      |
+Returned 3 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.012 seconds
+Transaction 7 returned: 0
+Executing transaction 8: DROP TABLE ich21@zdev21_tcp:temp_customers;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 8 returned: 0
+Closing persistent database connection.
+Persistent connection closed.
++------------------------------------------------------------------------------------------------------+
+| 9 transactions processed, successful: 9, skipped: 0, total TXN time: 0.142s, average per TXN: 0.016s |
++------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld\pharmos.base.libtpld\dev\src\x64\Release\esqltest.exe (process 13736) exited with code 0 (0x0).
+Press any key to close this window . . .

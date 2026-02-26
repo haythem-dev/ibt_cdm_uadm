@@ -1,0 +1,99 @@
+Reporting Systems: Improved data consistency and availability
+
+User Experience Improvements:
+
+Customer Service Reps: No more "missing order" scenarios during emergencies
+
+Business Users: Consistent order lookup capabilities
+
+Operations Staff: Enhanced control over archiving process
+
+Backend - AIX / Windows Webserver (optional if a Backend is involved and/or to be changed):
+
+Core Technical Implementation 
+
+1. C++ Application Changes (tpldauftrag.cxx) 
+
+// ✅ IMPLEMENTED: Business day calculation function
+int calculate_business_day_archive_date() {
+    time_t now;
+    struct tm* timeinfo;
+    
+    time(&now);
+    timeinfo = localtime(&now);
+    
+    if (timeinfo->tm_hour < BUSINESS_DAY_CUTOFF_HOUR) {
+        // ✅ Before 6 AM - use previous business day (emergency scenario)
+        // ✅ Handle weekend rollback logic
+        return calculate_previous_business_day();
+    } else {
+        // ✅ After 6 AM - use current business day (normal scenario)
+        return calculate_current_business_day();
+    }
+}
+
+2. Enhanced Command Line Parameters
+
+✅ --enable-business-day: Enable business day logic (DEFAULT BEHAVIOR)
+
+✅ --disable-business-day: Complete rollback to original behavior
+
+✅ --help: Complete usage instructions
+
+✅ --version: Version and feature status information
+
+3. SQL Query Modification 
+
+// ✅ IMPLEMENTED: Conditional date filtering
+if (g_business_day_enabled && lBusinessDayDate > 0) {
+    sprintf(szStatement,
+            "INSERT INTO akdauftrag SELECT * FROM kdauftrag WHERE datumauslieferung <= %ld AND kzgeschlossen = '1' AND filnr = %d AND datumvaluta <= %ld",
+            lDatumAktuell, iAnzahlVon, lBusinessDayDate);
+} else {
+    // ✅ EXACT ORIGINAL BEHAVIOR when disabled
+    sprintf(szStatement,
+            "INSERT INTO akdauftrag SELECT * FROM kdauftrag WHERE datumauslieferung <= %ld AND kzgeschlossen = '1' AND filnr = %d",
+            lDatumAktuell, iAnzahlVon);
+}
+
+4. Enhanced Logging
+
+✅ Logs calculated business day date
+
+✅ Logs business day mode status (enabled/disabled)
+
+✅ Logs SQL query type being executed
+
+✅ Logs emergency vs normal run detection
+
+✅ Complete audit trail for troubleshooting
+
+Implementation Specification
+
+Core Implementation Tasks  
+
+✅ Modified tpldauftr.cxx: Business day calculation functions implemented
+
+✅ Enhanced SQL queries: Conditional date filtering logic implemented
+
+✅ Added command-line parameters: Complete business day mode controls
+
+✅ Implemented logging: Comprehensive operational monitoring
+
+✅ Validated backward compatibility: Perfect rollback capability with --disable-business-day
+
+Dependent department inputs (optional if any external department outside PHARMOS is involved):
+
+PINT
+
+Citrix
+
+Infrastructure Env
+
+Schedule/Batch
+
+BI
+
+GxP (in case of GxP relevance)
+
+Documents (Analysis and Solution Specification):

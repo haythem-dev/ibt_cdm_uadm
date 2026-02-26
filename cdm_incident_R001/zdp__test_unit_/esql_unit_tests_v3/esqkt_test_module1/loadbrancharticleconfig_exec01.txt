@@ -1,0 +1,152 @@
+Captured 10 entries:
+  [00] RandomEntry_0_41
+  [01] RandomEntry_1_18467
+  [02] RandomEntry_2_6334
+  [03] RandomEntry_3_26500
+  [04] RandomEntry_4_19169
+  [05] RandomEntry_5_15724
+  [06] RandomEntry_6_11478
+  [07] RandomEntry_7_29358
+  [08] RandomEntry_8_26962
+  [09] RandomEntry_9_24464
+Database name read from INI: ich21@zdev21_tcp
+DEBUG: persistent_connection config value: '1'
+DEBUG: isTrue() result: 1
+Using persistent connection mode.
+Executing transaction 0: CREATE TEMP TABLE ich21@zdev21_tcp:temp_ibtbrancharticleconfig (     articleno INT NOT NULL,     branchno SMALLINT NOT NULL,     ibttypeid SMALLINT,     ibtassortmenttypeid SMALLINT,     ibtonlyflag SMALLINT DEFAULT 0,     lastchangedatetime DATETIME YEAR TO SECOND,     PRIMARY KEY (articleno, branchno) );
+Persistent connection established to: ich21@zdev21_tcp
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 0 returned: 0
+Executing transaction 1: CREATE TEMP TABLE ich21@zdev21_tcp:temp_puibtbrancharticleconfig (     ARTICLENO INT NOT NULL,     BRANCHNO SMALLINT NOT NULL,     IBTROLETYPEID SMALLINT,     ASSORTMENTTYPEID SMALLINT,     LASTCHANGEDATETIME DATETIME YEAR TO SECOND,     RELEVANCEFLAG SMALLINT DEFAULT 1,     PRIMARY KEY (ARTICLENO, BRANCHNO) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 1 returned: 0
+Executing transaction 2: CREATE TEMP TABLE ich21@zdev21_tcp:temp_article_reference (     articleno INT NOT NULL PRIMARY KEY,     articlename VARCHAR(80),     manufacturer VARCHAR(40),     active_flag SMALLINT DEFAULT 1 );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 2 returned: 0
+Executing transaction 3: CREATE TEMP TABLE ich21@zdev21_tcp:temp_branch_reference (     branchno SMALLINT NOT NULL PRIMARY KEY,     branchname VARCHAR(40),     country VARCHAR(20),     region VARCHAR(20) );
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.005 seconds
+Transaction 3 returned: 0
+Executing transaction 4: INSERT INTO ich21@zdev21_tcp:temp_article_reference (articleno, articlename, manufacturer, active_flag) VALUES (100001, 'Ibuprofen 400mg', 'Bayer AG', 1), (100002, 'Paracetamol 500mg', 'Pfizer Inc.', 1), (100003, 'Aspirin 100mg', 'Bayer AG', 1), (100004, 'Vitamin D3 1000IU', 'Novartis', 1), (100005, 'Omega-3 Fish Oil', 'Abbott', 1), (100006, 'Calcium 600mg', 'GSK', 1), (100007, 'Zinc 15mg', 'Roche', 1), (100008, 'Iron 65mg', 'Merck', 1), (100009, 'Magnesium 400mg', 'Teva', 1), (100010, 'Multivitamin Complex', 'Sandoz', 1);
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 4 returned: 2
+Executing transaction 5: INSERT INTO ich21@zdev21_tcp:temp_branch_reference (branchno, branchname, country, region) VALUES (10, 'Central Pharmacy Berlin', 'Germany', 'North'), (20, 'Regional Pharmacy Munich', 'Germany', 'South'), (30, 'Metro Pharmacy Vienna', 'Austria', 'Central'), (40, 'City Pharmacy Zurich', 'Switzerland', 'North'), (50, 'District Pharmacy Prague', 'Czech Republic', 'Central');
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 5 returned: 2
+Executing transaction 6: INSERT INTO ich21@zdev21_tcp:temp_ibtbrancharticleconfig (articleno, branchno, ibttypeid, ibtassortmenttypeid, ibtonlyflag, lastchangedatetime) VALUES (100001, 10, 1, 1, 0, CURRENT), (100001, 20, 1, 1, 0, CURRENT), (100001, 30, 2, 1, 1, CURRENT), (100002, 10, 1, 2, 0, CURRENT), (100002, 20, 1, 2, 0, CURRENT);
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 6 returned: 2
+Executing transaction 7: INSERT INTO ich21@zdev21_tcp:temp_puibtbrancharticleconfig (ARTICLENO, BRANCHNO, IBTROLETYPEID, ASSORTMENTTYPEID, LASTCHANGEDATETIME, RELEVANCEFLAG) VALUES (100003, 10, 1, 1, CURRENT, 1), (100003, 20, 2, 1, CURRENT, 1), (100003, 30, 1, 2, CURRENT, 0), (100004, 40, 1, 1, CURRENT, 1), (100004, 50, 2, 2, CURRENT, 1);
+Transaction execution failed: SQLCODE = -201 [A syntax error has occurred.].
+Transaction 7 returned: 2
+Executing transaction 8: SELECT (COUNT(*) || ';IBT_CONFIG') AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig UNION ALL SELECT (COUNT(*) || ';PUIBT_CONFIG') AS result FROM ich21@zdev21_tcp:temp_puibtbrancharticleconfig;
+count              | table_type   |
+--------------------+-------------+
+0.0000000000000000 | IBT_CONFIG   |
+0.0000000000000000 | PUIBT_CONFIG |
+Returned 2 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.015 seconds
+Transaction 8 returned: 0
+Executing transaction 9: SELECT (i.articleno || ';' || i.branchno || ';' || a.articlename || ';' || b.branchname) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i,      ich21@zdev21_tcp:temp_article_reference a,      ich21@zdev21_tcp:temp_branch_reference b WHERE i.articleno = a.articleno   AND i.branchno = b.branchno   AND i.branchno = 10 ORDER BY i.articleno;
+articleno | branchno | articlename | branchname |
+-----------+---------+------------+-----------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.008 seconds
+Transaction 9 returned: 0
+Executing transaction 10: SELECT (i.articleno || ';' || i.branchno || ';' || i.ibttypeid || ';' || i.ibtassortmenttypeid || ';' || i.ibtonlyflag) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i WHERE i.ibttypeid = 1 ORDER BY i.articleno, i.branchno;
+articleno | branchno | ibttypeid | assortmenttype | ibtonlyflag |
+-----------+---------+----------+---------------+------------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.011 seconds
+Transaction 10 returned: 0
+Executing transaction 11: INSERT INTO ich21@zdev21_tcp:temp_ibtbrancharticleconfig (articleno, branchno, ibttypeid, ibtassortmenttypeid, ibtonlyflag, lastchangedatetime) SELECT p.ARTICLENO, p.BRANCHNO, p.IBTROLETYPEID, p.ASSORTMENTTYPEID,        CASE WHEN p.RELEVANCEFLAG = 1 THEN 0 ELSE 1 END, p.LASTCHANGEDATETIME FROM ich21@zdev21_tcp:temp_puibtbrancharticleconfig p WHERE NOT EXISTS (SELECT 1 FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i                   WHERE i.articleno = p.ARTICLENO AND i.branchno = p.BRANCHNO);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 11 returned: 0
+Executing transaction 12: SELECT (COUNT(*) || ';TOTAL_CONFIGS_AFTER_SYNC') AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig;
+count              | description              |
+--------------------+-------------------------+
+0.0000000000000000 | TOTAL_CONFIGS_AFTER_SYNC |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 12 returned: 0
+Executing transaction 13: UPDATE ich21@zdev21_tcp:temp_ibtbrancharticleconfig SET ibtonlyflag = 1, lastchangedatetime = CURRENT WHERE branchno IN (20, 30) AND articleno BETWEEN 100001 AND 100003;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 13 returned: 0
+Executing transaction 14: UPDATE ich21@zdev21_tcp:temp_ibtbrancharticleconfig SET ibtassortmenttypeid = 3, lastchangedatetime = CURRENT WHERE ibttypeid = 2;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 14 returned: 0
+Executing transaction 15: SELECT (articleno || ';' || branchno || ';' || ibtonlyflag || ';' || ibtassortmenttypeid) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig WHERE lastchangedatetime >= TODAY ORDER BY articleno, branchno;
+articleno | branchno | ibtonlyflag | assortmenttype |
+-----------+---------+------------+---------------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.012 seconds
+Transaction 15 returned: 0
+Executing transaction 16: INSERT INTO ich21@zdev21_tcp:temp_ibtbrancharticleconfig (articleno, branchno, ibttypeid, ibtassortmenttypeid, ibtonlyflag, lastchangedatetime) SELECT (100000 + (MOD(rowid, 100) + 11)), (MOD(rowid, 5) * 10 + 10),        (MOD(rowid, 3) + 1), (MOD(rowid, 4) + 1), (MOD(rowid, 2)), CURRENT FROM ich21@zdev21_tcp:temp_article_reference WHERE rowid <= 5;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 16 returned: 0
+Executing transaction 17: UPDATE ich21@zdev21_tcp:temp_ibtbrancharticleconfig SET lastchangedatetime = CURRENT WHERE articleno BETWEEN 100011 AND 100015;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 17 returned: 0
+Executing transaction 18: SELECT (i.articleno || ';' || i.branchno || ';' || a.articlename || ';' || b.branchname || ';' || i.ibttypeid) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i,      ich21@zdev21_tcp:temp_article_reference a,      ich21@zdev21_tcp:temp_branch_reference b WHERE i.articleno = a.articleno   AND i.branchno = b.branchno   AND i.ibtonlyflag = 0   AND a.active_flag = 1 ORDER BY b.country, i.articleno;
+articleno | branchno | articlename | branchname | ibttypeid |
+-----------+---------+------------+-----------+----------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.006 seconds
+Transaction 18 returned: 0
+Executing transaction 19: SELECT (b.country || ';' || COUNT(*) || ';' || AVG(i.ibttypeid)) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i,      ich21@zdev21_tcp:temp_branch_reference b WHERE i.branchno = b.branchno GROUP BY b.country ORDER BY COUNT(*) DESC;
+country | config_count | avg_ibt_type |
+---------+-------------+-------------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.007 seconds
+Transaction 19 returned: 0
+Executing transaction 20: INSERT INTO ich21@zdev21_tcp:temp_ibtbrancharticleconfig (articleno, branchno, ibttypeid, ibtassortmenttypeid, ibtonlyflag, lastchangedatetime) VALUES (100001, 10, 1, 1, 0, CURRENT);
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 20 returned: 0
+Executing transaction 21: SELECT (articleno || ';' || branchno || ';' || NVL(ibttypeid, 0) || ';' || NVL(ibtassortmenttypeid, 0)) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig WHERE ibttypeid IS NULL OR ibtassortmenttypeid IS NULL;
+articleno | branchno | ibttypeid | assortmenttype |
+-----------+---------+----------+---------------+
+Returned 0 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.009 seconds
+Transaction 21 returned: 0
+Executing transaction 22: SELECT (i.articleno || ';' || i.branchno || ';' || i.ibttypeid || ';' || i.lastchangedatetime) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i ORDER BY i.lastchangedatetime DESC, i.articleno;
+articleno | branchno | ibttypeid | lastchange          |
+-----------+---------+----------+--------------------+
+100001    | 10       | 1         | 2025-08-27 18:22:31 |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.016 seconds
+Transaction 22 returned: 0
+Executing transaction 23: SELECT (i.ibttypeid || ';' || i.ibtassortmenttypeid || ';' || COUNT(*) || ';' ||            COUNT(DISTINCT i.articleno) || ';' || COUNT(DISTINCT i.branchno)) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig i GROUP BY i.ibttypeid, i.ibtassortmenttypeid ORDER BY COUNT(*) DESC;
+ibttypeid | assortmenttype | total_configs      | unique_articles    | unique_branches    |
+-----------+---------------+-------------------+-------------------+-------------------+
+1         | 1              | 1.0000000000000000 | 1.0000000000000000 | 1.0000000000000000 |
+Returned 1 row(s) from SELECT.
+..Transaction committed successfully...Execution time: 0.011 seconds
+Transaction 23 returned: 0
+Executing transaction 24: SELECT ('INTEGRITY_CHECK;' ||            (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig) || ';' ||            (SELECT COUNT(*) FROM ich21@zdev21_tcp:temp_puibtbrancharticleconfig) || ';' ||            (SELECT COUNT(DISTINCT articleno) FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig) || ';' ||            (SELECT COUNT(DISTINCT branchno) FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig)) AS result;
+Open cursor failed: SQLCODE = -404 [The cursor or statement is not available.].
+Transaction 24 returned: 2
+Executing transaction 25: SELECT (DATE(lastchangedatetime) || ';' || COUNT(*)) AS result FROM ich21@zdev21_tcp:temp_ibtbrancharticleconfig WHERE lastchangedatetime >= TODAY GROUP BY DATE(lastchangedatetime) ORDER BY DATE(lastchangedatetime);
+Open cursor failed: SQLCODE = -404 [The cursor or statement is not available.].
+Transaction 25 returned: 2
+Executing transaction 26: DROP TABLE ich21@zdev21_tcp:temp_ibtbrancharticleconfig;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 26 returned: 0
+Executing transaction 27: DROP TABLE ich21@zdev21_tcp:temp_puibtbrancharticleconfig;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.003 seconds
+Transaction 27 returned: 0
+Executing transaction 28: DROP TABLE ich21@zdev21_tcp:temp_article_reference;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.001 seconds
+Transaction 28 returned: 0
+Executing transaction 29: DROP TABLE ich21@zdev21_tcp:temp_branch_reference;
+Transaction executed successfully...Transaction committed successfully...Execution time: 0.002 seconds
+Transaction 29 returned: 0
+Executing transaction 30: SELECT 'CLEANUP_COMPLETE' AS result;
+Open cursor failed: SQLCODE = -404 [The cursor or statement is not available.].
+Transaction 30 returned: 2
+Closing persistent database connection.
+Persistent Disconnect failed: SQLCODE = -1800 [Invalid transaction state.].
++--------------------------------------------------------------------------------------------------------+
+| 31 transactions processed, successful: 24, skipped: 0, total TXN time: 0.384s, average per TXN: 0.012s |
++--------------------------------------------------------------------------------------------------------+
+
+C:\dev\CPR0001492_upd_ifx\libtpld\pharmos.base.libtpld\dev\src\x64\Release\esqltest.exe (process 6100) exited with code 0 (0x0).
+Press any key to close this window . . .

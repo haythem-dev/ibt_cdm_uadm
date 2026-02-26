@@ -1,0 +1,36 @@
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # ./tpldauftr.sh -start -fil 50
+INFO: CPR Enhancement - Business day mode implicitly enabled (default behavior)
+INFO: CPR Enhancement - Business day logic ACTIVE (mode: enabled)
+=====================================================================================
+SH: START /software/wss/de/ksc/load/proc/printStartStop -start -fil 50
+=====================================================================================
+O 00 13.08.25 22:11:49 pid=21758524 ================================================
+O 00 13.08.25 22:11:49 pid=21758524 START
+O 00 13.08.25 22:11:49 pid=21758524 ================================================
+start_process:
+        RC:<2>: --> Error: Process could not be started - technical problems.
+        Parameter: </software/wss/de/ksc/load/bin/tpldauftr.bin --business-day-mode enabled -fil 50 -db ode21@zdev21_shm -del 35>;
+O 00 13.08.25 22:11:49 pid=21758524 ================================================
+O 00 13.08.25 22:11:49 pid=21758524 STOP with Return-Code: <<2>>.
+O 00 13.08.25 22:11:49 pid=21758524 ================================================
+=====================================================================================
+SH: STOP /software/wss/de/ksc/load/proc/printStartStop -start -fil 50
+=====================================================================================
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc # ./tpldauftr.sh -start -fil 50 --business-day-mode disabled
+INFO: CPR Enhancement - Business day logic DISABLED (original behavior restored)
+=====================================================================================
+SH: START /software/wss/de/ksc/load/proc/printStartStop -start -fil 50 --business-day-mode disabled
+=====================================================================================
+O 00 13.08.25 22:12:21 pid=59965824 ================================================
+O 00 13.08.25 22:12:21 pid=59965824 START
+O 00 13.08.25 22:12:21 pid=59965824 ================================================
+start_process:
+        RC:<2>: --> Error: Process could not be started - technical problems.
+        Parameter: </software/wss/de/ksc/load/bin/tpldauftr.bin -fil 50 -db ode21@zdev21_shm -del 35>;
+O 00 13.08.25 22:12:21 pid=59965824 ================================================
+O 00 13.08.25 22:12:21 pid=59965824 STOP with Return-Code: <<2>>.
+O 00 13.08.25 22:12:21 pid=59965824 ================================================
+=====================================================================================
+SH: STOP /software/wss/de/ksc/load/proc/printStartStop -start -fil 50 --business-day-mode disabled
+=====================================================================================
+h.benabdelaziz@zdev21:/software/wss/de/ksc/load/proc #
